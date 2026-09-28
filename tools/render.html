@@ -48,6 +48,20 @@ try {
     const c = Hokusai.compile(f, { style: STYLE, hand: HAND });
     row.appendChild(panel(c, { guides: 'shu' }));
     row.appendChild(panel(c, { guides: 'none' }));
+    if (q.get('ref') && f.ref) {
+      // Hokusai's finished drawing, and our ink laid over it (red) to check the fit
+      const im = new Image(); im.src = '../assets/refs/' + f.id + '.jpg';
+      im.style.width = c.size[0] * S + 'px'; im.style.height = c.size[1] * S + 'px'; row.appendChild(im);
+      const ov = document.createElement('canvas'); ov.width = c.size[0] * S; ov.height = c.size[1] * S; row.appendChild(ov);
+      im.onload = () => {
+        const og = ov.getContext('2d'); og.drawImage(im, 0, 0, ov.width, ov.height);
+        og.fillStyle = 'rgba(255,255,255,0.35)'; og.fillRect(0, 0, ov.width, ov.height);
+        const tmp = document.createElement('canvas'); tmp.width = ov.width; tmp.height = ov.height;
+        const tg = tmp.getContext('2d'); Hokusai.render(tg, Hokusai.compile(f, { style: 'zu' }), { scale: S, guides: 'none', style: 'zu' });
+        tg.globalCompositeOperation = 'source-in'; tg.fillStyle = 'rgba(220,30,20,0.85)'; tg.fillRect(0, 0, tmp.width, tmp.height);
+        og.drawImage(tmp, 0, 0);
+      };
+    }
     if (q.get('page') && f.page) { const im = new Image(); im.src = '../assets/pages/page-' + String(f.page).padStart(2, '0') + '.jpg'; row.appendChild(im); }
     const lab = document.createElement('div'); lab.textContent = id + ' (p.' + f.page + ')'; row.appendChild(lab);
     out.appendChild(row);

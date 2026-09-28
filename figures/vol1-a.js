@@ -4,62 +4,97 @@
 // his finished version beside it.
 
 // ── p.5 ──────────────────────────────────────────────────────────────
-Hokusai.register({
-  id: 'shishi',
-  title: 'Lion-dog curled in a ball',
-  jp: '獅子',
-  vol: 1, page: 5,
-  note: 'The crouching shishi is one large circle with a smaller face circle inside it; the mane is a crown of circles along the top edge, each inked as a spiral, and the tail is a pair of compass arcs sweeping off to the right.',
-  rules: ['maru', 'rinkaku', 'uzu', 'kebiki', 'te', 'kage'],
-  size: [108, 82],
-  silhouette: ['body', 'm1', 'm2', 'm3', 'curl', 'paw'],
-  guides: {
-    body: ['maru', 31, 45, 29],
-    face: ['maru', 36, 51, 16.5],
-    cheek: ['maru', 18.5, 51.5, 6.5],
-    eye: ['maru', 43.5, 43, 6.5],
-    chin1: ['maru', 35.5, 65.5, 5.8],
-    chin2: ['maru', 41.5, 69, 4.8],
-    paw: ['maru', 56, 61, 6.2],
-    curl: ['maru', 61.5, 34, 7],
-    m1: ['maru', 37, 13, 9.5],
-    m2: ['maru', 53.5, 12.5, 10.5],
-    m3: ['maru', 70, 25, 12.5],
-    tail1: ['ko', 82, 60, 30, 245, 300],
-    tail2: ['ko', 84, 52, 22, 240, 295],
-    _tail: ['kata', [[57, 41], [68, 34], [84, 30.5], [99, 32], [107, 38.5], [99, 45], [86, 44], [72, 47.5], [58, 51]]],
-  },
-  ink: [
-    // Hokusai's finished shishi (p.5) is almost all texture: a thin body line, a coat of
-    // curly tufts, every mane circle a whorl of many parallel lines, the tail a flow of hair.
-    ['nazoru', 'body', { outside: ['m1', 'm2', 'm3', 'curl', 'paw'], w: 1.1 }],
-    ['uzu', 37, 13.5, 9.2, { turns: 1.6, lines: 7, spacing: 1.15, w: 0.5 }],
-    ['uzu', 53.5, 13, 10.2, { turns: 1.7, lines: 8, spacing: 1.15, w: 0.5, dir: -1 }],
-    ['uzu', 70, 25.5, 12.2, { turns: 1.8, lines: 9, spacing: 1.2, w: 0.5 }],
-    ['uzu', 61.5, 34.5, 6.8, { turns: 1.5, lines: 5, spacing: 1.1, w: 0.48 }],
-    ['uzu', 18.5, 51.5, 6.2, { turns: 1.5, lines: 5, spacing: 1.1, w: 0.48, dir: -1 }],
-    ['fusa', { union: ['body'], minus: ['face', 'cheek', 'm1', 'm2', 'm3', 'curl'] }, { n: 40, size: 3.1, w: 0.42 }],
-    ['fusa', { union: ['face'], minus: ['eye', 'chin1', 'chin2'] }, { n: 7, size: 2.4, w: 0.4 }],
-    ['nazoru', 'face', { deg: [190, 350], w: 1, taper: [0.2, 0.2] }],
-    // bulging eyes under curled brows, broad nose, the open mouth
-    ['fude', [[27, 44.5], [30, 42.5], [33.5, 44]], { w: 1.8, press: 'nail' }],
-    ['fude', [[38.5, 44], [42, 42.5], [45, 44.5]], { w: 1.8, press: 'nail' }],
-    ['fude', [[28.2, 47.5], [30.3, 45.8], [32.4, 47.5], [30.3, 49.2]], { w: 0.9, closed: true }],
-    ['fude', [[39.6, 47.5], [41.7, 45.8], [43.8, 47.5], [41.7, 49.2]], { w: 0.9, closed: true }],
-    ['nuri', [[30.8, 46.6], [32, 47.5], [30.8, 48.4], [29.8, 47.5]], { smooth: true }],
-    ['nuri', [[42.2, 46.6], [43.4, 47.5], [42.2, 48.4], [41.2, 47.5]], { smooth: true }],
-    ['fude', [[33, 52.5], [34.5, 55], [37.5, 55], [39, 52.5]], { w: 1.3 }],
-    ['fude', [[29, 58], [33, 60.5], [36, 59.5], [39, 60.5], [43, 58]], { w: 1.2 }],
-    ['fude', [[33, 60.5], [33.2, 58.8]], { w: 0.7 }], ['fude', [[39, 60.5], [38.8, 58.8]], { w: 0.7 }],
-    ['nazoru', 'chin1', { deg: [20, 200], as: 'fur', len: 2.2, gap: 0.8, w: 0.42 }],
-    ['nazoru', 'chin2', { deg: [300, 160], as: 'fur', len: 2, gap: 0.8, w: 0.42 }],
-    // paw with hooked claws
-    ['nazoru', 'paw', { deg: [200, 330], w: 0.9 }],
-    ['fude', [[51, 63], [49.5, 66.5], [51.5, 67]], { w: 0.9 }], ['fude', [[55, 66], [54.5, 69.5], [56.5, 69.5]], { w: 0.9 }], ['fude', [[59.5, 65], [60, 68.5], [61.5, 67.5]], { w: 0.9 }],
-    // the tail: long hairs flowing off to the right
-    ['kebiki', '_tail', { along: [[57, 46], [70, 40], [86, 37], [100, 38.5], [108, 42]], span: 9, gap: 0.85, w: 0.42, press: 'harai', taper: [0.05, 0.6] }],
-  ],
-});
+// The shishi is authored in the coordinates of Hokusai's finished drawing (assets/refs/shishi.jpg,
+// 1 unit = 7.89 px of the 300 dpi scan), so every part sits where he put it.
+(function () {
+  const K = 7.89, P = (pts) => pts.map(([x, y]) => [x / K, y / K]), C = (x, y, r) => [x / K, y / K, r / K];
+  const ruff = {}, ruffInk = [];
+  // rings of hair around the face, on both sides (measured from the scan)
+  for (let i = 0; i < 8; i++) {
+    const r = 138 + i * 9.5;
+    ruff['_ruffL' + i] = ['ko', ...C(240, 440, r), 105 + i * 2, 235 - i * 3];
+    ruff['_ruffR' + i] = ['ko', ...C(240, 440, r), 300 + i * 3, 405 - i * 2];
+    ruffInk.push(['nazoru', '_ruffL' + i, { inside: ['body'], outside: ['pawL'], w: 0.5, taper: [0.25, 0.35] }]);
+    ruffInk.push(['nazoru', '_ruffR' + i, { inside: ['body'], outside: ['W1', 'W2', 'paw'], w: 0.5, taper: [0.25, 0.35] }]);
+  }
+  Hokusai.register({
+    id: 'shishi',
+    title: 'Lion-dog curled in a ball',
+    jp: '獅子',
+    vol: 1, page: 5,
+    ref: { page: 5, box: [0.235, 0.265, 0.47, 0.545] },
+    note: 'The curled shishi is one great circle with the face tucked into its lower half. Every circle of the mane becomes a whorl of many parallel lines, the face sits inside rings of hair, and the nose and brows are tufts that radiate from a point.',
+    rules: ['maru', 'rinkaku', 'uzu', 'kebiki', 'te', 'kage'],
+    size: [100, 88],
+    silhouette: ['body', 'W1', 'W2', 'W3', 'paw', '_tail'],
+    guides: Object.assign({
+      body: ['maru', ...C(245, 335, 212)],
+      face: ['maru', ...C(240, 440, 125)],
+      W0: ['maru', ...C(345, 150, 85)],
+      W4: ['maru', ...C(455, 150, 92)],
+      W1: ['maru', ...C(490, 212, 80)],
+      W2: ['maru', ...C(475, 305, 58)],
+      W3: ['maru', ...C(590, 282, 70)],
+      paw: ['maru', ...C(425, 515, 40)],
+      pawL: ['maru', ...C(105, 578, 40)],
+      _nose: ['maru', ...C(240, 440, 6)],
+      _browL: ['maru', ...C(170, 372, 5)],
+      _browR: ['maru', ...C(285, 362, 5)],
+      _eyeL: ['maru', ...C(210, 515, 11)],
+      _eyeR: ['maru', ...C(298, 512, 11)],
+      _pupL: ['maru', ...C(212, 517, 4.5)],
+      _pupR: ['maru', ...C(296, 514, 4.5)],
+      _cap: ['maru', ...C(240, 440, 215)],
+      _beard: ['kata', P([[150, 588], [200, 582], [250, 590], [300, 584], [345, 596], [330, 640], [280, 660], [220, 664], [170, 648]])],
+      _tail: ['kata', P([[425, 365], [520, 385], [610, 398], [690, 388], [768, 385], [700, 430], [620, 460], [545, 472], [470, 458], [430, 432]])],
+    }, ruff),
+    ink: [
+      // the great circle: one line, broken where the mane and paws pass in front
+      ['nazoru', 'body', { outside: ['W0', 'W1', 'W2', 'W4', 'paw', 'pawL', '_beard'], w: 1.25 }],
+      // mane: whorls of parallel lines; the two behind show only their outer arcs
+      ['uzu', ...C(345, 150, 84), { turns: 1.2, lines: 7, spacing: 1.1, w: 0.5, outside: ['body', 'W1'] }],
+      ['uzu', ...C(455, 150, 92), { turns: 1.2, lines: 8, spacing: 1.1, w: 0.5, outside: ['body', 'W1', 'W0'], dir: -1 }],
+      ['uzu', ...C(490, 212, 80), { turns: 2.4, lines: 8, spacing: 1.2, w: 0.52 }],
+      ['uzu', ...C(475, 305, 58), { turns: 2.2, lines: 6, spacing: 1.15, w: 0.5, outside: ['W1'] }],
+      ['uzu', ...C(590, 282, 92), { turns: 2.2, lines: 10, spacing: 1.15, w: 0.52, outside: ['W1', 'W2'] }],
+      // the tail: a sheaf of hair sweeping out to the right
+      ['kebiki', '_tail', { along: P([[428, 398], [520, 428], [610, 432], [700, 410], [770, 388]]), span: 6, gap: 0.62, w: 0.42, press: 'harai', taper: [0.05, 0.7] }],
+      // rings of hair around the face, and tufts on the crown
+      ...ruffInk,
+      ['fusa', { union: ['body'], minus: ['_cap', 'W0', 'W1', 'W2', 'W4'] }, { n: 9, size: 4.2, w: 0.45, spread: 150 }],
+      ['fusa', { union: ['face'], minus: ['_nose', '_eyeL', '_eyeR', '_browL', '_browR'] }, { n: 5, size: 2.6, w: 0.4 }],
+      // the face: forehead arc, radiating crown tuft, curly brows, glaring eyes
+      ['nazoru', 'face', { deg: [200, 322], w: 1.5, press: 'swell' }],
+      ['fusa', '_nose', { n: 1, size: 5.8, spread: 330, curl: 0.6, w: 0.48 }],
+      ['fusa', '_browL', { n: 1, size: 4.2, spread: 200, curl: 0.8, w: 0.46, angle: 210 }],
+      ['fusa', '_browR', { n: 1, size: 4.2, spread: 200, curl: 0.8, w: 0.46, angle: 320 }],
+      ['nazoru', '_eyeL', { w: 0.75 }], ['nazoru', '_eyeR', { w: 0.75 }], ['nuri', '_pupL'], ['nuri', '_pupR'],
+      ['fude', P([[188, 500], [210, 494], [232, 502]]), { w: 1.1, press: 'nail' }],
+      ['fude', P([[276, 498], [298, 492], [320, 500]]), { w: 1.1, press: 'nail' }],
+      // the snout: a small curl of nose over a fanged, curled lip
+      ['uzu', ...C(245, 538, 13), { turns: 1.4, w: 0.8, dir: -1 }],
+      ['fude', P([[188, 566], [220, 576], [252, 568], [282, 578], [312, 566]]), { w: 1.3, press: 'swell' }],
+      ['fude', P([[214, 574], [218, 594], [226, 576]]), { w: 0.85 }],
+      ['fude', P([[276, 576], [282, 598], [290, 578]]), { w: 0.85 }],
+      // the bristling beard, the jaw under it, long whiskers
+      ['fusa', '_beard', { n: 12, size: 2.6, w: 0.42 }],
+      ['rinkaku', ['_beard'], { as: 'fur', len: 2.4, gap: 0.75, fall: 0.6, w: 0.42, close: 0 }],
+      ['fude', P([[178, 652], [240, 672], [318, 652]]), { w: 1.1, press: 'swell' }],
+      ['fude', P([[300, 604], [220, 632], [140, 664]]), { w: 0.5, taper: [0.1, 0.8] }],
+      ['fude', P([[345, 594], [395, 604], [448, 618]]), { w: 0.5, taper: [0.1, 0.8] }],
+      // paws with hooked claws
+      ['nazoru', 'paw', { deg: [100, 330], outside: ['W2'], as: 'fur', len: 2, gap: 0.8, w: 0.42 }],
+      ['fude', P([[398, 540], [394, 562], [410, 566]]), { w: 1.1, press: 'nail' }],
+      ['fude', P([[424, 548], [424, 570], [440, 570]]), { w: 1.1, press: 'nail' }],
+      ['fude', P([[450, 534], [456, 556], [468, 550]]), { w: 1.1, press: 'nail' }],
+      ['nazoru', 'pawL', { deg: [90, 270], as: 'fur', len: 2, gap: 0.8, w: 0.42 }],
+      ['fude', P([[76, 604], [72, 624], [88, 626]]), { w: 1.1, press: 'nail' }],
+      ['fude', P([[102, 612], [102, 632], [116, 630]]), { w: 1.1, press: 'nail' }],
+      ['fude', P([[128, 606], [132, 626], [144, 620]]), { w: 1.1, press: 'nail' }],
+    ],
+  });
+})();
+
 
 // ── p.6 ──────────────────────────────────────────────────────────────
 Hokusai.register({
