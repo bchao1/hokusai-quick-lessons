@@ -23,10 +23,42 @@ hokusai/
   assets/pages/         the source spreads (PDF page numbers)
   tools/render.html     headless check page (?figs=…, ?scene=n, ?gallery=1); tools/shot.sh screenshots it
   tools/crop.py         crop a page with a coordinate grid
+  extract/              stroke extraction from the scans (Python)
+  data/strokes/         the stroke database; data/analysis/ the measured laws
   tools/render.js       Node CLI: figure → SVG
 ```
 
 Open `index.html` in a browser. No build step and no server.
+
+## The stroke database (extracted from the scans by code)
+
+The figures above were first written by hand, from looking at the book. That gave the
+right tools but the wrong data. The `extract/` package measures Hokusai's actual strokes
+instead, and can be rerun on any scanned painting:
+
+```
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+
+.venv/bin/python -m extract.segment 17         # find the drawings on a page (captions, frames removed)
+.venv/bin/python -m extract.run --book         # segment + extract every content page → data/strokes/pNN-dK.json
+.venv/bin/python -m extract.run shishi         # one curated region from data/regions.json
+.venv/bin/python -m extract.run --page 17 --box 0.49 0.52 0.87 0.9 --id toad
+.venv/bin/python -m extract.analyze            # the laws → data/analysis/report.md, data/hand-params.json
+```
+
+1. **Ink** (`extract/ink.py`): divide out the paper, threshold with hysteresis, drop specks.
+2. **Strokes** (`extract/strokes.py`):
+   - Split solid masses off as fills.
+   - Skeletonise the rest into a graph, and join branches through junctions where one continues the other.
+   - Measure ink width along each stroke, and follow each tip until the ink runs out.
+3. **Fit** (`extract/fit.py`): piecewise cubic Béziers for the centreline, and the engine's own width model (`w_max`, entry/exit taper, swell). Also measures length, curvature, straightness, end asymmetry, tip sharpness and a circle fit.
+4. **Classify** (`extract/classify.py`): contour, hair, tick, dot, whorl, compass (a constant-radius arc), ruled, fill. Thresholds are in line widths, so they don't depend on scan resolution.
+5. **Analyse** (`extract/analyze.py`):
+   - Distributions by category, by volume, and by construction vs finished drawing.
+   - How often stroke ends stop short of other ink.
+   - Writes the engine parameters to `data/hand-params.json`, which the hand layer uses in place of guessed constants.
+
+Each region is stored as `data/strokes/<id>.json`: every stroke with its points, widths, Béziers, fitted width model, features and category. A `.js` twin loads it in the browser, and a `.debug.png` shows the extraction coloured by category next to the scan. The figure `<id>-trace` redraws a curated region's strokes with the engine (op `utsushi`), as the ground truth that the rules are fitted to.
 
 ## Figure format
 

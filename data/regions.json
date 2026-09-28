@@ -1,0 +1,1091 @@
+{
+ "shishi-fin": {
+  "page": 5,
+  "box": [
+   0.235,
+   0.265,
+   0.47,
+   0.545
+  ],
+  "kind": "finished",
+  "figure": "shishi"
+ },
+ "shishi-con": {
+  "page": 5,
+  "box": [
+   0.08,
+   0.14,
+   0.24,
+   0.38
+  ],
+  "kind": "construction",
+  "figure": "shishi"
+ },
+ "kumo-shishi-fin": {
+  "page": 5,
+  "box": [
+   0.09,
+   0.52,
+   0.3,
+   0.88
+  ],
+  "kind": "finished",
+  "figure": "kumo-shishi"
+ },
+ "kumo-shishi-con": {
+  "page": 5,
+  "box": [
+   0.29,
+   0.54,
+   0.47,
+   0.89
+  ],
+  "kind": "construction",
+  "figure": "kumo-shishi"
+ },
+ "fukurokuju-fin": {
+  "page": 6,
+  "box": [
+   0.11,
+   0.22,
+   0.25,
+   0.78
+  ],
+  "kind": "finished",
+  "figure": "fukurokuju"
+ },
+ "fukurokuju-con": {
+  "page": 6,
+  "box": [
+   0.3,
+   0.21,
+   0.47,
+   0.88
+  ],
+  "kind": "construction",
+  "figure": "fukurokuju"
+ },
+ "tako-fin": {
+  "page": 6,
+  "box": [
+   0.5,
+   0.5,
+   0.69,
+   0.74
+  ],
+  "kind": "finished",
+  "figure": "tako"
+ },
+ "tako-con": {
+  "page": 6,
+  "box": [
+   0.5,
+   0.26,
+   0.65,
+   0.48
+  ],
+  "kind": "construction",
+  "figure": "tako"
+ },
+ "daruma-fin": {
+  "page": 6,
+  "box": [
+   0.66,
+   0.5,
+   0.84,
+   0.91
+  ],
+  "kind": "finished",
+  "figure": "daruma"
+ },
+ "daruma-con": {
+  "page": 6,
+  "box": [
+   0.66,
+   0.15,
+   0.84,
+   0.48
+  ],
+  "kind": "construction",
+  "figure": "daruma"
+ },
+ "kamishimo-fin": {
+  "page": 7,
+  "box": [
+   0.27,
+   0.2,
+   0.46,
+   0.41
+  ],
+  "kind": "finished",
+  "figure": "kamishimo"
+ },
+ "kamishimo-con": {
+  "page": 7,
+  "box": [
+   0.08,
+   0.18,
+   0.26,
+   0.35
+  ],
+  "kind": "construction",
+  "figure": "kamishimo"
+ },
+ "karakasa-fin": {
+  "page": 7,
+  "box": [
+   0.49,
+   0.53,
+   0.86,
+   0.9
+  ],
+  "kind": "finished",
+  "figure": "karakasa"
+ },
+ "karakasa-con": {
+  "page": 7,
+  "box": [
+   0.51,
+   0.17,
+   0.86,
+   0.51
+  ],
+  "kind": "construction",
+  "figure": "karakasa"
+ },
+ "ushi-fin": {
+  "page": 9,
+  "box": [
+   0.5,
+   0.5,
+   0.86,
+   0.88
+  ],
+  "kind": "finished",
+  "figure": "ushi"
+ },
+ "ushi-con": {
+  "page": 9,
+  "box": [
+   0.08,
+   0.44,
+   0.42,
+   0.94
+  ],
+  "kind": "construction",
+  "figure": "ushi"
+ },
+ "tsuru-fin": {
+  "page": 10,
+  "box": [
+   0.25,
+   0.43,
+   0.47,
+   0.86
+  ],
+  "kind": "finished",
+  "figure": "tsuru"
+ },
+ "tsuru-con": {
+  "page": 10,
+  "box": [
+   0.1,
+   0.41,
+   0.26,
+   0.86
+  ],
+  "kind": "construction",
+  "figure": "tsuru"
+ },
+ "hotei-fin": {
+  "page": 10,
+  "box": [
+   0.51,
+   0.17,
+   0.66,
+   0.48
+  ],
+  "kind": "finished",
+  "figure": "hotei"
+ },
+ "hotei-con": {
+  "page": 10,
+  "box": [
+   0.7,
+   0.16,
+   0.86,
+   0.48
+  ],
+  "kind": "construction",
+  "figure": "hotei"
+ },
+ "nidauma-fin": {
+  "page": 12,
+  "box": [
+   0.48,
+   0.48,
+   0.83,
+   0.88
+  ],
+  "kind": "finished",
+  "figure": "nidauma"
+ },
+ "nidauma-con": {
+  "page": 12,
+  "box": [
+   0.09,
+   0.42,
+   0.47,
+   0.92
+  ],
+  "kind": "construction",
+  "figure": "nidauma"
+ },
+ "matsu-eda-fin": {
+  "page": 12,
+  "box": [
+   0.5,
+   0.17,
+   0.86,
+   0.45
+  ],
+  "kind": "finished",
+  "figure": "matsu-eda"
+ },
+ "matsu-eda-con": {
+  "page": 12,
+  "box": [
+   0.11,
+   0.17,
+   0.46,
+   0.47
+  ],
+  "kind": "construction",
+  "figure": "matsu-eda"
+ },
+ "ondori-fin": {
+  "page": 13,
+  "box": [
+   0.09,
+   0.56,
+   0.32,
+   0.81
+  ],
+  "kind": "finished",
+  "figure": "ondori"
+ },
+ "ondori-con": {
+  "page": 13,
+  "box": [
+   0.09,
+   0.29,
+   0.3,
+   0.51
+  ],
+  "kind": "construction",
+  "figure": "ondori"
+ },
+ "mendori-fin": {
+  "page": 13,
+  "box": [
+   0.31,
+   0.71,
+   0.46,
+   0.89
+  ],
+  "kind": "finished",
+  "figure": "mendori"
+ },
+ "mendori-con": {
+  "page": 13,
+  "box": [
+   0.29,
+   0.5,
+   0.46,
+   0.67
+  ],
+  "kind": "construction",
+  "figure": "mendori"
+ },
+ "gan-masu-fin": {
+  "page": 14,
+  "box": [
+   0.49,
+   0.66,
+   0.83,
+   0.88
+  ],
+  "kind": "finished",
+  "figure": "gan-masu"
+ },
+ "gan-masu-con": {
+  "page": 14,
+  "box": [
+   0.49,
+   0.51,
+   0.86,
+   0.69
+  ],
+  "kind": "construction",
+  "figure": "gan-masu"
+ },
+ "suzume-yoko-fin": {
+  "page": 15,
+  "box": [
+   0.65,
+   0.34,
+   0.86,
+   0.49
+  ],
+  "kind": "finished",
+  "figure": "suzume-yoko"
+ },
+ "suzume-yoko-con": {
+  "page": 15,
+  "box": [
+   0.65,
+   0.18,
+   0.86,
+   0.34
+  ],
+  "kind": "construction",
+  "figure": "suzume-yoko"
+ },
+ "kuge-ushiro-fin": {
+  "page": 16,
+  "box": [
+   0.22,
+   0.18,
+   0.45,
+   0.49
+  ],
+  "kind": "finished",
+  "figure": "kuge-ushiro"
+ },
+ "kuge-ushiro-con": {
+  "page": 16,
+  "box": [
+   0.22,
+   0.56,
+   0.45,
+   0.88
+  ],
+  "kind": "construction",
+  "figure": "kuge-ushiro"
+ },
+ "namazu-mo-fin": {
+  "page": 17,
+  "box": [
+   0.08,
+   0.25,
+   0.27,
+   0.85
+  ],
+  "kind": "finished",
+  "figure": "namazu-mo"
+ },
+ "namazu-mo-con": {
+  "page": 17,
+  "box": [
+   0.27,
+   0.25,
+   0.46,
+   0.85
+  ],
+  "kind": "construction",
+  "figure": "namazu-mo"
+ },
+ "gama-fin": {
+  "page": 17,
+  "box": [
+   0.49,
+   0.58,
+   0.85,
+   0.86
+  ],
+  "kind": "finished",
+  "figure": "gama"
+ },
+ "gama-con": {
+  "page": 17,
+  "box": [
+   0.49,
+   0.2,
+   0.85,
+   0.47
+  ],
+  "kind": "construction",
+  "figure": "gama"
+ },
+ "tai-mikazuki-fin": {
+  "page": 18,
+  "box": [
+   0.5,
+   0.37,
+   0.76,
+   0.86
+  ],
+  "kind": "finished",
+  "figure": "tai-mikazuki"
+ },
+ "tai-mikazuki-con": {
+  "page": 18,
+  "box": [
+   0.49,
+   0.15,
+   0.86,
+   0.57
+  ],
+  "kind": "construction",
+  "figure": "tai-mikazuki"
+ },
+ "suzume-hishi-fin": {
+  "page": 18,
+  "box": [
+   0.3,
+   0.66,
+   0.42,
+   0.84
+  ],
+  "kind": "finished",
+  "figure": "suzume-hishi"
+ },
+ "suzume-hishi-con": {
+  "page": 18,
+  "box": [
+   0.11,
+   0.66,
+   0.24,
+   0.84
+  ],
+  "kind": "construction",
+  "figure": "suzume-hishi"
+ },
+ "fugu-maru-fin": {
+  "page": 19,
+  "box": [
+   0.11,
+   0.17,
+   0.34,
+   0.49
+  ],
+  "kind": "finished",
+  "figure": "fugu-maru"
+ },
+ "fugu-maru-con": {
+  "page": 19,
+  "box": [
+   0.1,
+   0.54,
+   0.44,
+   0.86
+  ],
+  "kind": "construction",
+  "figure": "fugu-maru"
+ },
+ "tako-maru-fin": {
+  "page": 19,
+  "box": [
+   0.48,
+   0.16,
+   0.84,
+   0.52
+  ],
+  "kind": "finished",
+  "figure": "tako-maru"
+ },
+ "tako-maru-con": {
+  "page": 19,
+  "box": [
+   0.48,
+   0.52,
+   0.84,
+   0.87
+  ],
+  "kind": "construction",
+  "figure": "tako-maru"
+ },
+ "komori-tsuki-fin": {
+  "page": 20,
+  "box": [
+   0.48,
+   0.52,
+   0.86,
+   0.89
+  ],
+  "kind": "finished",
+  "figure": "komori-tsuki"
+ },
+ "komori-tsuki-con": {
+  "page": 20,
+  "box": [
+   0.49,
+   0.15,
+   0.85,
+   0.49
+  ],
+  "kind": "construction",
+  "figure": "komori-tsuki"
+ },
+ "shishimai-maru-fin": {
+  "page": 21,
+  "box": [
+   0.1,
+   0.19,
+   0.46,
+   0.52
+  ],
+  "kind": "finished",
+  "figure": "shishimai-maru"
+ },
+ "shishimai-maru-con": {
+  "page": 21,
+  "box": [
+   0.1,
+   0.54,
+   0.44,
+   0.9
+  ],
+  "kind": "construction",
+  "figure": "shishimai-maru"
+ },
+ "chochin-futamaru-fin": {
+  "page": 23,
+  "box": [
+   0.7,
+   0.16,
+   0.82,
+   0.39
+  ],
+  "kind": "finished",
+  "figure": "chochin-futamaru"
+ },
+ "chochin-futamaru-con": {
+  "page": 23,
+  "box": [
+   0.5,
+   0.15,
+   0.61,
+   0.39
+  ],
+  "kind": "construction",
+  "figure": "chochin-futamaru"
+ },
+ "onna-kasa-hishi-fin": {
+  "page": 23,
+  "box": [
+   0.67,
+   0.45,
+   0.82,
+   0.89
+  ],
+  "kind": "finished",
+  "figure": "onna-kasa-hishi"
+ },
+ "onna-kasa-hishi-con": {
+  "page": 23,
+  "box": [
+   0.47,
+   0.45,
+   0.62,
+   0.88
+  ],
+  "kind": "construction",
+  "figure": "onna-kasa-hishi"
+ },
+ "saru-kanban-fin": {
+  "page": 24,
+  "box": [
+   0.5,
+   0.54,
+   0.84,
+   0.86
+  ],
+  "kind": "finished",
+  "figure": "saru-kanban"
+ },
+ "saru-kanban-con": {
+  "page": 24,
+  "box": [
+   0.5,
+   0.17,
+   0.85,
+   0.47
+  ],
+  "kind": "construction",
+  "figure": "saru-kanban"
+ },
+ "oni-men-fin": {
+  "page": 26,
+  "box": [
+   0.3,
+   0.15,
+   0.45,
+   0.39
+  ],
+  "kind": "finished",
+  "figure": "oni-men"
+ },
+ "oni-men-con": {
+  "page": 26,
+  "box": [
+   0.12,
+   0.15,
+   0.26,
+   0.4
+  ],
+  "kind": "construction",
+  "figure": "oni-men"
+ },
+ "okame-men-fin": {
+  "page": 26,
+  "box": [
+   0.3,
+   0.66,
+   0.45,
+   0.88
+  ],
+  "kind": "finished",
+  "figure": "okame-men"
+ },
+ "okame-men-con": {
+  "page": 26,
+  "box": [
+   0.1,
+   0.66,
+   0.26,
+   0.88
+  ],
+  "kind": "construction",
+  "figure": "okame-men"
+ },
+ "minokasa-ame-fin": {
+  "page": 26,
+  "box": [
+   0.65,
+   0.15,
+   0.86,
+   0.91
+  ],
+  "kind": "finished",
+  "figure": "minokasa-ame"
+ },
+ "minokasa-ame-con": {
+  "page": 26,
+  "box": [
+   0.47,
+   0.15,
+   0.65,
+   0.91
+  ],
+  "kind": "construction",
+  "figure": "minokasa-ame"
+ },
+ "inoshishi-fin": {
+  "page": 27,
+  "box": [
+   0.09,
+   0.53,
+   0.47,
+   0.86
+  ],
+  "kind": "finished",
+  "figure": "inoshishi"
+ },
+ "inoshishi-con": {
+  "page": 27,
+  "box": [
+   0.09,
+   0.16,
+   0.45,
+   0.51
+  ],
+  "kind": "construction",
+  "figure": "inoshishi"
+ },
+ "asagao-fin": {
+  "page": 27,
+  "box": [
+   0.48,
+   0.17,
+   0.64,
+   0.46
+  ],
+  "kind": "finished",
+  "figure": "asagao"
+ },
+ "asagao-con": {
+  "page": 27,
+  "box": [
+   0.66,
+   0.17,
+   0.85,
+   0.46
+  ],
+  "kind": "construction",
+  "figure": "asagao"
+ },
+ "momiji-rokkaku-fin": {
+  "page": 27,
+  "box": [
+   0.48,
+   0.72,
+   0.64,
+   0.89
+  ],
+  "kind": "finished",
+  "figure": "momiji-rokkaku"
+ },
+ "momiji-rokkaku-con": {
+  "page": 27,
+  "box": [
+   0.66,
+   0.7,
+   0.85,
+   0.89
+  ],
+  "kind": "construction",
+  "figure": "momiji-rokkaku"
+ },
+ "shika-momiji-fin": {
+  "page": 28,
+  "box": [
+   0.47,
+   0.15,
+   0.85,
+   0.52
+  ],
+  "kind": "finished",
+  "figure": "shika-momiji"
+ },
+ "shika-momiji-con": {
+  "page": 28,
+  "box": [
+   0.47,
+   0.52,
+   0.85,
+   0.89
+  ],
+  "kind": "construction",
+  "figure": "shika-momiji"
+ },
+ "tsuru-shi-he-fin": {
+  "page": 35,
+  "box": [
+   0.47,
+   0.64,
+   0.7,
+   0.89
+  ],
+  "kind": "finished",
+  "figure": "tsuru-shi-he"
+ },
+ "kuge-kokoro-fin": {
+  "page": 36,
+  "box": [
+   0.22,
+   0.51,
+   0.45,
+   0.91
+  ],
+  "kind": "finished",
+  "figure": "kuge-kokoro"
+ },
+ "kuge-kokoro-con": {
+  "page": 36,
+  "box": [
+   0.26,
+   0.19,
+   0.44,
+   0.45
+  ],
+  "kind": "written",
+  "figure": "kuge-kokoro"
+ },
+ "daruma-shi-fin": {
+  "page": 36,
+  "box": [
+   0.49,
+   0.45,
+   0.8,
+   0.92
+  ],
+  "kind": "finished",
+  "figure": "daruma-shi"
+ },
+ "daruma-shi-con": {
+  "page": 36,
+  "box": [
+   0.66,
+   0.17,
+   0.83,
+   0.43
+  ],
+  "kind": "written",
+  "figure": "daruma-shi"
+ },
+ "hotei-wa-fin": {
+  "page": 38,
+  "box": [
+   0.11,
+   0.33,
+   0.34,
+   0.84
+  ],
+  "kind": "finished",
+  "figure": "hotei-wa"
+ },
+ "hotei-wa-con": {
+  "page": 38,
+  "box": [
+   0.33,
+   0.33,
+   0.44,
+   0.83
+  ],
+  "kind": "written",
+  "figure": "hotei-wa"
+ },
+ "onna-mi-fin": {
+  "page": 40,
+  "box": [
+   0.59,
+   0.51,
+   0.8,
+   0.92
+  ],
+  "kind": "finished",
+  "figure": "onna-mi"
+ },
+ "onna-mi-con": {
+  "page": 40,
+  "box": [
+   0.55,
+   0.21,
+   0.73,
+   0.49
+  ],
+  "kind": "written",
+  "figure": "onna-mi"
+ },
+ "kakashi-ki-fin": {
+  "page": 40,
+  "box": [
+   0.46,
+   0.6,
+   0.56,
+   0.78
+  ],
+  "kind": "finished",
+  "figure": "kakashi-ki"
+ },
+ "kakashi-ki-con": {
+  "page": 40,
+  "box": [
+   0.47,
+   0.22,
+   0.53,
+   0.3
+  ],
+  "kind": "written",
+  "figure": "kakashi-ki"
+ },
+ "nyobo-ha-to-fin": {
+  "page": 42,
+  "box": [
+   0.47,
+   0.41,
+   0.79,
+   0.86
+  ],
+  "kind": "finished",
+  "figure": "nyobo-ha-to"
+ },
+ "nyobo-ha-to-con": {
+  "page": 42,
+  "box": [
+   0.65,
+   0.2,
+   0.84,
+   0.54
+  ],
+  "kind": "written",
+  "figure": "nyobo-ha-to"
+ },
+ "yamazato-yama-fin": {
+  "page": 43,
+  "box": [
+   0.1,
+   0.57,
+   0.36,
+   0.88
+  ],
+  "kind": "finished",
+  "figure": "yamazato-yama"
+ },
+ "yamazato-yama-con": {
+  "page": 43,
+  "box": [
+   0.15,
+   0.18,
+   0.34,
+   0.49
+  ],
+  "kind": "written",
+  "figure": "yamazato-yama"
+ },
+ "kannon-moji-fin": {
+  "page": 48,
+  "box": [
+   0.65,
+   0.25,
+   0.83,
+   0.84
+  ],
+  "kind": "finished",
+  "figure": "kannon-moji"
+ },
+ "kannon-moji-con": {
+  "page": 48,
+  "box": [
+   0.47,
+   0.25,
+   0.61,
+   0.84
+  ],
+  "kind": "written",
+  "figure": "kannon-moji"
+ },
+ "uoya-mi-fin": {
+  "page": 51,
+  "box": [
+   0.1,
+   0.41,
+   0.35,
+   0.84
+  ],
+  "kind": "finished",
+  "figure": "uoya-mi"
+ },
+ "uoya-mi-con": {
+  "page": 51,
+  "box": [
+   0.26,
+   0.37,
+   0.38,
+   0.66
+  ],
+  "kind": "written",
+  "figure": "uoya-mi"
+ },
+ "tsuribito-hiruko-fin": {
+  "page": 53,
+  "box": [
+   0.09,
+   0.46,
+   0.38,
+   0.82
+  ],
+  "kind": "finished",
+  "figure": "tsuribito-hiruko"
+ },
+ "tsuribito-hiruko-con": {
+  "page": 53,
+  "box": [
+   0.13,
+   0.21,
+   0.24,
+   0.47
+  ],
+  "kind": "written",
+  "figure": "tsuribito-hiruko"
+ },
+ "daikoku-daitoku-fin": {
+  "page": 54,
+  "box": [
+   0.6,
+   0.27,
+   0.83,
+   0.93
+  ],
+  "kind": "finished",
+  "figure": "daikoku-daitoku"
+ },
+ "daikoku-daitoku-con": {
+  "page": 54,
+  "box": [
+   0.46,
+   0.42,
+   0.6,
+   0.79
+  ],
+  "kind": "written",
+  "figure": "daikoku-daitoku"
+ },
+ "kaze-hito-fin": {
+  "page": 55,
+  "box": [
+   0.18,
+   0.17,
+   0.47,
+   0.86
+  ],
+  "kind": "finished",
+  "figure": "kaze-hito"
+ },
+ "kaze-hito-con": {
+  "page": 55,
+  "box": [
+   0.1,
+   0.25,
+   0.19,
+   0.46
+  ],
+  "kind": "written",
+  "figure": "kaze-hito"
+ },
+ "fuji-moji-fin": {
+  "page": 56,
+  "box": [
+   0.09,
+   0.48,
+   0.47,
+   0.87
+  ],
+  "kind": "finished",
+  "figure": "fuji-moji"
+ },
+ "fuji-moji-con": {
+  "page": 56,
+  "box": [
+   0.1,
+   0.19,
+   0.24,
+   0.36
+  ],
+  "kind": "written",
+  "figure": "fuji-moji"
+ },
+ "yurei-urame-fin": {
+  "page": 57,
+  "box": [
+   0.12,
+   0.27,
+   0.28,
+   0.86
+  ],
+  "kind": "finished",
+  "figure": "yurei-urame"
+ },
+ "yurei-urame-con": {
+  "page": 57,
+  "box": [
+   0.31,
+   0.27,
+   0.4,
+   0.82
+  ],
+  "kind": "written",
+  "figure": "yurei-urame"
+ }
+}

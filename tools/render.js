@@ -14,6 +14,12 @@ for (const f of fs.readdirSync(figDir).sort()) {
   try { require(path.join(figDir, f)); } catch (e) { console.error('skipping figures/' + f + ': ' + e.message); }
 }
 require(path.join(figDir, 'scenes.js'));
+const hp = path.join(__dirname, '..', 'data', 'hand-params.json');
+if (fs.existsSync(hp)) H.handParams = JSON.parse(fs.readFileSync(hp));
+const dbDir = path.join(__dirname, '..', 'data', 'strokes');
+H.strokeDB = {};
+if (fs.existsSync(dbDir)) for (const f of fs.readdirSync(dbDir)) if (f.endsWith('.json') && !/^p\d+-d\d+\.json$/.test(f)) H.strokeDB[f.slice(0, -5)] = JSON.parse(fs.readFileSync(path.join(dbDir, f)));
+require(path.join(figDir, 'traced.js'));
 
 const args = process.argv.slice(2);
 const flag = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : d; };

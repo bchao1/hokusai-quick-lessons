@@ -1,1 +1,8 @@
 .DS_Store
+.venv/
+__pycache__/
+.cache/
+# regenerable with extract/: debug images and the book-wide auto-segmented regions
+data/strokes/*.debug.png
+data/strokes/p[0-9]*-d[0-9]*.*
+data/regions/*.debug.jpg

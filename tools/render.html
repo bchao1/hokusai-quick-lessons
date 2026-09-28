@@ -32,7 +32,8 @@ try {
     const row = document.createElement('div'); row.className = 'row'; row.style.flexWrap = 'wrap';
     const only = (q.get('only') || '').split(',').filter(Boolean);
     for (const f of Hokusai.list((f) => !only.length || only.includes(f.id))) {
-      const G = +(q.get('gsize') || 150), c = Hokusai.compile(f, { style: STYLE, hand: HAND }), s = G / Math.max(c.size[0], c.size[1]);
+      const tf = q.get('src') === 'traced' && Hokusai.tracedFigure && Hokusai.tracedFigure(f.id);
+      const G = +(q.get('gsize') || 150), c = tf ? Hokusai.compile(tf, { style: STYLE, hand: 0 }) : Hokusai.compile(f, { style: STYLE, hand: HAND }), s = G / Math.max(c.size[0], c.size[1]);
       const cv = document.createElement('canvas'); cv.width = c.size[0] * s; cv.height = c.size[1] * s;
       const gg = cv.getContext('2d'); Hokusai.paper(gg, cv.width, cv.height, 3, STYLE); Hokusai.render(gg, c, { scale: s, guides: 'none' });
       const box = document.createElement('div'); box.style.width = (G + 6) + 'px'; box.appendChild(cv);
@@ -50,7 +51,7 @@ try {
     row.appendChild(panel(c, { guides: 'none' }));
     if (q.get('ref') && f.ref) {
       // Hokusai's finished drawing, and our ink laid over it (red) to check the fit
-      const im = new Image(); im.src = '../assets/refs/' + f.id + '.jpg';
+      const im = new Image(); im.src = '../assets/refs/' + (f.traced || f.id) + '.jpg';
       im.style.width = c.size[0] * S + 'px'; im.style.height = c.size[1] * S + 'px'; row.appendChild(im);
       const ov = document.createElement('canvas'); ov.width = c.size[0] * S; ov.height = c.size[1] * S; row.appendChild(ov);
       im.onload = () => {

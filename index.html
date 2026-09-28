@@ -179,6 +179,7 @@ dialog p { color: #eee; margin: 8px 0 0; font-size: 13px; }
     <button role="tab" data-mode="lesson" aria-selected="true"><b>手本</b>Lessons</button>
     <button role="tab" data-mode="compose" aria-selected="false"><b>構図</b>Compose</button>
     <button role="tab" data-mode="write" aria-selected="false"><b>筆</b>Write</button>
+    <button role="tab" data-mode="strokes" aria-selected="false"><b>筆跡</b>Strokes</button>
     <button role="tab" data-mode="rules" aria-selected="false"><b>規矩</b>Rulebook</button>
   </nav>
 </header>
@@ -223,7 +224,7 @@ const state = {
   mode: 'lesson',
   fig: store.get('fig', null) || H.order[0],
   seed: 1812, weight: 1, wobble: 1,
-  style: store.get('style', 'hanga'), hand: store.get('hand', 1),
+  style: store.get('style', 'hanga'), hand: store.get('hand', 1), source: store.get('source', 'traced'),
   guides: 'shu', erase: true,
   p: 1.15, playing: false,
   rule: null,
@@ -239,7 +240,9 @@ let compiled = null, paperCache = null;
 function currentPicture() {
   if (state.mode === 'compose') return composeScene();
   if (state.mode === 'write') return compileCode();
-  return H.compile(state.fig, look());
+  if (state.mode === 'strokes') return compileTrace();
+  const tf = state.source === 'traced' && H.tracedFigure && H.tracedFigure(state.fig);
+  return tf ? H.compile(tf, Object.assign(look(), { hand: 0 })) : H.compile(state.fig, look());
 }
 function look() { return { seed: state.seed, weight: state.weight, wobble: state.wobble, style: state.style, hand: state.hand }; }
 function recompile() {
@@ -357,9 +360,14 @@ function renderPanel() {
       (f.note ? '<p>' + esc(f.note) + '</p>' : '') + '</div>' +
       (rules.length ? '<div><p class="eyebrow">Rules applied</p><div class="chips" id="ruleChips">' + rules.map((r) => '<button class="chip" data-rule="' + r + '"><b>' + ruleById[r].jp + '</b>' + esc(ruleById[r].name) + '</button>').join('') + '</div>' +
         (sel ? '<p class="rule-detail" style="margin:10px 0 0">' + esc(sel.text) + '</p>' : '') + '</div>' : '') +
-      '<div><p class="eyebrow">Construction</p><div class="hint">' + Object.keys(f.guides || {}).length + ' guides · ' + (f.ink || []).length + ' ink operations</div></div>' +
+      '<div><p class="eyebrow">Draw from</p><div class="seg" id="cSource">' +
+        [['traced', '写 Hokusai\'s strokes'], ['rules', '規 Rules']].map(([k, l]) => '<button data-src="' + k + '" aria-pressed="' + (state.source === k) + '"' + (k === 'traced' && !(f.traced && f.traced.fin) ? ' disabled' : '') + '>' + l + '</button>').join('') + '</div>' +
+        '<div class="hint" style="margin-top:6px">' + (state.source === 'traced' && f.traced && f.traced.fin && H.strokeDB[f.traced.fin]
+          ? 'Traced from the scan by code: ' + H.strokeDB[f.traced.fin].strokes.length + ' strokes, ' + H.strokeDB[f.traced.fin].fills.length + ' fills.'
+          : Object.keys(f.guides || {}).length + ' guides · ' + (f.ink || []).length + ' ink operations, written by hand.') + '</div></div>' +
       controlsHTML() +
       (f.page ? '<figure class="source" style="margin:0"><p class="eyebrow">Source spread</p><img id="srcImg" src="' + pageSrc(f.page) + '" alt="Book spread, PDF page ' + f.page + '"><figcaption>Ryakuga hayaoshie, PDF page ' + f.page + '. Arthur Tress Collection, University of Pennsylvania. No copyright (US).</figcaption></figure>' : '');
+    const csrc = $('#cSource'); if (csrc) csrc.onclick = (e) => { const b = e.target.closest('[data-src]'); if (!b || b.disabled) return; state.source = b.dataset.src; store.set('source', state.source); renderPanel(); recompile(); state.p = 0; setPlaying(true); };
     const rc = $('#ruleChips'); if (rc) rc.onclick = (e) => { const b = e.target.closest('[data-rule]'); if (!b) return; state.rule = state.rule === b.dataset.rule ? null : b.dataset.rule; renderPanel(); };
     const si = $('#srcImg'); if (si) si.onclick = () => lightbox(f.page);
     bindControls();
@@ -386,6 +394,26 @@ function renderPanel() {
     P.querySelectorAll('.cap [data-fig]').forEach((b) => (b.onclick = () => { state.fig = b.dataset.fig; store.set('fig', state.fig); setMode('lesson'); state.p = 0; setPlaying(true); }));
     bindControls();
     P.querySelectorAll('#cSeed, [for=cSeed], #cSeed + output').forEach((el) => (el.hidden = true));
+  } else if (state.mode === 'strokes') {
+    const ids = traceIds(), db = H.strokeDB[state.traceId || ids[0]], st = H.strokeStats;
+    state.hideCats = state.hideCats || {};
+    const pct = (v) => (v == null ? '–' : Math.round(v * 100) + '%');
+    const fmtq = (d, k) => (d && d[k] ? d[k].p50.toFixed(1) : '–');
+    const fin = st && st.by && (st.by.finished || st.by.all);
+    P.innerHTML =
+      '<div class="lesson"><p class="eyebrow">Stroke database</p><h2>筆跡</h2><div class="en">Hokusai\'s strokes, measured by code</div>' +
+      '<p>Every stroke on the left was traced out of the scan by <code>extract/run.py</code>: its centreline, its width along the way, and a category. No stroke was placed by hand. Toggle a category to see what it contributes.</p></div>' +
+      '<div class="controls"><label for="tId">Region</label><select id="tId" style="grid-column:2/4">' + ids.map((i) => '<option' + (i === state.traceId ? ' selected' : '') + '>' + esc(i) + '</option>').join('') + '</select></div>' +
+      (db ? '<div><p class="eyebrow">Categories in this region</p><div class="chips" id="tCats">' + Object.keys(CAT_COLORS).filter((c) => db.counts[c]).map((c) =>
+        '<button class="chip" data-c="' + c + '" aria-pressed="' + !state.hideCats[c] + '" style="' + (state.hideCats[c] ? 'opacity:.4' : '') + '"><b style="color:' + CAT_COLORS[c] + '">●</b>' + c + ' ' + db.counts[c] + '</button>').join('') + '</div></div>' : '') +
+      (fin ? '<div><p class="eyebrow">Laws across the book (' + st.regions + ' regions, finished drawings)</p><dl class="cap">' +
+        ['contour', 'hair', 'tick'].filter((c) => fin[c]).map((c) => '<dt>' + c + '</dt><dd><b>' + fin[c].count + ' strokes</b><span>median length ' + fmtq(fin[c], 'len_w') + ' line widths · sharp tip ' + fmtq(fin[c], 'tip_sharp') + ' vs blunt ' + fmtq(fin[c], 'tip_blunt') + ' half-widths · end asymmetry ' + fmtq(fin[c], 'end_asym') + '</span></dd>').join('') +
+        (st.joins && st.joins.finished && st.joins.finished.contour ? '<dt>joins</dt><dd><b>' + pct(st.joins.finished.contour.open_frac) + ' of contour ends stop short</b><span>of other ink: an open joint</span></dd>' : '') +
+        '</dl><p class="hint">Full report: <code>data/analysis/report.md</code></p></div>' : '<p class="hint">Run <code>.venv/bin/python -m extract.analyze</code> for the book-wide laws.</p>') +
+      controlsHTML();
+    const sel = $('#tId'); if (sel) sel.onchange = (e) => { state.traceId = e.target.value; recompile(); renderPanel(); state.p = 0; setPlaying(true); };
+    const tc = $('#tCats'); if (tc) tc.onclick = (e) => { const b = e.target.closest('[data-c]'); if (!b) return; state.hideCats[b.dataset.c] = !state.hideCats[b.dataset.c]; recompile(); renderPanel(); };
+    bindControls();
   } else if (state.mode === 'write') {
     if (!state.code) state.code = BLANK;
     P.innerHTML =
@@ -434,6 +462,15 @@ const BLANK = `{
 function composeScene() {
   const c = state.compose;
   return H.inventScene(c.seed, { subject: H.figures[c.subject] ? c.subject : undefined, style: state.style, hand: state.hand });
+}
+const CAT_COLORS = { contour: '#1b2130', hair: '#2e6fd8', tick: '#1d8f4e', dot: '#1aa3b8', whorl: '#a13ca8', compass: '#d2372a', ruled: '#e07b00', fill: '#5b5bc8' };
+function traceIds() { return Object.keys(H.strokeDB || {}).sort(); }
+function compileTrace() {
+  const ids = traceIds();
+  if (!ids.length) throw new Error('No stroke data yet: run .venv/bin/python -m extract.run shishi');
+  if (!state.traceId || !H.strokeDB[state.traceId]) state.traceId = ids[0];
+  const db = H.strokeDB[state.traceId], cats = Object.keys(CAT_COLORS).filter((c) => !state.hideCats || !state.hideCats[c]);
+  return H.compile({ id: state.traceId + '-view', size: db.size, guides: {}, ink: [['utsushi', state.traceId, { cats }]] }, { seed: state.seed, style: state.style, hand: 0 });
 }
 function compileCode() {
   state.codeErr = '';
@@ -512,7 +549,7 @@ function setMode(m) {
 }
 document.querySelector('nav').onclick = (e) => { const b = e.target.closest('[data-mode]'); if (b) { setMode(b.dataset.mode); if (b.dataset.mode === 'write') { setPlaying(false); state.p = 1; draw(); } else if (b.dataset.mode !== 'rules') { state.p = 0; setPlaying(true); } } };
 
-const startMode = ['lesson', 'compose', 'write', 'rules'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'lesson';
+const startMode = ['lesson', 'compose', 'write', 'strokes', 'rules'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'lesson';
 setMode(startMode);
 if (startMode === 'write') { state.p = 1; draw(); } else if (startMode !== 'rules') { state.p = 0; setPlaying(true); }
 })();
