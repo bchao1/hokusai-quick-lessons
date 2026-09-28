@@ -33,7 +33,7 @@ try {
     const only = (q.get('only') || '').split(',').filter(Boolean);
     for (const f of Hokusai.list((f) => !only.length || only.includes(f.id))) {
       const tf = q.get('src') === 'traced' && Hokusai.tracedFigure && Hokusai.tracedFigure(f.id);
-      const G = +(q.get('gsize') || 150), c = tf ? Hokusai.compile(tf, { style: STYLE, hand: 0 }) : Hokusai.compile(f, { style: STYLE, hand: HAND }), s = G / Math.max(c.size[0], c.size[1]);
+      const G = +(q.get('gsize') || 150), c = tf ? Hokusai.compile(tf, { style: STYLE, hand: HAND, seed: +(q.get('seed') || 1812) }) : Hokusai.compile(f, { style: STYLE, hand: HAND }), s = G / Math.max(c.size[0], c.size[1]);
       const cv = document.createElement('canvas'); cv.width = c.size[0] * s; cv.height = c.size[1] * s;
       const gg = cv.getContext('2d'); Hokusai.paper(gg, cv.width, cv.height, 3, STYLE); Hokusai.render(gg, c, { scale: s, guides: 'none' });
       const box = document.createElement('div'); box.style.width = (G + 6) + 'px'; box.appendChild(cv);

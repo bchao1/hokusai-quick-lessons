@@ -242,7 +242,7 @@ function currentPicture() {
   if (state.mode === 'write') return compileCode();
   if (state.mode === 'strokes') return compileTrace();
   const tf = state.source === 'traced' && H.tracedFigure && H.tracedFigure(state.fig);
-  return tf ? H.compile(tf, Object.assign(look(), { hand: 0 })) : H.compile(state.fig, look());
+  return tf ? H.compile(tf, look()) : H.compile(state.fig, look());
 }
 function look() { return { seed: state.seed, weight: state.weight, wobble: state.wobble, style: state.style, hand: state.hand }; }
 function recompile() {
@@ -470,7 +470,7 @@ function compileTrace() {
   if (!ids.length) throw new Error('No stroke data yet: run .venv/bin/python -m extract.run shishi');
   if (!state.traceId || !H.strokeDB[state.traceId]) state.traceId = ids[0];
   const db = H.strokeDB[state.traceId], cats = Object.keys(CAT_COLORS).filter((c) => !state.hideCats || !state.hideCats[c]);
-  return H.compile({ id: state.traceId + '-view', size: db.size, guides: {}, ink: [['utsushi', state.traceId, { cats }]] }, { seed: state.seed, style: state.style, hand: 0 });
+  return H.compile({ id: state.traceId + '-view', size: db.size, guides: {}, ink: [['utsushi', state.traceId, { cats }]] }, look());
 }
 function compileCode() {
   state.codeErr = '';
