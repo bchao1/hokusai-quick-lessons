@@ -368,16 +368,13 @@ function brushHTML() {
     '<label>Style</label><div class="seg" id="cStyle">' + [['hanga', '版画 Print'], ['sumi', '墨 Brush'], ['zu', '図 Diagram']].map(([k, l]) => '<button data-s="' + k + '" aria-pressed="' + (state.style === k) + '">' + l + '</button>').join('') + '</div>' +
     '<label for="cHand">Hand</label><input type="range" id="cHand" min="0" max="3" step="0.05" value="' + state.hand + '"' + (state.style === 'zu' ? ' disabled' : '') + '><output>' + state.hand.toFixed(2) + '</output>' +
     '<label for="cWeight">Weight</label><input type="range" id="cWeight" min="0.3" max="2.5" step="0.05" value="' + state.weight + '"><output>' + state.weight.toFixed(2) + '</output>' +
-    '<label for="cSeed">Seed</label><input type="number" id="cSeed" value="' + state.seed + '" style="width:100%"><button class="btn" id="cSeedNew" title="New seed">↻</button>' +
-    '</div><div class="hint" style="margin-top:6px"><b>Hand</b> 0 inks the strokes exactly; higher re-inks every stroke with drift, tremor and pressure. <b>Seed</b> picks one of those re-inkings. <b>Weight</b> thickens or thins the line.' + (state.style === 'zu' ? ' Diagram style ignores Hand.' : '') + '</div></div>' +
+    '</div><div class="hint" style="margin-top:6px"><b>Hand</b> 0 inks the strokes exactly; higher re-inks every stroke with drift, tremor and pressure. <b>Weight</b> thickens or thins the line.' + (state.style === 'zu' ? ' Diagram style ignores Hand.' : '') + '</div></div>' +
     '<div class="row"><button class="btn" id="exPNG">Save PNG</button><button class="btn" id="exSVG">Save SVG</button></div>';
 }
 function bindBrush() {
   const range = (id, key, fix) => { const el = $('#' + id); if (!el) return; el.oninput = () => { state[key] = +el.value; el.nextElementSibling.textContent = (+el.value).toFixed(fix); redrawNow(); }; };
   range('cHand', 'hand', 2); range('cWeight', 'weight', 2);
   const hEl = $('#cHand'); if (hEl) hEl.onchange = () => store.set('hand', state.hand);
-  $('#cSeed').onchange = (e) => { state.seed = +e.target.value || 1; redrawNow(); };
-  $('#cSeedNew').onclick = () => { state.seed = 1 + Math.floor(Math.random() * 9999); $('#cSeed').value = state.seed; redrawNow(); };
   $('#cStyle').onclick = (e) => { const b = e.target.closest('[data-s]'); if (!b) return; state.style = b.dataset.s; store.set('style', state.style); renderPanel(); redrawNow(); };
   $('#exPNG').onclick = exportPNG; $('#exSVG').onclick = exportSVG;
 }
@@ -400,8 +397,13 @@ function renderPanel() {
       '<b>消</b><span>The construction is erased when the ink is done.</span></dl></div>' +
     '<div><p class="eyebrow">Drawing</p><div class="seg" id="cDraw">' +
       [['hokusai', '写 Hokusai\'s strokes'], ['rules', '規 Old hand-written version']].map(([k, l]) => '<button data-d="' + k + '" aria-pressed="' + (dm === k) + '"' + (k === 'hokusai' && !traced ? ' disabled' : '') + '>' + l + '</button>').join('') + '</div></div>' +
-    (dm === 'hokusai' && cons ? '<div><p class="eyebrow">New subject</p><div class="controls"><label for="cVary">Vary</label><input type="range" id="cVary" min="0" max="1.5" step="0.05" value="' + state.vary + '"><output>' + state.vary.toFixed(2) + '</output></div>' +
-      '<div class="hint" style="margin-top:6px">0 is his drawing. Above 0 his construction is reshaped (proportions and a smooth warp, chosen by the seed) and his strokes move with it: a new subject in his line.</div></div>' : '') +
+    '<div><p class="eyebrow">' + (dm === 'hokusai' && cons ? 'New subject' : 'Variation') + '</p><div class="controls">' +
+      (dm === 'hokusai' && cons ? '<label for="cVary">Vary</label><input type="range" id="cVary" min="0" max="1.5" step="0.05" value="' + state.vary + '"><output>' + state.vary.toFixed(2) + '</output>' : '') +
+      '<label for="cSeed">Seed</label><input type="number" id="cSeed" min="1" value="' + state.seed + '" style="width:100%"><span></span>' +
+      '</div><div class="row" style="margin-top:8px"><button class="btn primary" id="cNewVar">↻ New variation</button></div>' +
+      '<div class="hint" style="margin-top:6px">' + (dm === 'hokusai' && cons
+        ? '<b>Vary</b> 0 is his drawing; above 0 his construction is reshaped and his strokes move with it, a new subject in his line. <b>Seed</b> picks which reshaping (and which re-inking). At Vary 0 the seed only changes the re-inking, so the drawing moves by less than a line width.'
+        : '<b>Seed</b> picks one re-inking of the strokes (see Hand).') + '</div></div>' +
     (dm === 'hokusai' ? '<div><p class="eyebrow">Layers</p><div class="chips" id="cCats">' + CATS.filter(([c]) => db.counts[c]).map(([c, name, col]) =>
       '<button class="chip" data-c="' + c + '" aria-pressed="' + !state.cats[c] + '" style="' + (state.cats[c] ? 'opacity:.4' : '') + '"><b style="color:' + col + '">●</b>' + name + ' ' + db.counts[c] + '</button>').join('') + '</div></div>' : '') +
     '<div class="controls"><label for="cCons">Animation</label><span style="grid-column:2/4"><input type="checkbox" id="cCons"' + (state.construction ? ' checked' : '') + '> start with the construction (red), erase it at the end</span></div>' +
@@ -411,6 +413,12 @@ function renderPanel() {
     (f.page ? '<figure class="source" style="margin:0"><p class="eyebrow">Source spread</p><img id="srcImg" src="' + pageSrc(f.page) + '" alt="Book spread, PDF page ' + f.page + '"><figcaption>Ryakuga hayaoshie, PDF page ' + f.page + '. Arthur Tress Collection, University of Pennsylvania. No copyright (US).</figcaption></figure>' : '');
   $('#cDraw').onclick = (e) => { const b = e.target.closest('[data-d]'); if (!b || b.disabled) return; state.draw = b.dataset.d; store.set('draw', state.draw); renderPanel(); recompile(); show(); };
   const vy = $('#cVary'); if (vy) vy.oninput = () => { state.vary = +vy.value; vy.nextElementSibling.textContent = state.vary.toFixed(2); redrawNow(); };
+  $('#cSeed').oninput = (e) => { const v = Math.floor(+e.target.value); if (v > 0) { state.seed = v; redrawNow(); } };
+  $('#cNewVar').onclick = () => {
+    state.seed = 1 + Math.floor(Math.random() * 9999);
+    if (vy && state.vary === 0) state.vary = 0.8;          // at Vary 0 a new seed would barely show
+    renderPanel(); redrawNow();
+  };
   const cc = $('#cCats'); if (cc) cc.onclick = (e) => { const b = e.target.closest('[data-c]'); if (!b) return; state.cats[b.dataset.c] = !state.cats[b.dataset.c]; renderPanel(); redrawNow(); };
   $('#cCons').onchange = (e) => { state.construction = e.target.checked; show(); };
   const code = $('#code');
