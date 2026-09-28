@@ -272,12 +272,29 @@ function scenePicture() {
   return H.inventScene(c.seed, { subject: H.figures[c.subject] ? c.subject : undefined, style: state.style, hand: state.hand, paint: c.paint === 'rules' ? 'rules' : 'hokusai', vary: c.vary || 0 });
 }
 
+// A varied or re-inked figure can spill past its original box. Frame the drawing by what is
+// actually drawn (ink and construction), with a margin of a quarter of its size on every side.
+const MARGIN = 0.25;
+function fitToCanvas(c) {
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  const add = (p, r) => { r = r || 0; if (p[0] - r < x0) x0 = p[0] - r; if (p[1] - r < y0) y0 = p[1] - r; if (p[0] + r > x1) x1 = p[0] + r; if (p[1] + r > y1) y1 = p[1] + r; };
+  c.ops.forEach((op) => {
+    if (op.pts) op.pts.forEach((p, i) => add(p, op.widths ? op.widths[i] / 2 : 0));
+    if (op.polys) op.polys.forEach((pl) => pl.forEach((p) => add(p)));
+    if (op.dots) op.dots.forEach((d) => add(d, d[2]));
+  });
+  if (!isFinite(x0)) return c;
+  const w = x1 - x0, h = y1 - y0, m = MARGIN * Math.max(w, h);
+  const ops = H.place({ size: c.size, ops: c.ops }, { x: m - x0, y: m - y0, s: 1 });
+  return Object.assign({}, c, { ops, size: [w + 2 * m, h + 2 * m] });
+}
+
 // ───────────── stage ─────────────
 const cv = $('#stage'), g = cv.getContext('2d'), wrap = $('#wrap');
 let compiled = null, paperCache = null, lastErr = '';
 function recompile() {
   lastErr = '';
-  try { compiled = state.mode === 'scene' ? scenePicture() : figurePicture(); } catch (e) { compiled = null; lastErr = e.message; }
+  try { compiled = state.mode === 'scene' ? scenePicture() : fitToCanvas(figurePicture()); } catch (e) { compiled = null; lastErr = e.message; }
   const err = $('#codeErr'); if (err) err.textContent = lastErr;
   resize();
 }
