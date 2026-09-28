@@ -88,7 +88,7 @@ The experimental generators are reachable from code and `tools/render.html`, not
 cd hokusai
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # if .venv is missing
 open index.html                          # visualizer: Figure · Scene · Rulebook (see below)
-#   index.html?fig=shishi&vary=1&hand=2&seed=5&weight=1.5&style=sumi&still=1&t=0.5   (URL state, for links and headless tests)
+#   index.html?fig=shishi&vary=1&hand=2&seed=5&weight=1.5&style=sumi   (URL state; add &t=0.5 to freeze the animation part-way)
 
 # full data pipeline (regenerates everything from the PDF)
 .venv/bin/python -m extract.run --all     # curated regions → data/strokes/<fig>-{fin,con}.json   (~5 min)

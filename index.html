@@ -196,7 +196,7 @@ dialog p { color: #eee; margin: 8px 0 0; font-size: 13px; }
   <section class="stage" id="stageCol">
     <div class="canvas-wrap" id="wrap"><canvas id="stage" aria-label="Drawing"></canvas></div>
     <div class="transport">
-      <button class="play" id="play" aria-label="Play">▶</button>
+      <button class="btn primary" id="play" aria-label="Animate the drawing">▶ Animate</button>
       <input type="range" id="scrub" min="0" max="1000" value="1000" aria-label="Drawing progress">
       <div class="phases">
         <span id="ph1"><b>規矩</b>construct</span>
@@ -316,13 +316,14 @@ function tick(ts) {
   raf = requestAnimationFrame(tick);
 }
 function setPlaying(on) {
-  state.playing = on; $('#play').textContent = on ? '❚❚' : '▶'; $('#play').setAttribute('aria-label', on ? 'Pause' : 'Play');
+  state.playing = on; $('#play').textContent = on ? '❚❚ Pause' : '▶ Animate'; $('#play').setAttribute('aria-label', on ? 'Pause' : 'Animate the drawing');
   if (on) { if (state.p >= 1.15) state.p = 0; last = 0; cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
 }
-const replay = () => { state.p = 0; setPlaying(true); };
+const replay = () => { state.p = 0; setPlaying(true); };          // only from the Animate button
+const show = () => { setPlaying(false); state.p = 1.15; draw(); };  // everything else lands on the finished drawing
 // a change of look shows the finished drawing at once; replay animates it
 const redrawNow = () => { setPlaying(false); state.p = 1.15; recompile(); };
-$('#play').onclick = () => setPlaying(!state.playing);
+$('#play').onclick = () => { if (state.playing) setPlaying(false); else if (state.p >= 1.15 || state.p <= 0) replay(); else setPlaying(true); };
 $('#scrub').oninput = (e) => { setPlaying(false); state.p = (e.target.value / 1000) * 1.15; draw(); };
 new ResizeObserver(() => resize()).observe(wrap);
 
@@ -341,7 +342,7 @@ $('#catalogue').onclick = (e) => {
   state.fig = b.dataset.fig; store.set('fig', state.fig); state.code = null; state.vary = 0;
   if (state.mode === 'scene') state.scene.subject = state.fig;
   if (state.mode === 'rules') return setMode('figure');
-  renderCatalogue(); renderPanel(); recompile(); replay();
+  renderCatalogue(); renderPanel(); recompile(); show();
 };
 
 // ───────────── shared brush controls ─────────────
@@ -386,20 +387,20 @@ function renderPanel() {
       '<div class="hint" style="margin-top:6px">0 is his drawing. Above 0 his construction is reshaped (proportions and a smooth warp, chosen by the seed) and his strokes move with it: a new subject in his line.</div></div>' : '') +
     (dm === 'hokusai' ? '<div><p class="eyebrow">Layers</p><div class="chips" id="cCats">' + CATS.filter(([c]) => db.counts[c]).map(([c, name, col]) =>
       '<button class="chip" data-c="' + c + '" aria-pressed="' + !state.cats[c] + '" style="' + (state.cats[c] ? 'opacity:.4' : '') + '"><b style="color:' + col + '">●</b>' + name + ' ' + db.counts[c] + '</button>').join('') + '</div></div>' : '') +
-    '<div class="controls"><label for="cCons">Construction</label><span style="grid-column:2/4"><input type="checkbox" id="cCons"' + (state.construction ? ' checked' : '') + '> draw the construction first, then erase it</span></div>' +
+    '<div class="controls"><label for="cCons">Animation</label><span style="grid-column:2/4"><input type="checkbox" id="cCons"' + (state.construction ? ' checked' : '') + '> start with the construction (red), erase it at the end</span></div>' +
     brushHTML() +
     (dm === 'rules' ? '<details class="code"' + (state.code ? ' open' : '') + '><summary>Edit this version as code</summary><textarea id="code" spellcheck="false" aria-label="Figure source">' + esc(state.code || fmt(f)) + '</textarea><div class="err" id="codeErr">' + esc(lastErr) + '</div><div class="row"><button class="btn" id="codeReset">Reset</button></div></details>' : '') +
     (rules.length ? '<div><p class="eyebrow">Rules this lesson teaches</p><div class="chips">' + rules.map((r) => '<span class="chip" title="' + esc(ruleById[r].text) + '"><b>' + ruleById[r].jp + '</b>' + esc(ruleById[r].name) + '</span>').join('') + '</div></div>' : '') +
     (f.page ? '<figure class="source" style="margin:0"><p class="eyebrow">Source spread</p><img id="srcImg" src="' + pageSrc(f.page) + '" alt="Book spread, PDF page ' + f.page + '"><figcaption>Ryakuga hayaoshie, PDF page ' + f.page + '. Arthur Tress Collection, University of Pennsylvania. No copyright (US).</figcaption></figure>' : '');
-  $('#cDraw').onclick = (e) => { const b = e.target.closest('[data-d]'); if (!b || b.disabled) return; state.draw = b.dataset.d; store.set('draw', state.draw); renderPanel(); recompile(); replay(); };
+  $('#cDraw').onclick = (e) => { const b = e.target.closest('[data-d]'); if (!b || b.disabled) return; state.draw = b.dataset.d; store.set('draw', state.draw); renderPanel(); recompile(); show(); };
   const vy = $('#cVary'); if (vy) vy.oninput = () => { state.vary = +vy.value; vy.nextElementSibling.textContent = state.vary.toFixed(2); redrawNow(); };
   const cc = $('#cCats'); if (cc) cc.onclick = (e) => { const b = e.target.closest('[data-c]'); if (!b) return; state.cats[b.dataset.c] = !state.cats[b.dataset.c]; renderPanel(); redrawNow(); };
-  $('#cCons').onchange = (e) => { state.construction = e.target.checked; replay(); };
+  $('#cCons').onchange = (e) => { state.construction = e.target.checked; show(); };
   const code = $('#code');
   if (code) {
     let tmr = 0;
     code.oninput = () => { clearTimeout(tmr); tmr = setTimeout(() => { state.code = code.value; redrawNow(); }, 250); };
-    $('#codeReset').onclick = () => { state.code = null; renderPanel(); recompile(); replay(); };
+    $('#codeReset').onclick = () => { state.code = null; renderPanel(); recompile(); show(); };
   }
   const si = $('#srcImg'); if (si) si.onclick = () => lightbox(f.page);
   bindBrush();
@@ -411,7 +412,7 @@ function renderScenePanel(P) {
   P.innerHTML =
     '<div class="lesson"><p class="eyebrow">Scene</p><h2>構図</h2><div class="en">A picture made of his figures</div>' +
     '<p>The engine picks a subject, puts it in the setting the book draws it in (sea creatures over waves, travellers in rain, a crane at the water), and adds a companion and weather that belong there.</p></div>' +
-    '<div class="row"><button class="btn primary" id="roll">New picture</button><button class="btn" id="replay">Replay</button></div>' +
+    '<div class="row"><button class="btn primary" id="roll">New picture</button></div>' +
     '<div class="controls">' +
     '<label for="kSub">Subject</label><select id="kSub" style="grid-column:2/4"><option value="">chosen by the picture</option>' + figs.map((f) => '<option value="' + esc(f.id) + '"' + (c.subject === f.id ? ' selected' : '') + '>' + esc((f.jp ? f.jp + '  ' : '') + f.title) + '</option>').join('') + '</select>' +
     '<label>Figures</label><div class="seg" id="kPaint">' + [['hokusai', '写 Hokusai\'s strokes'], ['rules', '規 Old version']].map(([k, l]) => '<button data-v="' + k + '" aria-pressed="' + ((c.paint || 'hokusai') === k) + '">' + l + '</button>').join('') + '</div>' +
@@ -420,9 +421,8 @@ function renderScenePanel(P) {
     (cap.length ? '<div><p class="eyebrow">What is in this picture</p><dl class="cap">' + cap.map((r) =>
       '<dt>' + esc(r.k) + '</dt><dd>' + (r.fig ? '<button class="linkish" data-fig="' + esc(r.fig) + '">' + esc(r.v) + '</button>' : '<b>' + esc(r.v) + '</b>') + '<span>' + esc(r.why) + '</span></dd>').join('') + '</dl></div>' : '') +
     brushHTML();
-  const save = () => { store.set('scene', c); recompile(); renderPanel(); replay(); };
+  const save = () => { store.set('scene', c); recompile(); renderPanel(); show(); };
   $('#roll').onclick = () => { c.seed = Math.floor(Math.random() * 99999); save(); };
-  $('#replay').onclick = replay;
   $('#kSub').onchange = (e) => { c.subject = e.target.value; save(); };
   $('#kPaint').onclick = (e) => { const b = e.target.closest('[data-v]'); if (!b) return; c.paint = b.dataset.v; save(); };
   $('#kVary').onchange = (e) => { c.vary = +e.target.value; save(); };
@@ -495,11 +495,11 @@ function setMode(m) {
   if (m === 'scene' && !state.scene.subject) state.scene.subject = state.fig;
   renderCatalogue();
   if (rb) return renderRulebook();
-  recompile(); renderPanel(); replay();
+  recompile(); renderPanel(); show();
 }
 document.querySelector('nav').onclick = (e) => { const b = e.target.closest('[data-mode]'); if (b) setMode(b.dataset.mode); };
 setMode(state.mode);
-if (Q.has('still')) { setPlaying(false); state.p = Q.has('t') ? +Q.get('t') : 1.15; draw(); }
+if (Q.has('t')) { setPlaying(false); state.p = +Q.get('t'); draw(); }
 })();
 </script>
 </body>
