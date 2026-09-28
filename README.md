@@ -13,6 +13,8 @@ This folder turns those rules into a small library. A drawing is **plain data**
 (a *figure*), and the library turns that data into ink. The same figure and seed
 always give the same picture. You don't need a prompt.
 
+**Status and design decisions: see [`PROGRESS.md`](PROGRESS.md).**
+
 ```
 hokusai/
   index.html            visualizer: browse lessons, animate constructions, compose scenes, write figures
