@@ -386,16 +386,19 @@
   weeds.forEach((w, i) => { catG['w' + i] = ['maru', w[0], w[1], w[2]]; });
   const catInk = [
     // weed first, so the fish lies over it
-    ...weeds.map(([cx, cy, r]) => ['matsuba', cx, cy, r * 1.25, { a0: 0, a1: 360, n: Math.round(10 + r * 1.5), w: 0.6 }]),
-    ['nuri', 'body', { tone: 0.78, smooth: true }],
+    ...weeds.map(([cx, cy, r]) => ['matsuba', cx, cy, r * 1.3, { a0: 0, a1: 360, n: Math.round(14 + r * 2.2), w: 0.75 }]),
+    // Hokusai's catfish (p.17) is a grey body laid over with fine lines running its whole length
+    ['nuri', 'body', { tone: 0.42, smooth: true }],
+    ['kebiki', { union: ['body'], minus: ['headA', 'cheekR2', 'cheekR', 'eyeL', 'eyeR'] }, { along: [[30, 72], [27, 90], [34, 108], [40, 125], [45, 140], [43, 155], [39, 170], [36, 188], [33, 202]], span: 30, gap: 0.75, w: 0.36, jitter: 0, taper: [0.05, 0.2] }],
     ['nuri', [[27, 140], [26, 152], [20, 160], [16, 168], [26, 164], [30, 152]], { tone: 1 }],
     ['nuri', [[58, 110], [63, 125], [64, 138], [62, 150], [58, 135], [55, 120]], { tone: 1, smooth: true }],
     ['rinkaku', ['body', 'tailFin', 'pecL', 'pecR'], { w: 1.5 }],
     ['nuri', 'pecL', { tone: 0 }], ['nuri', 'pecR', { tone: 0 }], ['nuri', 'tailFin', { tone: 0 }],
     ['nazoru', 'pecL', { w: 1.3 }], ['nazoru', 'pecR', { w: 1.3 }], ['nazoru', 'tailFin', { w: 1.3 }],
-    ['kebiki', 'tailFin', { angle: 35, gap: 1.6, w: 0.55, curve: 0.3 }],
-    ['kebiki', 'pecL', { angle: 30, gap: 1.7, w: 0.55, curve: 0.4 }],
-    ['kebiki', 'pecR', { angle: -5, gap: 1.5, w: 0.55, curve: 0.3 }],
+    ['kebiki', 'tailFin', { angle: 35, gap: 1.05, w: 0.4, curve: 0.3 }],
+    ['kebiki', 'pecL', { angle: 30, gap: 1.1, w: 0.4, curve: 0.4 }],
+    ['kebiki', 'pecR', { angle: -5, gap: 1.0, w: 0.4, curve: 0.3 }],
+    ['nuri', [[5, 147], [10, 157], [19, 167], [14, 152]], { tone: 0.85, smooth: true }],
     ['nuri', [[64, 176], [72, 172], [84, 168], [96, 165], [88, 172], [75, 177]], { tone: 0.9, smooth: true }],
     ['nazoru', 'dorsal', { w: 1.2 }], ['kebiki', [[31, 79], [37, 80], [39, 87], [36, 93], [32, 91]], { angle: 20, gap: 1.3, w: 0.5 }],
     ['nazoru', 'gill', { w: 1.1, tone: 0 }],
@@ -407,7 +410,6 @@
     ['nazoru', 'cheekR', { deg: [270, 450], w: 0.8, tone: 0.25 }],
     ['fude', [[15, 186], [8, 183], [2, 178], [1, 172]], { w: 1.3, taper: [0.05, 0.8] }],
     ['fude', [[26, 202], [27, 208], [30, 214]], { w: 1.2, taper: [0.05, 0.8] }],
-    ['ten', { union: ['body'], minus: ['headA', 'cheekR2', 'cheekR'] }, { n: 40, r: 0.5, tone: 0.45, minGap: 3 }],
   ];
   H.register({
     id: 'namazu-mo',
@@ -415,7 +417,7 @@
     jp: '鯰と藻',
     vol: 1, page: 17,
     note: 'The catfish is two long compass sweeps that meet at the tail, with a pile of small circles for the blunt head and two ringed circles for the eyes; each fin is a lens of two arcs. The water weed is strings of small circles, and every circle is inked as a starburst of needles.',
-    rules: ['maru', 'rinkaku', 'nuri', 'kebiki', 'matsuba'],
+    rules: ['maru', 'rinkaku', 'nuri', 'kebiki', 'matsuba', 'te'],
     size: [100, 215],
     silhouette: ['body', 'tailFin', 'pecL', 'pecR'],
     guides: catG,

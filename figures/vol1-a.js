@@ -10,7 +10,7 @@ Hokusai.register({
   jp: '獅子',
   vol: 1, page: 5,
   note: 'The crouching shishi is one large circle with a smaller face circle inside it; the mane is a crown of circles along the top edge, each inked as a spiral, and the tail is a pair of compass arcs sweeping off to the right.',
-  rules: ['maru', 'rinkaku', 'uzu', 'kebiki'],
+  rules: ['maru', 'rinkaku', 'uzu', 'kebiki', 'te', 'kage'],
   size: [108, 82],
   silhouette: ['body', 'm1', 'm2', 'm3', 'curl', 'paw'],
   guides: {
@@ -27,40 +27,37 @@ Hokusai.register({
     m3: ['maru', 70, 25, 12.5],
     tail1: ['ko', 82, 60, 30, 245, 300],
     tail2: ['ko', 84, 52, 22, 240, 295],
+    _tail: ['kata', [[57, 41], [68, 34], [84, 30.5], [99, 32], [107, 38.5], [99, 45], [86, 44], [72, 47.5], [58, 51]]],
   },
   ink: [
-    ['rinkaku', ['body', 'm1', 'm2', 'm3', 'curl', 'paw'], { w: 1.8 }],
-    // mane: every circle becomes a spiral
-    ['uzu', 37, 13.5, 8, { turns: 2.6, w: 1.1 }],
-    ['uzu', 53.5, 13, 9, { turns: 2.8, w: 1.1, dir: -1 }],
-    ['uzu', 70, 25.5, 11, { turns: 3.2, w: 1.1 }],
-    ['uzu', 61.5, 34.5, 6, { turns: 2.2, w: 1 }],
-    ['uzu', 18.5, 51.5, 5.5, { turns: 2, w: 0.9, dir: -1 }],
-    // fur of the body, short hairs following the ball
-    ['kebiki', { union: ['body'], minus: ['face', 'cheek', 'm1', 'm2', 'm3', 'curl'] }, { angle: 70, gap: 2.3, len: 3.2, w: 0.65, curve: 1.2 }],
-    // face: brow arc, eyes, nose, mouth
-    ['nazoru', 'face', { deg: [190, 350], w: 1.5, taper: [0.2, 0.2] }],
-    ['kebiki', { union: ['face'], clip: ['body'] }, { angle: 100, gap: 2.6, len: 2, w: 0.5, space: 2.2 }],
-    // bulging eyes under heavy curled brows, broad nose
-    ['fude', [[27, 44.5], [30, 42.5], [33.5, 44]], { w: 2 }],
-    ['fude', [[38.5, 44], [42, 42.5], [45, 44.5]], { w: 2 }],
-    ['fude', [[28.2, 47.5], [30.3, 45.8], [32.4, 47.5], [30.3, 49.2]], { w: 1.1, closed: true }],
-    ['fude', [[39.6, 47.5], [41.7, 45.8], [43.8, 47.5], [41.7, 49.2]], { w: 1.1, closed: true }],
+    // Hokusai's finished shishi (p.5) is almost all texture: a thin body line, a coat of
+    // curly tufts, every mane circle a whorl of many parallel lines, the tail a flow of hair.
+    ['nazoru', 'body', { outside: ['m1', 'm2', 'm3', 'curl', 'paw'], w: 1.1 }],
+    ['uzu', 37, 13.5, 9.2, { turns: 1.6, lines: 7, spacing: 1.15, w: 0.5 }],
+    ['uzu', 53.5, 13, 10.2, { turns: 1.7, lines: 8, spacing: 1.15, w: 0.5, dir: -1 }],
+    ['uzu', 70, 25.5, 12.2, { turns: 1.8, lines: 9, spacing: 1.2, w: 0.5 }],
+    ['uzu', 61.5, 34.5, 6.8, { turns: 1.5, lines: 5, spacing: 1.1, w: 0.48 }],
+    ['uzu', 18.5, 51.5, 6.2, { turns: 1.5, lines: 5, spacing: 1.1, w: 0.48, dir: -1 }],
+    ['fusa', { union: ['body'], minus: ['face', 'cheek', 'm1', 'm2', 'm3', 'curl'] }, { n: 40, size: 3.1, w: 0.42 }],
+    ['fusa', { union: ['face'], minus: ['eye', 'chin1', 'chin2'] }, { n: 7, size: 2.4, w: 0.4 }],
+    ['nazoru', 'face', { deg: [190, 350], w: 1, taper: [0.2, 0.2] }],
+    // bulging eyes under curled brows, broad nose, the open mouth
+    ['fude', [[27, 44.5], [30, 42.5], [33.5, 44]], { w: 1.8, press: 'nail' }],
+    ['fude', [[38.5, 44], [42, 42.5], [45, 44.5]], { w: 1.8, press: 'nail' }],
+    ['fude', [[28.2, 47.5], [30.3, 45.8], [32.4, 47.5], [30.3, 49.2]], { w: 0.9, closed: true }],
+    ['fude', [[39.6, 47.5], [41.7, 45.8], [43.8, 47.5], [41.7, 49.2]], { w: 0.9, closed: true }],
     ['nuri', [[30.8, 46.6], [32, 47.5], [30.8, 48.4], [29.8, 47.5]], { smooth: true }],
     ['nuri', [[42.2, 46.6], [43.4, 47.5], [42.2, 48.4], [41.2, 47.5]], { smooth: true }],
-    ['fude', [[33, 52.5], [34.5, 55], [37.5, 55], [39, 52.5]], { w: 1.5 }],
-    // open mouth with teeth
-    ['fude', [[29, 58], [33, 60.5], [36, 59.5], [39, 60.5], [43, 58]], { w: 1.4 }],
-    ['fude', [[33, 60.5], [33.2, 58.8]], { w: 0.8 }], ['fude', [[39, 60.5], [38.8, 58.8]], { w: 0.8 }],
-    ['nazoru', 'chin1', { deg: [20, 200], w: 1.3 }],
-    ['nazoru', 'chin2', { deg: [300, 160], w: 1.1 }],
-    ['nazoru', 'paw', { deg: [200, 330], w: 1.1 }],
-    // tail: the two arcs, filled in with flowing hairs
-    ['nazoru', 'tail1', { w: 1.6, taper: [0.1, 0.7] }],
-    ['nazoru', 'tail2', { w: 1.3, taper: [0.1, 0.7] }],
-    ['fude', [[62, 42], [74, 38], [88, 34], [100, 36]], { w: 1, taper: [0.1, 0.8] }],
-    ['fude', [[60, 46], [76, 42], [92, 40], [102, 43]], { w: 1, taper: [0.1, 0.8] }],
-    ['fude', [[59, 50], [74, 47], [88, 46], [97, 48]], { w: 0.9, taper: [0.1, 0.8] }],
+    ['fude', [[33, 52.5], [34.5, 55], [37.5, 55], [39, 52.5]], { w: 1.3 }],
+    ['fude', [[29, 58], [33, 60.5], [36, 59.5], [39, 60.5], [43, 58]], { w: 1.2 }],
+    ['fude', [[33, 60.5], [33.2, 58.8]], { w: 0.7 }], ['fude', [[39, 60.5], [38.8, 58.8]], { w: 0.7 }],
+    ['nazoru', 'chin1', { deg: [20, 200], as: 'fur', len: 2.2, gap: 0.8, w: 0.42 }],
+    ['nazoru', 'chin2', { deg: [300, 160], as: 'fur', len: 2, gap: 0.8, w: 0.42 }],
+    // paw with hooked claws
+    ['nazoru', 'paw', { deg: [200, 330], w: 0.9 }],
+    ['fude', [[51, 63], [49.5, 66.5], [51.5, 67]], { w: 0.9 }], ['fude', [[55, 66], [54.5, 69.5], [56.5, 69.5]], { w: 0.9 }], ['fude', [[59.5, 65], [60, 68.5], [61.5, 67.5]], { w: 0.9 }],
+    // the tail: long hairs flowing off to the right
+    ['kebiki', '_tail', { along: [[57, 46], [70, 40], [86, 37], [100, 38.5], [108, 42]], span: 9, gap: 0.85, w: 0.42, press: 'harai', taper: [0.05, 0.6] }],
   ],
 });
 
@@ -357,7 +354,7 @@ Hokusai.register({
   jp: '鶴',
   vol: 1, page: 10,
   note: 'The crane is a circle for the head with a wedge for the beak, a ruled right-angled trapezoid for the body, one long compass arc for the back of the wing, two ruled lines for the legs and two lozenges whose edges become the toes.',
-  rules: ['kiku', 'maru', 'kaku', 'nuri', 'kebiki'],
+  rules: ['kiku', 'maru', 'kaku', 'nuri', 'uroko', 'te', 'kage'],
   size: [80, 108],
   silhouette: ['head', 'beak', 'body', 'plume'],
   guides: {
@@ -371,6 +368,7 @@ Hokusai.register({
     legR: ['sen', 32.1, 57.9, 37.9, 91.4],
     footL: ['hishi', 32.9, 96, 17, 17],
     footR: ['hishi', 46.4, 91.4, 18, 17],
+    _wingArea: ['kata', [[8, 40], [16, 31], [27, 25], [45, 23.5], [36, 42], [30, 52], [22, 55], [12, 56]]],
   },
   ink: [
     // head: black crown and nape, eye, beak
@@ -383,15 +381,17 @@ Hokusai.register({
     ['fude', [[48, 17], [47, 22], [44, 24.5]], { w: 1.2 }],
     // body: the wing arc and the back ruling, with scalloped feathers between
     ['nazoru', 'wing', { w: 1.6, taper: [0.1, 0.05] }],
-    ['nazoru', 'body', { t: [0.25, 0.52], w: 1.4 }],
-    ['kebiki', { union: ['body'], minus: ['plume'] }, { angle: 25, gap: 2.6, len: 2.4, space: 1.2, w: 0.6, curve: 2 }],
-    ['kebiki', [[8, 40], [27, 26], [27, 50], [10, 55]], { angle: 25, gap: 2.8, len: 2.4, space: 1.2, w: 0.6, curve: 2 }],
-    // black tail plumes hanging below the wing
+    // the white breast has no outline, only a row of short marks (p.10)
+    ['nazoru', 'body', { t: [0.25, 0.52], as: 'dash', len: 2, gap: 1.5, w: 0.6 }],
+    // the wing and back: rows of scale feathers
+    ['uroko', { union: ['_wingArea'], minus: ['plume'] }, { size: 2.3, angle: -70, w: 0.45 }],
+    // black tail plumes hanging below the wing, fringed
     ['nuri', 'plume', { smooth: true }],
+    ['rinkaku', ['plume'], { as: 'fur', len: 3.4, gap: 0.7, fall: 0.8, w: 0.55, close: 0 }],
     ['kebiki', [[1, 64], [8, 68], [5, 76], [1, 72]], { angle: 110, gap: 1.1, w: 0.9, taper: [0.1, 0.7] }],
     // legs and toes on the lozenge edges
-    ['nazoru', 'legL', { w: 1.5, taper: [0.02, 0.02] }],
-    ['nazoru', 'legR', { w: 1.5, taper: [0.02, 0.02] }],
+    ['nazoru', 'legL', { w: 1.1, taper: [0.02, 0.02] }],
+    ['nazoru', 'legR', { w: 1.1, taper: [0.02, 0.02] }],
     ['nazoru', 'footL', { t: [0.75, 1], w: 1.2, taper: [0.02, 0.4] }],
     ['nazoru', 'footL', { t: [0.5, 0.75], w: 1.2, taper: [0.4, 0.02] }],
     ['fude', [[24.4, 96], [41.4, 96]], { w: 1.2, taper: [0.02, 0.4] }],

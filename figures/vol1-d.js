@@ -243,7 +243,7 @@
       id: 'minokasa-ame', title: 'Traveller in straw coat and hat, in rain', jp: '蓑笠',
       vol: 1, page: 26,
       note: 'Hat and face are two nested circles; two large overlapping circles make the straw coat; a small circle for the knee, a triangle for the shin and a circle for the foot. One long ruled line is the staff, and the rain is ruled steep diagonals.',
-      rules: ['maru', 'kiku', 'hosha', 'kebiki', 'ame', 'rinkaku', 'nuri'],
+      rules: ['maru', 'kiku', 'hosha', 'kebiki', 'ame', 'rinkaku', 'nuri', 'te', 'kage'],
       size: [108, 212],
       silhouette: body,
       guides: {
@@ -271,8 +271,10 @@
         ['fude', A.P([[244, 265], [240, 280], [248, 283]]), { w: 1 }],
         ['fude', A.P([[232, 298], [245, 294], [256, 300]]), { w: 1.1 }],
         // straw coat: long hanging strokes filling both coat circles
-        ['kebiki', { union: ['mune', 'mino'], minus: ['kasa'] }, { angle: 97, gap: 1.5, len: 12, space: 3, w: 0.6, curve: 0.5, jitter: 0.5 }],
-        ['kebiki', { union: ['mune', 'mino'], minus: ['kasa'] }, { angle: 82, gap: 3.2, len: 8, space: 6, w: 0.5, jitter: 0.5 }],
+        // the straw coat (p.26): long straws falling in layers, thickest on the far side, its edge a fringe
+        ['kebiki', { union: ['mune', 'mino'], minus: ['kasa'] }, { angle: 97, gap: 1.0, len: 12, space: 2.5, w: 0.45, curve: 0.5, jitter: 0.5, shade: [7, 3], lit: 0.35 }],
+        ['kebiki', { union: ['mune', 'mino'], minus: ['kasa'] }, { angle: 84, gap: 1.9, len: 7, space: 4, w: 0.4, jitter: 0.5 }],
+        ['rinkaku', ['mune', 'mino'], { outside: ['kasa'], as: 'fur', len: 4.2, gap: 0.8, fall: 0.85, flow: 10, w: 0.45 }],
         ['nazoru', 'mino', { deg: [60, 140], outside: ['mune'], w: 0.8, tone: 0.8 }],
         // legs: bound shin, knee, foot
         ['rinkaku', ['sune', 'hiza'], { outside: ['mino'], w: 1.4 }],
@@ -293,7 +295,7 @@
       id: 'inoshishi', title: 'Running wild boar', jp: '猪',
       vol: 1, page: 27,
       note: 'The whole boar is one tilted lozenge: snout at the left corner, hump at the top, rump at the right. A compass arc at each end of the belly marks where the fore and hind legs join, and the legs are bent ruled lines.',
-      rules: ['kaku', 'kiku', 'nazoru', 'kebiki'],
+      rules: ['kaku', 'kiku', 'nazoru', 'kebiki', 'te', 'kage'],
       size: [100, 72],
       silhouette: ['hishi'],
       guides: {
@@ -306,16 +308,15 @@
         mae2: ['kata', A.P([[255, 480], [232, 495], [262, 528]]), false],
         mae3: ['sen', ...A.xy(115, 390, 165, 350)],
         ushiro: ['kata', A.P([[700, 462], [775, 455], [785, 540]]), false],
+        // helper for the finish: the lozenge's corners rounded into a running body
+        _body: ['magari', A.P([[70, 250], [200, 196], [330, 150], [450, 134], [570, 165], [690, 232], [790, 300], [835, 350], [800, 405], [720, 436], [620, 464], [520, 490], [420, 494], [330, 468], [280, 430], [245, 355], [190, 330], [110, 318], [52, 286]]), true],
       },
       ink: [
-        // bristled back from snout over the hump to the rump
-        ...hairs(A.P([[92, 244], [200, 196], [330, 150], [450, 134], [570, 165], [690, 232], [790, 300], [830, 350]]), { seg: 5, gap: 0.4, w: 1.4 }),
-        // underside: jaw, chest, belly, haunch
-        ['fude', A.P([[52, 286], [110, 318], [190, 330], [240, 352]]), { w: 1.3 }],
-        ['fude', A.P([[240, 352], [262, 395], [285, 440]]), { w: 1.2 }],
-        ...hairs(A.P([[330, 468], [420, 494], [520, 490], [620, 462], [700, 430]]), { seg: 4, gap: 0.5, w: 1.2 }),
-        ['fude', A.P([[790, 345], [805, 385], [780, 420], [720, 432]]), { w: 1.2 }],
-        ['fude', A.P([[800, 300], [835, 318], [850, 305]]), { w: 1 }],
+        // the finished boar (p.27): a rope of bristles along the spine, the rest of the edge
+        // broken into short hairs, hair crowding the jowl, chest and belly; the lit back is bare
+        ['nazoru', '_body', { t: [0.02, 0.47], as: 'dash', len: 2.6, gap: 1.25, w: 0.85 }],
+        ['nazoru', '_body', { t: [0.47, 1.0], as: 'fur', len: 2.6, gap: 0.8, fall: 0.35, w: 0.5 }],
+        ['kebiki', '_body', { angle: 100, gap: 1.2, len: 3.4, space: 1.4, w: 0.42, shade: [-2, 9], lit: 0.06 }],
         // snout disc, nostril, eye, ear, tusk
         ['nazoru', 'hana', { w: 1.6 }],
         ['fude', A.P([[62, 262], [64, 264]]), { w: 2.2 }],
@@ -323,7 +324,7 @@
         ['fude', A.P([[232, 258], [234, 262]]), { w: 2 }],
         ['fude', A.P([[355, 205], [372, 172], [400, 180], [392, 205]]), { w: 1.3 }],
         ['fude', A.P([[228, 300], [258, 318], [268, 336], [248, 322]]), { w: 1.4 }],
-        ['kebiki', A.P([[120, 250], [330, 160], [410, 175], [390, 240], [300, 300], [150, 290]]), { angle: 20, gap: 2.4, len: 2.4, w: 0.6 }],
+        ['kebiki', A.P([[120, 250], [330, 160], [410, 175], [390, 240], [300, 300], [150, 290]]), { angle: 20, gap: 1.2, len: 2.4, w: 0.45, shade: [6, 5], lit: 0.12 }],
         // leg joins survive as short arcs, legs as bent strokes
         ['nazoru', 'kata', { t: [0.45, 0.85], w: 1 }],
         ['nazoru', 'koshi', { t: [0.35, 1], w: 1 }],
@@ -438,7 +439,7 @@
       id: 'shika-momiji', title: 'Resting deer with maple leaves', jp: '鹿',
       vol: 1, page: 28,
       note: 'A small head circle with two triangle ears sits on a large chest circle; the folded body is one wide ellipse with a haunch circle inside it, and the tucked foreleg is a triangle. Antlers are ruled branching lines, and each falling maple leaf starts as a six-ray asterisk.',
-      rules: ['maru', 'kaku', 'rinkaku', 'nazoru', 'kebiki', 'nuri'],
+      rules: ['maru', 'kaku', 'rinkaku', 'nazoru', 'ten', 'nuri', 'te', 'kage'],
       size: [103, 74],
       silhouette: ['atama', 'mune', 'do', 'maeashi', 'mimiL', 'mimiR'],
       guides: Object.assign({
@@ -461,7 +462,10 @@
         edaR4: ['sen', ...A.xy(445, 74, 418, 52)],
       }, hoshi),
       ink: [
-        ['rinkaku', ['atama', 'mune', 'do'], { w: 1.2, wobble: 0.35 }],
+        // finished deer (p.28): a thin body line, hair along the chest, a coat of short upright ticks
+        ['rinkaku', ['atama', 'mune', 'do'], { w: 1, wobble: 0.35 }],
+        ['nazoru', 'mune', { deg: [105, 215], outside: ['do', 'maeashi'], as: 'fur', len: 2.6, gap: 0.8, fall: 0.5, w: 0.45 }],
+        ['nazoru', 'atama', { deg: [60, 170], as: 'fur', len: 1.8, gap: 0.8, fall: 0.4, w: 0.4 }],
         ['rinkaku', ['maeashi'], { outside: ['mune', 'do'], w: 1.3 }],
         ['nuri', A.P([[155, 525], [200, 520], [215, 540], [170, 540]]), { smooth: true }],
         // the dark back and the dark front of the neck
@@ -476,7 +480,7 @@
         ...['edaL1', 'edaL2', 'edaL3', 'edaR1', 'edaR2', 'edaR3', 'edaR4'].map((k) => ['nazoru', k, { w: 1.7, taper: [0.02, 0.7] }]),
         // haunch fold, dappled coat, tail
         ['nazoru', 'momo', { deg: [110, 250], w: 1 }],
-        ['kebiki', { union: ['do', 'mune'], minus: ['atama'] }, { angle: 75, gap: 2.8, len: 1.1, space: 2.4, w: 0.55 }],
+        ['ten', { union: ['do', 'mune'], minus: ['atama', 'maeashi'] }, { mark: 'tick', n: 150, r: 0.3, angle: 100, minGap: 1.9 }],
         ['fude', A.P([[665, 500], [672, 540], [668, 575]]), { w: 2.2 }],
         ['hosha', ...A.p(668, 575), 0, A.d(22), { n: 7, a0: 60, a1: 120, w: 0.5 }],
         // maple leaves: solid five-lobed stars on the asterisk centres

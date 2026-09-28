@@ -6,7 +6,7 @@ Hokusai.register({
   jp: '達磨',
   vol: 1, page: 6,
   note: 'The seated Daruma is three rounded boxes and one ellipse: hood, face, body, lap. Only their union is inked; the face box survives inside the hood.',
-  rules: ['kiku', 'kaku', 'rinkaku', 'nazoru', 'nuri'],
+  rules: ['kiku', 'kaku', 'rinkaku', 'nazoru', 'nuri', 'te', 'kage'],
   size: [100, 100],
   silhouette: ['hood', 'body', 'lap'],
   guides: {
@@ -17,23 +17,36 @@ Hokusai.register({
     body: ['kakumaru', 28, 28, 44, 58, 15],
     lap: ['daen', 50, 72, 45, 17],
     knee: ['maru', 57, 78, 11],
+    // helpers for the finish: the beard band and the glaring eyes
+    _beard: ['kata', [[38.5, 23], [38, 33], [39.5, 41], [44, 47], [50, 49.5], [56, 47], [60.5, 41], [62, 33], [61.5, 23], [59.5, 31], [57, 38.5], [53.5, 42.5], [50, 43.5], [46.5, 42.5], [43, 38.5], [40.5, 31]]],
+    _eyeL: ['maru', 44.2, 26.5, 2.7],
+    _eyeR: ['maru', 55.8, 26.5, 2.7],
+    _pupL: ['maru', 44.6, 26.8, 0.95],
+    _pupR: ['maru', 55.4, 26.8, 0.95],
   },
   ink: [
+    // hood and lap: one heavy sweep each, the joins flowing
     ['rinkaku', ['hood', 'body', 'lap'], { w: 1.9 }],
     ['nazoru', 'face', { inside: ['hood'], w: 1.5 }],
-    // brows, eyes, nose
-    ['fude', [[40, 25], [44, 23.5], [47, 25]], { w: 1.4 }],
-    ['fude', [[53, 25], [56, 23.5], [60, 25]], { w: 1.4 }],
-    ['fude', [[42, 29], [44, 28.2], [46, 29]], { w: 1.1 }],
-    ['fude', [[54, 29], [56, 28.2], [58, 29]], { w: 1.1 }],
-    ['fude', [[50, 30], [49, 35], [51.5, 36.5]], { w: 1.1 }],
-    // beard as one flat ink mass (墨)
-    ['nuri', [[39, 36], [42, 44], [50, 49], [58, 44], [61, 36], [57, 42], [50, 44], [43, 42]], { smooth: true }],
-    ['fude', [[46, 40], [50, 39], [54, 40]], { w: 1 }],
-    // robe folds follow the knee circle
-    ['nazoru', 'knee', { deg: [160, 330], w: 1.5, taper: [0.2, 0.4] }],
-    ['fude', [[36, 60], [38, 70], [44, 78]], { w: 1.3 }],
-    ['fude', [[64, 56], [66, 66], [63, 72]], { w: 1.2 }],
+    // the beard: flat black, its edge bristling (隈)
+    ['nuri', '_beard', { smooth: true }],
+    ['rinkaku', ['_beard'], { as: 'fur', len: 1.9, gap: 0.55, w: 0.45, fall: 0.25, flow: 0, close: 0 }],
+    // glaring eyes, heavy brows, the nose, the set mouth
+    ['nazoru', '_eyeL', { w: 0.8 }], ['nazoru', '_eyeR', { w: 0.8 }],
+    ['nuri', '_pupL'], ['nuri', '_pupR'],
+    ['fude', [[39.5, 23.2], [43, 21.4], [47.5, 22.4]], { w: 2.4, press: 'nail', taper: [0.3, 0.1] }],
+    ['fude', [[60.5, 23.2], [57, 21.4], [52.5, 22.4]], { w: 2.4, press: 'nail', taper: [0.3, 0.1] }],
+    ['fude', [[50.3, 27], [49, 32.5], [48, 34.2], [50.5, 35.3], [52.5, 34.3]], { w: 1.1 }],
+    ['fude', [[46.5, 39.4], [50, 38.8], [53.5, 39.4]], { w: 1.2 }],
+    ['fude', [[47.5, 51], [50, 52.5], [53, 51]], { w: 0.9 }],
+    // the robe falls in long swelling strokes from the shoulders into the lap
+    ['fude', [[37.5, 50], [34.5, 60], [33.5, 71], [36.5, 82]], { w: 1.9, press: 'swell', taper: [0.1, 0.5] }],
+    ['fude', [[42, 55], [42.5, 66], [46, 76], [52, 84]], { w: 1.5, press: 'swell', taper: [0.15, 0.5] }],
+    ['fude', [[62.5, 50], [65, 60], [65.5, 70]], { w: 1.7, press: 'swell', taper: [0.1, 0.5] }],
+    ['fude', [[57, 57], [56.5, 66], [60, 74]], { w: 1.2, press: 'swell', taper: [0.15, 0.6] }],
+    ['nazoru', 'knee', { deg: [165, 330], w: 1.8, taper: [0.2, 0.4] }],
+    // the hem on the mat: a rope of short marks
+    ['nazoru', 'lap', { deg: [25, 155], as: 'dash', len: 2.6, gap: 1.8, w: 0.9 }],
   ],
 });
 
@@ -43,7 +56,7 @@ Hokusai.register({
   jp: '蝦蟇',
   vol: 1, page: 17,
   note: 'A toad is two large overlapping circles (belly and back), a smaller haunch circle and an ellipse for the head. The rain is a field of ruled diagonals that passes behind it.',
-  rules: ['maru', 'rinkaku', 'ten', 'ame'],
+  rules: ['maru', 'rinkaku', 'ten', 'ame', 'te', 'kage'],
   size: [100, 80],
   silhouette: ['belly', 'back', 'haunch', 'head'],
   guides: {
@@ -55,18 +68,26 @@ Hokusai.register({
     eyeR: ['maru', 38, 19, 3.4],
     footL: ['sankaku', 14, 70, 24, 66, 20, 74],
     footR: ['sankaku', 58, 71, 70, 70, 64, 75],
+    _pupL: ['maru', 25.4, 20.3, 1.1],
+    _pupR: ['maru', 37.6, 19.3, 1.1],
   },
   ink: [
-    ['ame', null, { angle: 48, gap: 4.2, minus: ['belly', 'back', 'haunch', 'head', 'footL', 'footR'] }],
-    ['rinkaku', ['belly', 'back', 'haunch', 'head', 'footL', 'footR'], { w: 1.8 }],
-    ['nazoru', 'belly', { deg: [100, 200], outside: ['head'], w: 1.2 }],
-    ['nazoru', 'eyeL', { w: 1.2 }], ['nazoru', 'eyeR', { w: 1.2 }],
-    ['nuri', 'eyeL', { tone: 1 }], ['nuri', 'eyeR', { tone: 1 }],
-    ['fude', [[21, 29], [30, 32], [42, 29]], { w: 1.2 }],
-    // warts: dense on the back, sparse on the belly
-    ['ten', { union: ['back', 'haunch'], minus: ['belly'] }, { n: 90, r: 0.75 }],
-    ['ten', 'belly', { n: 22, r: 0.55 }],
-    ['kebiki', { union: ['back'], minus: ['belly'] }, { angle: 110, gap: 2.2, len: 3, w: 0.6 }],
+    ['ame', null, { angle: 48, gap: 3.4, w: 0.35, minus: ['belly', 'back', 'haunch', 'head', 'footL', 'footR'] }],
+    ['rinkaku', ['belly', 'back', 'haunch', 'head', 'footL', 'footR'], { w: 1.3 }],
+    ['nazoru', 'belly', { deg: [100, 200], outside: ['head'], w: 0.9 }],
+    // eyes ringed, the mouth one long line
+    ['nazoru', 'eyeL', { w: 0.9 }], ['nazoru', 'eyeR', { w: 0.9 }],
+    ['nuri', '_pupL'], ['nuri', '_pupR'],
+    ['fude', [[20, 29], [30, 32.5], [43, 29]], { w: 1 }],
+    // warts: irregular black blotches crowd the back and haunch; the pale belly only speckled
+    ['ten', { union: ['back', 'haunch'], minus: ['belly'] }, { mark: 'blotch', n: 62, r: 0.68, minGap: 2.1 }],
+    ['ten', { union: ['head'], minus: ['eyeL', 'eyeR'] }, { mark: 'blotch', n: 9, r: 0.55, minGap: 2.2 }],
+    ['ten', 'belly', { n: 95, r: 0.3, minGap: 1.5 }],
+    // splayed toes
+    ['fude', [[19, 71], [12.5, 74.5]], { w: 0.8, taper: [0.1, 0.6] }], ['fude', [[19.5, 71.5], [15, 76.5]], { w: 0.8, taper: [0.1, 0.6] }],
+    ['fude', [[20, 72], [18.5, 77]], { w: 0.8, taper: [0.1, 0.6] }],
+    ['fude', [[64, 72], [70.5, 75]], { w: 0.8, taper: [0.1, 0.6] }], ['fude', [[64, 72.5], [67.5, 77]], { w: 0.8, taper: [0.1, 0.6] }],
+    ['fude', [[63.5, 73], [63.5, 77.5]], { w: 0.8, taper: [0.1, 0.6] }],
   ],
 });
 

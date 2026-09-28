@@ -30,11 +30,12 @@ try {
   }
   if (q.get('gallery')) {
     const row = document.createElement('div'); row.className = 'row'; row.style.flexWrap = 'wrap';
-    for (const f of Hokusai.list()) {
-      const c = Hokusai.compile(f, { style: STYLE, hand: HAND }), s = 150 / Math.max(c.size[0], c.size[1]);
+    const only = (q.get('only') || '').split(',').filter(Boolean);
+    for (const f of Hokusai.list((f) => !only.length || only.includes(f.id))) {
+      const G = +(q.get('gsize') || 150), c = Hokusai.compile(f, { style: STYLE, hand: HAND }), s = G / Math.max(c.size[0], c.size[1]);
       const cv = document.createElement('canvas'); cv.width = c.size[0] * s; cv.height = c.size[1] * s;
       const gg = cv.getContext('2d'); Hokusai.paper(gg, cv.width, cv.height, 3, STYLE); Hokusai.render(gg, c, { scale: s, guides: 'none' });
-      const box = document.createElement('div'); box.style.width = '156px'; box.appendChild(cv);
+      const box = document.createElement('div'); box.style.width = (G + 6) + 'px'; box.appendChild(cv);
       box.appendChild(Object.assign(document.createElement('div'), { textContent: f.id + ' p' + f.page }));
       row.appendChild(box);
     }

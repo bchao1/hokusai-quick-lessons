@@ -254,9 +254,10 @@
         ['fude', p([[464, 614], [485, 598], [499, 607]]), { w: 1.3 }],
         ['fude', p([[503, 605], [518, 596], [529, 605]]), { w: 1.3 }],
         ['fude', p([[534, 596], [548, 590], [562, 600]]), { w: 1.3 }],
-        ['ten', 'mist1', { n: 28, r: 0.4, minGap: 1.8 }],
-        ['ten', 'mist2', { n: 60, r: 0.4, minGap: 1.8 }],
-        ['ten', 'mist3', { n: 75, r: 0.4, minGap: 1.8 }],
+        // mist (p.56): drifts of tiny flicked dots, not an even stipple
+        ['ten', 'mist1', { mark: 'tick', n: 70, r: 0.24, angle: 10, minGap: 1.05 }],
+        ['ten', 'mist2', { mark: 'tick', n: 150, r: 0.24, angle: 10, minGap: 1.05 }],
+        ['ten', 'mist3', { mark: 'tick', n: 170, r: 0.24, angle: 10, minGap: 1.05 }],
         // cedars written as 耒, and the shore
         ...trees.map(([x, y, s]) => ['moji', '耒', v(x - s / 2), v(y), v(s), { sy: 1.5, w: 1 }]),
         ['fude', p([[310, 1082], [420, 1078], [560, 1075]]), { w: 1.3, taper: [0.05, 0.3] }],
@@ -275,15 +276,16 @@
       jp: '幽霊',
       vol: 2, page: 57,
       note: 'The ghost is written with kana: ら is the bowed head and the loop of the limp arms, め is the hands hanging from the wrist, and one long falling stroke is the edge of the hair. The hair itself is built from ヒ written again and again down the page (shown in the corner of the spread), here as masses of long strands.',
-      rules: ['moji', 'hayabiki', 'kebiki', 'nuri'],
+      rules: ['moji', 'hayabiki', 'kebiki', 'nuri', 'te', 'kage'],
       size: [100, 238],
       guides: {
         hair: ['kata', p([[150, 40], [200, 26], [250, 22], [300, 30], [340, 52], [362, 90], [366, 120], [360, 300], [332, 380], [300, 262], [270, 200], [232, 182], [200, 242], [160, 332], [140, 500], [112, 700], [96, 950], [60, 800], [20, 600], [30, 400], [70, 230], [110, 120]])],
       },
       ink: [
-        ['nuri', 'hair', { tone: 0.5 }],
-        ['kebiki', 'hair', { angle: 96, gap: 1.6, w: 0.5, jitter: 0.5, curve: -0.3 }],
-        ['kebiki', 'hair', { angle: 100, gap: 3.1, len: 40, space: 8, w: 0.7, jitter: 0.6 }],
+        // the hair (p.57): a dense fall of fine strands following its own curve, darkest at the crown
+        ['nuri', 'hair', { tone: 0.22 }],
+        ['kebiki', 'hair', { along: p([[250, 20], [150, 110], [90, 300], [70, 520], [80, 760], [96, 950]]), span: 75, gap: 0.55, w: 0.3, jitter: 0.3, taper: [0.05, 0.5] }],
+        ['kebiki', 'hair', { along: p([[250, 20], [150, 110], [90, 300], [70, 520], [80, 760], [96, 950]]), span: 75, gap: 0.5, len: 30, space: 10, w: 0.42, jitter: 0.4, shade: [0, -40], lit: 0.15 }],
         // the long falling stroke
         ['fude', p([[118, 110], [74, 240], [40, 420], [40, 620], [70, 820], [92, 948]]), { w: 1.6, taper: [0.1, 0.6], press: 'harai' }],
         // ら: bowed head tick, then the loop of the arms

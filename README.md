@@ -86,10 +86,11 @@ the stroke length that tapers), `press: 'flat' | 'swell' | 'harai' | 'nail'`,
 | `nazoru` なぞる | `name, {t:[t0,t1] \| deg:[a0,a1], outside, inside, w, taper, as}` | trace one guide, a span of it, or only the part inside or outside other guides |
 | `fude` 筆 | `[[x,y]...], {w, taper, press, smooth=true, closed}` | free brush stroke through control points (Catmull-Rom) |
 | `nuri` 塗り | `region, {tone=1, minus:[names], clip:[names], smooth}` | flat fill; region = guide name, list of names (union) or polygon points |
-| `kebiki` 毛引き | `region, {angle=90, gap=2, len, space, w=0.7, curve, jitter, shade:[dx,dy], lit, clump}` | hatching clipped to a region; with `len`, short hair strokes that bend and clump; `shade` keeps every hair near the edge on that side and only `lit` of the rest |
+| `kebiki` 毛引き | `region, {angle=90, gap=2, len, space, w=0.7, curve, jitter, shade:[dx,dy], lit, clump, along, span}` | hatching clipped to a region; with `len`, short hair strokes that bend and clump; `shade` keeps every hair near the edge on that side and only `lit` of the rest; `along` (a guide name or points) makes the lines follow a curve such as a fish's spine or falling hair, `span` sets how far they spread from it |
 | `uroko` 鱗 | `region, {size=3, angle=0, open=180, w}` | rows of scallops: fish scales, feathers, roof tiles; arcs open away from `angle` |
-| `ten` 点 | `region, {n=60, r=0.6, minGap, tone, mark, angle}` | stipple dots inside a region; `mark: 'tick'` makes leaning wedge strokes (a dappled coat) |
-| `uzu` 渦 | `cx, cy, r, {turns=2.2, start=0, dir=±1, w}` | spiral curl |
+| `ten` 点 | `region, {n=60, r=0.6, minGap, tone, mark, angle}` | stipple dots inside a region; `mark: 'tick'` makes leaning wedge strokes (a dappled coat, mist); `mark: 'blotch'` makes irregular ink patches (a toad's warts) |
+| `fusa` 房 | `region, {n=24, size=3, w, spread, curl}` | little curly tufts of 4–6 strokes swept the same way: the lion's coat |
+| `uzu` 渦 | `cx, cy, r, {turns=2.2, start=0, dir=±1, w, lines, spacing}` | spiral curl; `lines > 1` gives a whorl of parallel spirals (the lion's mane) |
 | `matsuba` 松葉 | `cx, cy, r, {a0=195, a1=345, n=18}` | fan of pine needles from a base point |
 | `hosha` 放射 | `cx, cy, r0, r1, {n=24, a0, a1, w}` | radial lines between two radii (umbrella ribs, rays) |
 | `ame` 雨 | `region\|null, {angle=60, gap=4, w, minus:[names], broken}` | ruled rain lines across the panel (null = whole figure) |
