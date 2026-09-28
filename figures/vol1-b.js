@@ -18,7 +18,7 @@
     jp: '荷馬',
     vol: 1, page: 12,
     note: 'The horse is three circles in a row (chest, barrel, rump) with a ruled wedge for the neck and hexagons for the lowered head; legs are ruled tubes with circle joints and triangle hooves. The rider is a sedge-hat lozenge over three small circles, with one long compass arc for the back of the cape.',
-    rules: ['kiku', 'maru', 'kaku', 'rinkaku', 'kebiki', 'nuri'],
+    rules: ['kiku', 'maru', 'kaku', 'rinkaku', 'te', 'hifu', 'kage', 'ten', 'nuri'],
     size: [100, 92],
     silhouette: ['chest', 'barrel', 'rump', 'neck', 'hex1', 'hex2', 'muzzle', 'head', 'c2', 'c3', 'brim'],
     guides: {
@@ -59,19 +59,26 @@
       h2k: ['maru', 83.8, 68.2, 2.5],
       h2b: tube(83.8, 68.2, 83.2, 78.8, 1.9, 1.6), h2f: ['maru', 83.2, 78.8, 1.7],
       h2h: ['sankaku', 82.8, 80.2, 89.4, 83.8, 83.6, 84.4],
+      // helpers: the finished legs are skins stretched over those joints (皮), black below the knee
+      _legF1: ['hifu', [[36.5, 62, 3.2], [34.1, 72.2, 2.1], [31.2, 79.5, 1.3], [30.4, 82.4, 1.7], [30.2, 85.6, 1.9]]],
+      _legF2: ['hifu', [[44.6, 64.5, 3.2], [44.7, 71.5, 2.1], [44.6, 77.8, 1.3], [44.5, 80.6, 1.7], [44.4, 85.4, 1.9]]],
+      _legH1: ['hifu', [[67, 61, 3.4], [69.3, 65.9, 2.3], [64.4, 70.4, 1.3], [62, 72.8, 1.7], [60.8, 77.4, 1.9]]],
+      _legH2: ['hifu', [[85.5, 62, 3.6], [83.8, 68.2, 2.2], [83.4, 75.6, 1.3], [83.2, 78.9, 1.7], [85.6, 83, 1.9]]],
+      _upper: ['kata', [[0, 0], [100, 0], [100, 68.8], [83.8, 69.4], [69.3, 67.2], [44.7, 72.6], [34.1, 73.4], [0, 73.4]]],
     },
     ink: [
       // horse silhouette, then shaggy coat
       ['rinkaku', ['chest', 'barrel', 'rump', 'neck', 'hex1', 'hex2', 'muzzle', 'earA', 'earB'], { w: 1.3 }],
-      ['kebiki', { union: ['chest', 'barrel', 'rump', 'neck'], minus: ['saddle', 'c2', 'c3', 'knee'] }, { angle: 105, gap: 2.8, len: 1.8, space: 1.6, w: 0.5 }],
+      // dappled coat: wedge ticks all leaning one way (p.12)
+      ['ten', { union: ['chest', 'barrel', 'rump', 'neck'], minus: ['saddle', 'c2', 'c3', 'knee'] }, { mark: 'tick', n: 130, r: 0.42, angle: 205, minGap: 1.9 }],
       ['kebiki', [[13.4, 67.6], [38.5, 37.5], [42, 40], [18, 68]], { angle: 40, gap: 1.1, len: 3.2, w: 0.75 }],
       ['nuri', 'earA'], ['nuri', 'earB'],
       ['nuri', [[11.7, 72.7], [16.8, 78.9], [19.5, 79.4], [14.5, 72.2]]],
       ['fude', [[18.5, 68], [20.5, 67.2], [22, 68.4]], { w: 1.1 }],
       ['nazoru', 'hex2', { t: [0.55, 0.95], w: 1 }],
       // legs: pale upper tubes, dark lower legs and hooves
-      ['rinkaku', ['f1a', 'f1k', 'f2a', 'f2k', 'h1a', 'h1k', 'h2k'], { w: 1.1, outside: ['chest', 'barrel', 'rump'] }],
-      ['nuri', ['f1b', 'f1f', 'f1h', 'f2b', 'f2f', 'f2h', 'h1b', 'h1f', 'h1h', 'h2b', 'h2f', 'h2h']],
+      ['rinkaku', ['_legF1', '_legF2', '_legH1', '_legH2'], { w: 1, outside: ['chest', 'barrel', 'rump'], close: 0 }],
+      ['nuri', { union: ['_legF1', '_legF2', '_legH1', '_legH2'], minus: ['_upper'] }],
       // tail hangs from the root arc
       ['nazoru', 'tailroot', { w: 1.2 }],
       ['nuri', [[87, 43.2], [92.5, 45], [96, 51], [94.5, 59], [97.5, 67], [93.5, 70], [90.5, 62], [91.5, 54], [88.5, 48.5]], { smooth: true }],

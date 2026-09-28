@@ -13,27 +13,27 @@
 <script>
 window.onerror = (m, s, l) => { document.getElementById('err').textContent += m + ' @' + s + ':' + l + '\n'; };
 const q = new URLSearchParams(location.search), out = document.getElementById('out');
-const S = +(q.get('scale') || 3.4);
+const S = +(q.get('scale') || 3.4), STYLE = q.get('style') || 'hanga', HAND = q.get('hand') != null ? +q.get('hand') : 1;
 function panel(c, opts) {
   const cv = document.createElement('canvas');
   cv.width = c.size[0] * S; cv.height = c.size[1] * S;
   const g = cv.getContext('2d');
-  Hokusai.paper(g, cv.width, cv.height, 3);
+  Hokusai.paper(g, cv.width, cv.height, 3, STYLE);
   Hokusai.render(g, c, Object.assign({ scale: S }, opts));
   return cv;
 }
 try {
   if (q.get('scene')) {
-    const sc = Hokusai.inventScene(+q.get('scene'));
+    const sc = Hokusai.inventScene(+q.get('scene'), { style: STYLE, hand: HAND });
     const row = document.createElement('div'); row.className = 'row';
     row.appendChild(panel(sc, { guides: 'none' })); out.appendChild(row);
   }
   if (q.get('gallery')) {
     const row = document.createElement('div'); row.className = 'row'; row.style.flexWrap = 'wrap';
     for (const f of Hokusai.list()) {
-      const c = Hokusai.compile(f), s = 150 / Math.max(c.size[0], c.size[1]);
+      const c = Hokusai.compile(f, { style: STYLE, hand: HAND }), s = 150 / Math.max(c.size[0], c.size[1]);
       const cv = document.createElement('canvas'); cv.width = c.size[0] * s; cv.height = c.size[1] * s;
-      const gg = cv.getContext('2d'); Hokusai.paper(gg, cv.width, cv.height, 3); Hokusai.render(gg, c, { scale: s, guides: 'none' });
+      const gg = cv.getContext('2d'); Hokusai.paper(gg, cv.width, cv.height, 3, STYLE); Hokusai.render(gg, c, { scale: s, guides: 'none' });
       const box = document.createElement('div'); box.style.width = '156px'; box.appendChild(cv);
       box.appendChild(Object.assign(document.createElement('div'), { textContent: f.id + ' p' + f.page }));
       row.appendChild(box);
@@ -44,7 +44,7 @@ try {
     const f = Hokusai.figures[id];
     const row = document.createElement('div'); row.className = 'row';
     if (!f) { row.textContent = 'missing figure ' + id; out.appendChild(row); continue; }
-    const c = Hokusai.compile(f);
+    const c = Hokusai.compile(f, { style: STYLE, hand: HAND });
     row.appendChild(panel(c, { guides: 'shu' }));
     row.appendChild(panel(c, { guides: 'none' }));
     if (q.get('page') && f.page) { const im = new Image(); im.src = '../assets/pages/page-' + String(f.page).padStart(2, '0') + '.jpg'; row.appendChild(im); }

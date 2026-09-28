@@ -298,7 +298,7 @@ Hokusai.register({
   jp: '牛',
   vol: 1, page: 9,
   note: 'The resting ox is a ruled wedge for the body with circles for chest, belly and rump; the horns are two spans of one compass circle, the head a triangle with a black triangle of forelock, and the folds of the neck a row of stepped arcs.',
-  rules: ['kiku', 'maru', 'kaku', 'nazoru', 'kebiki', 'nuri'],
+  rules: ['kiku', 'maru', 'kaku', 'te', 'hifu', 'kage', 'kebiki', 'nuri'],
   size: [100, 98],
   silhouette: ['body', 'chest', 'belly', 'rump', 'head'],
   guides: {
@@ -315,24 +315,38 @@ Hokusai.register({
     rump: ['maru', 72.4, 72.4, 18],
     tailArc: ['ko', 78.2, 89.7, 9, 200, 340],
     tailLoop: ['maru', 91.7, 86.5, 4.5],
+    // helpers (not part of Hokusai's construction): the horn skins follow the horn circle
+    hornL: ['hifu', [118, 140, 162, 184, 206, 228, 239].map((d, i, a) => [19.2 + 17.3 * Math.cos(d * Math.PI / 180), 18.6 + 17.3 * Math.sin(d * Math.PI / 180), 0.25 + 2.3 * (1 - i / (a.length - 1)) ** 0.8]).reverse()],
+    hornR: ['hifu', [292, 314, 336, 358, 380, 402, 406].map((d, i, a) => [19.2 + 17.3 * Math.cos(d * Math.PI / 180), 18.6 + 17.3 * Math.sin(d * Math.PI / 180), 0.25 + 2.3 * (i / (a.length - 1)) ** 0.8])],
+    _hornTipL: ['maru', 19.2 + 17.3 * Math.cos(118 * Math.PI / 180), 18.6 + 17.3 * Math.sin(118 * Math.PI / 180), 7],
+    _hornTipR: ['maru', 19.2 + 17.3 * Math.cos(406 * Math.PI / 180), 18.6 + 17.3 * Math.sin(406 * Math.PI / 180), 7],
+    _low: ['kaku', 0, 50, 100, 50],
   },
   ink: [
-    // hide first, outline second: the coat is short hairs laid inside the union
-    ['kebiki', { union: ['body', 'chest', 'belly', 'rump'], minus: ['head'] }, { angle: 78, gap: 1.7, len: 3.6, w: 0.55, curve: 0.6 }],
-    ['rinkaku', ['body', 'chest', 'belly', 'rump', 'head'], { w: 1.3, wobble: 0.7 }],
-    // horns: thick-to-thin spans of the one circle
-    ['nazoru', 'hornO', { deg: [118, 239], w: 4.2, taper: [0.02, 0.9], press: 'harai' }],
-    ['nazoru', 'hornO', { deg: [292, 406], w: 4.2, taper: [0.9, 0.02] }],
+    // Hokusai's finished ox has no outline at all: the silhouette is the fur itself,
+    // the back is a rope of slanted marks, and the hair thickens toward the belly (p.9).
+    ['kebiki', { union: ['body', 'chest', 'belly', 'rump'], minus: ['head'] }, { angle: 84, gap: 0.95, len: 5.5, space: 1.2, w: 0.45, curve: 0.5, shade: [4, 11], lit: 0.08 }],
+    ['kebiki', { union: ['chest'], minus: ['head'] }, { angle: 70, gap: 1.1, len: 3.4, w: 0.45, shade: [-5, 4], lit: 0.1 }],
+    ['rinkaku', ['chest', 'belly', 'rump'], { as: 'fur', len: 3.8, gap: 0.75, flow: 25, fall: 0.55, w: 0.48, inside: ['_low'] }],
+    ['nazoru', 'body', { t: [0.02, 0.36], as: 'dash', len: 2.2, gap: 1.35, w: 0.75 }],
+    ['nazoru', 'body', { t: [0.8, 0.98], as: 'fur', len: 3, gap: 1, w: 0.45 }],
+    // horns: skin over a shrinking chain of circles on the one compass circle, ridged at the root
+    ['rinkaku', ['hornL'], { w: 0.75 }],
+    ['rinkaku', ['hornR'], { w: 0.75 }],
+    ['kebiki', { union: ['hornL'], minus: ['_hornTipL'] }, { angle: 30, gap: 0.75, w: 0.4, jitter: 0 }],
+    ['kebiki', { union: ['hornR'], minus: ['_hornTipR'] }, { angle: 150, gap: 0.75, w: 0.4, jitter: 0 }],
+    // head: forelock as flat black, ear, eye; the head edge is fur too
     ['nuri', 'fore'],
-    ['fude', [[10, 31], [7, 29], [4, 31], [7, 33.5]], { w: 1.1 }],
-    ['fude', [[13, 32], [14.5, 31.6]], { w: 1.6 }],
-    ['nazoru', 'n1', { w: 1 }], ['nazoru', 'n2', { w: 1 }], ['nazoru', 'n3', { w: 1 }], ['nazoru', 'n4', { w: 1 }],
+    ['nazoru', 'head', { as: 'fur', len: 2.4, gap: 0.8, w: 0.45, t: [0.35, 0.95] }],
+    ['fude', [[10, 31], [7, 29], [4, 31], [7, 33.5]], { w: 0.9 }],
+    ['fude', [[13, 32], [14.5, 31.6]], { w: 1.4 }],
+    ['nazoru', 'n2', { as: 'fur', len: 2.6, gap: 1, w: 0.45 }], ['nazoru', 'n3', { as: 'fur', len: 2.6, gap: 1, w: 0.45 }],
     // folded foreleg with its black hoof
     ['nuri', [[15, 80], [23, 78.5], [26, 82], [22, 84.5], [15.5, 84]], { smooth: true }],
-    // tail curled round under the rump
-    ['nazoru', 'tailArc', { w: 1.3 }],
-    ['nazoru', 'tailLoop', { deg: [180, 100], w: 1.2 }],
-    ['kebiki', 'tailLoop', { angle: 60, gap: 0.9, len: 2, w: 0.5 }],
+    // tail: one sweeping stroke, its tuft in hair
+    ['nazoru', 'tailArc', { w: 0.9, taper: [0.1, 0.5] }],
+    ['nazoru', 'tailLoop', { deg: [180, 100], w: 0.8 }],
+    ['kebiki', 'tailLoop', { angle: 60, gap: 0.8, len: 2.2, w: 0.4 }],
   ],
 });
 

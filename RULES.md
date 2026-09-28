@@ -86,6 +86,21 @@ cut by two circles (pp. 7, 23, 26).
 Rain is a field of parallel ruled diagonals drawn over the whole panel, passing behind the
 figures (pp. 7, 17, 26). Waves are rows of overlapping compass arcs. The distant rows are bare, and the near rows are filled with strokes that follow each arc (`nami`, p. 29).
 
+### 14a. 手 The hand departs from the compass · `hand`
+Put any construction next to its finished drawing and the circles are exact while the ink is not.
+- A contour is several strokes, each pressed at the entry and lifted at the exit.
+- The strokes overlap or stop short at the joins, and the whole drawing drifts a little off its guides.
+- Where two circles meet, the ink flows over the cusp instead of dipping into it.
+
+The engine applies all of this to every figure (`hand: 1`). `hand: 0` inks the construction exactly. *(pp. 9, 12)*
+
+### 14b. 皮 Skin over the construction · `hifu`
+A leg, neck, tail or horn is a skin stretched tangent to its chain of joint circles. The packhorse's legs are circles at knee and fetlock in the construction, and one tapered black shape in the print. *(p. 12)*
+
+### 14c. 隈 Fur makes the silhouette and the shadow · `rinkaku {as: 'fur' | 'dash'}`, `kebiki {shade}`, `ten {mark: 'tick'}`
+- **The ox:** the finished ox has no outline. Its edge is hair, and its back is a rope of slanted marks. The strokes crowd toward the belly and far side, while the lit back stays almost bare. *(p. 9)*
+- **The horse:** its coat is scattered wedge-shaped ticks, all leaning one way. *(p. 12)*
+
 ## Part II — Characters become figures (Volume 2, 1814)
 
 ### 15. 文字絵 Write the character, then let it become the body · `moji`

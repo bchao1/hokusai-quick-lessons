@@ -65,6 +65,7 @@ Hokusai.register({
 | `kata` 形 | `[[x,y]...], closed=true` | any polygon; pass `false` for an open polyline |
 | `sen` 線 | `x1, y1, x2, y2` | ruled line (open) |
 | `ko` 弧 | `cx, cy, r, a0, a1` | compass arc in degrees (open) |
+| `hifu` 皮 | `[[x, y, r], ...]` | skin stretched tangent to a chain of circles: legs, necks, tails, horns, branches |
 | `magari` 曲 | `[[x,y]...], closed=false` | smooth curve through points (for fish bodies, tails, sleeves) |
 | `ha` 葉 | `x1, y1, x2, y2, halfWidth` | leaf / lens of two arcs (fins, petals, eyes, leaves) |
 | `ogi` 扇 | `cx, cy, r0, r1, a0, a1` | fan / annular sector |
@@ -81,13 +82,13 @@ the stroke length that tapers), `press: 'flat' | 'swell' | 'harai' | 'nail'`,
 
 | op | args | rule |
 |---|---|---|
-| `rinkaku` 輪郭 | `[names], {w, outside:[names], inside:[names]}` | ink the outer silhouette of the union of the guides |
-| `nazoru` なぞる | `name, {t:[t0,t1] \| deg:[a0,a1], outside, inside, w, taper}` | trace one guide, a span of it, or only the part inside or outside other guides |
+| `rinkaku` 輪郭 | `[names], {w, outside, inside, close, as}` | ink the outer silhouette of the union of the guides; `close` rounds the cusps where shapes meet (default follows the hand); `as: 'fur'` builds the edge from hair, `as: 'dash'` from slanted rope marks (`len`, `gap`, `flow`, `fall`) |
+| `nazoru` なぞる | `name, {t:[t0,t1] \| deg:[a0,a1], outside, inside, w, taper, as}` | trace one guide, a span of it, or only the part inside or outside other guides |
 | `fude` 筆 | `[[x,y]...], {w, taper, press, smooth=true, closed}` | free brush stroke through control points (Catmull-Rom) |
 | `nuri` 塗り | `region, {tone=1, minus:[names], clip:[names], smooth}` | flat fill; region = guide name, list of names (union) or polygon points |
-| `kebiki` 毛引き | `region, {angle=90, gap=2, len, space, w=0.7, curve, jitter}` | parallel hatching clipped to a region; with `len`, broken into short hair strokes |
+| `kebiki` 毛引き | `region, {angle=90, gap=2, len, space, w=0.7, curve, jitter, shade:[dx,dy], lit, clump}` | hatching clipped to a region; with `len`, short hair strokes that bend and clump; `shade` keeps every hair near the edge on that side and only `lit` of the rest |
 | `uroko` 鱗 | `region, {size=3, angle=0, open=180, w}` | rows of scallops: fish scales, feathers, roof tiles; arcs open away from `angle` |
-| `ten` 点 | `region, {n=60, r=0.6, minGap, tone}` | stipple dots inside a region |
+| `ten` 点 | `region, {n=60, r=0.6, minGap, tone, mark, angle}` | stipple dots inside a region; `mark: 'tick'` makes leaning wedge strokes (a dappled coat) |
 | `uzu` 渦 | `cx, cy, r, {turns=2.2, start=0, dir=±1, w}` | spiral curl |
 | `matsuba` 松葉 | `cx, cy, r, {a0=195, a1=345, n=18}` | fan of pine needles from a base point |
 | `hosha` 放射 | `cx, cy, r0, r1, {n=24, a0, a1, w}` | radial lines between two radii (umbrella ribs, rays) |
@@ -110,11 +111,28 @@ Hokusai.glyph('も', [
 ]);
 ```
 
+## The hand, the brush and the print
+
+A figure's guides are always compass-perfect. What happens between the guides and the paper is set at compile and render time, so every figure gets it without any change to its data:
+
+- `hand` (0–2, default 1): how far the ink departs from the construction.
+  - A smooth drift across the whole figure.
+  - Contours redrawn as several strokes, each with its own entry, swell and lifted exit, that overlap or stop short at joins.
+  - Cusps rounded where circles meet.
+  - Hair that bends and clumps.
+  - `hand: 0` inks the construction exactly.
+- `style`:
+  - `'hanga'`: woodblock print, the look of the book. Thin lines; ink on its own layer, pitted with grain and printed onto aged paper.
+  - `'sumi'`: brush painting. Heavier, semi-transparent ink with bleed and soft washes.
+  - `'zu'`: a clean diagram with `hand` forced to 0.
+
+These techniques follow Lingdong Huang's procedural painting work: noise-modulated stroke width (*Shan Shui*), noise-flow hair and shading clipped to the shadow side (*fishdraw*).
+
 ## API
 
 ```js
-const c = Hokusai.compile('gama', { seed: 1812, weight: 1, wobble: 1 });
-Hokusai.paper(ctx2d, w, h);                           // washi ground
+const c = Hokusai.compile('gama', { seed: 1812, style: 'hanga', hand: 1 });
+Hokusai.paper(ctx2d, w, h, 7, 'hanga');               // aged washi ground
 Hokusai.render(ctx2d, c, { scale: 6, t: 0.5, guides: 'shu' });  // t = animation progress
 const svg = Hokusai.toSVG(c, { guides: 'none' });
 const scene = Hokusai.scene({ items: [{ fig: 'gama', x: 20, y: 20, s: 0.8 }], weather: 'ame', sky: 'tori' });

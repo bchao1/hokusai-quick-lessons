@@ -223,6 +223,7 @@ const state = {
   mode: 'lesson',
   fig: store.get('fig', null) || H.order[0],
   seed: 1812, weight: 1, wobble: 1,
+  style: store.get('style', 'hanga'), hand: store.get('hand', 1),
   guides: 'shu', erase: true,
   p: 1.15, playing: false,
   rule: null,
@@ -238,8 +239,9 @@ let compiled = null, paperCache = null;
 function currentPicture() {
   if (state.mode === 'compose') return composeScene();
   if (state.mode === 'write') return compileCode();
-  return H.compile(state.fig, { seed: state.seed, weight: state.weight, wobble: state.wobble });
+  return H.compile(state.fig, look());
 }
+function look() { return { seed: state.seed, weight: state.weight, wobble: state.wobble, style: state.style, hand: state.hand }; }
 function recompile() {
   try { compiled = currentPicture(); } catch (e) { compiled = null; state.codeErr = e.message; }
   resize();
@@ -253,7 +255,7 @@ function resize() {
   cv.width = Math.round(w * s * dpr); cv.height = Math.round(h * s * dpr);
   cv._scale = s * dpr;
   paperCache = document.createElement('canvas'); paperCache.width = cv.width; paperCache.height = cv.height;
-  H.paper(paperCache.getContext('2d'), cv.width, cv.height, 11);
+  H.paper(paperCache.getContext('2d'), cv.width, cv.height, 11, state.style);
   draw();
 }
 function draw() {
@@ -262,7 +264,7 @@ function draw() {
   g.drawImage(paperCache, 0, 0);
   const ops = state.guides === 'none' ? compiled.ops.filter((o) => o.layer !== 'guide') : compiled.ops;
   const t = Math.min(1, state.p), fade = state.erase ? Math.max(0, Math.min(1, (state.p - 1) / 0.15)) : 0;
-  H.render(g, ops, { scale: cv._scale, t, guides: state.guides, guideFade: fade });
+  H.render(g, ops, { scale: cv._scale, t, guides: state.guides, guideFade: fade, style: state.style });
   // phase indicator
   const seq = H.sequence(ops), tl = H.timeline(seq);
   const guideEnd = seq.reduce((m, o, i) => (o.layer === 'guide' ? tl.marks[i][1] : m), 0) / (tl.total || 1);
@@ -311,6 +313,9 @@ $('#catalogue').onclick = (e) => {
 // ───────────── panels ─────────────
 function controlsHTML() {
   return '<div><p class="eyebrow">Brush</p><div class="controls">' +
+    '<label>Style</label><div class="seg" id="cStyle">' +
+    [['hanga', '版画 Print'], ['sumi', '墨 Brush'], ['zu', '図 Diagram']].map(([k, l]) => '<button data-s="' + k + '" aria-pressed="' + (state.style === k) + '">' + l + '</button>').join('') + '</div>' +
+    '<label for="cHand">Hand</label><input type="range" id="cHand" min="0" max="2" step="0.05" value="' + state.hand + '"' + (state.style === 'zu' ? ' disabled' : '') + '><output>' + state.hand.toFixed(2) + '</output>' +
     '<label for="cSeed">Seed</label><input type="range" id="cSeed" min="1" max="3000" value="' + state.seed + '"><output>' + state.seed + '</output>' +
     '<label for="cWeight">Weight</label><input type="range" id="cWeight" min="0.4" max="2" step="0.05" value="' + state.weight + '"><output>' + state.weight.toFixed(2) + '</output>' +
     '<label for="cWobble">Tremor</label><input type="range" id="cWobble" min="0" max="4" step="0.1" value="' + state.wobble + '"><output>' + state.wobble.toFixed(1) + '</output>' +
@@ -322,7 +327,9 @@ function controlsHTML() {
 }
 function bindControls() {
   const bindR = (id, key, fix) => { const el = $('#' + id); if (!el) return; el.oninput = () => { state[key] = +el.value; el.nextElementSibling.textContent = fix ? (+el.value).toFixed(fix) : el.value; recompile(); }; };
-  bindR('cSeed', 'seed'); bindR('cWeight', 'weight', 2); bindR('cWobble', 'wobble', 1);
+  bindR('cSeed', 'seed'); bindR('cWeight', 'weight', 2); bindR('cWobble', 'wobble', 1); bindR('cHand', 'hand', 2);
+  const hEl = $('#cHand'); if (hEl) hEl.addEventListener('change', () => store.set('hand', state.hand));
+  const cs = $('#cStyle'); if (cs) cs.onclick = (e) => { const b = e.target.closest('[data-s]'); if (!b) return; state.style = b.dataset.s; store.set('style', state.style); renderPanel(); recompile(); };
   const cg = $('#cGuides'); if (cg) cg.onclick = (e) => { const b = e.target.closest('[data-g]'); if (!b) return; state.guides = b.dataset.g; cg.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x === b)); draw(); };
   const ce = $('#cErase'); if (ce) ce.onchange = () => { state.erase = ce.checked; draw(); };
   const png = $('#exPNG'); if (png) png.onclick = exportPNG;
@@ -426,7 +433,7 @@ const BLANK = `{
 // ───────────── compose / write ─────────────
 function composeScene() {
   const c = state.compose;
-  return H.inventScene(c.seed, { subject: H.figures[c.subject] ? c.subject : undefined });
+  return H.inventScene(c.seed, { subject: H.figures[c.subject] ? c.subject : undefined, style: state.style, hand: state.hand });
 }
 function compileCode() {
   state.codeErr = '';
@@ -434,7 +441,7 @@ function compileCode() {
   const fig = new Function('Hokusai', '"use strict"; return (' + state.code + ')')(H);
   if (!fig || typeof fig !== 'object') throw new Error('The editor must contain one figure object { ... }');
   fig.id = fig.id || 'untitled';
-  return H.compile(fig, { seed: state.seed, weight: state.weight, wobble: state.wobble });
+  return H.compile(fig, look());
 }
 
 // compact, readable serializer for figures
@@ -482,8 +489,8 @@ function download(name, blob) {
 function exportPNG() {
   if (!compiled) return;
   const S = 10, c2 = document.createElement('canvas'); c2.width = compiled.size[0] * S; c2.height = compiled.size[1] * S;
-  const g2 = c2.getContext('2d'); H.paper(g2, c2.width, c2.height, 11);
-  H.render(g2, compiled.ops, { scale: S, guides: state.guides === 'none' || state.erase ? 'none' : state.guides });
+  const g2 = c2.getContext('2d'); H.paper(g2, c2.width, c2.height, 11, state.style);
+  H.render(g2, compiled.ops, { scale: S, guides: state.guides === 'none' || state.erase ? 'none' : state.guides, style: state.style });
   c2.toBlob((b) => download((compiled.id || 'hokusai') + '.png', b));
 }
 function exportSVG() {
