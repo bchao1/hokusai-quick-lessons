@@ -243,8 +243,11 @@ function currentPicture() {
   if (state.mode === 'write') return compileCode();
   if (state.mode === 'strokes') return compileTrace();
   if (state.source === 'gen' && H.generatedFigure) {
-    const gf = H.generatedFigure(state.fig, { seed: state.seed, hand: state.hand, weight: state.weight, vary: state.vary, style: state.genStyle || undefined });
-    if (gf) return H.compile(gf, Object.assign(look(), { hand: 0, weight: 1 }));
+    const gs = state.genStyle;
+    const gf = H.generatedFigure(state.fig, { seed: state.seed, hand: state.hand, weight: state.weight, vary: state.vary,
+      method: gs === 'stat' ? 'stat' : undefined, style: gs === 'stat' || !gs ? undefined : gs, exclude: gs === 'best' ? state.fig : undefined });
+    // his strokes carried by the construction: the hand layer re-inks them like a trace
+    if (gf) return H.compile(gf, Object.assign(look(), gs === 'stat' ? { hand: 0, weight: 1 } : { weight: 1 }));
   }
   const tf = state.source === 'traced' && H.tracedFigure && H.tracedFigure(state.fig);
   return tf ? H.compile(tf, look()) : H.compile(state.fig, look());
@@ -370,9 +373,11 @@ function renderPanel() {
           ((k === 'traced' && !(f.traced && f.traced.fin)) || (k === 'gen' && !(H.constructions && H.constructions[f.id])) ? ' disabled' : '') + '>' + l + '</button>').join('') + '</div>' +
         (state.source === 'gen' ? '<div class="controls" style="margin-top:10px">' +
           '<label for="cVary">Vary</label><input type="range" id="cVary" min="0" max="1.5" step="0.05" value="' + state.vary + '"><output>' + state.vary.toFixed(2) + '</output>' +
-          '<label for="cGStyle">Texture</label><select id="cGStyle" style="grid-column:2/4"><option value="">its own (learned)</option><option value="pooled"' + (state.genStyle === 'pooled' ? ' selected' : '') + '>pooled (leave-one-out)</option>' +
-          Object.keys((H.model && H.model.styles) || {}).filter((k) => H.model.styles[k].good).map((k) => '<option value="' + k + '"' + (state.genStyle === k ? ' selected' : '') + '>like ' + esc((H.figures[k] || {}).title || k) + '</option>').join('') + '</select></div>' +
-          '<div class="hint">Painted by the learned model from Hokusai\'s construction only (red). <b>Vary</b> reshapes the construction into a new subject; <b>Seed</b> gives a new painting; <b>Hand</b> sets how far the ink drifts.</div>' : '') +
+          '<label for="cGStyle">Strokes</label><select id="cGStyle" style="grid-column:2/4"><option value="">his own, carried by the construction</option>' +
+          '<option value="best"' + (state.genStyle === 'best' ? ' selected' : '') + '>borrowed from the best-matching other figure (experimental)</option>' +
+          Object.keys((H.model && H.model.styles) || {}).filter((k) => H.model.styles[k].good && k !== f.id).map((k) => '<option value="' + k + '"' + (state.genStyle === k ? ' selected' : '') + '>borrowed from ' + esc((H.figures[k] || {}).title || k) + ' (experimental)</option>').join('') +
+          '<option value="stat"' + (state.genStyle === 'stat' ? ' selected' : '') + '>sampled from the statistical model</option></select></div>' +
+          '<div class="hint">Start from Hokusai\'s construction (red). <b>Vary</b> reshapes it into a new subject and his strokes move with it; <b>Seed</b> gives a new variation; <b>Hand</b> re-inks every stroke. Borrowing strokes from another figure is not reliable yet.</div>' : '') +
         '<div class="hint" style="margin-top:6px">' + (state.source === 'gen' ? '' : state.source === 'traced' && f.traced && f.traced.fin && H.strokeDB[f.traced.fin]
           ? 'Traced from the scan by code: ' + H.strokeDB[f.traced.fin].strokes.length + ' strokes, ' + H.strokeDB[f.traced.fin].fills.length + ' fills.'
           : Object.keys(f.guides || {}).length + ' guides · ' + (f.ink || []).length + ' ink operations, written by hand.') + '</div></div>' +

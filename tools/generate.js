@@ -13,7 +13,9 @@ const D = path.join(__dirname, '..', 'data');
 H.model = JSON.parse(fs.readFileSync(path.join(D, 'model.json')));
 H.handParams = JSON.parse(fs.readFileSync(path.join(D, 'hand-params.json')));
 H.constructions = {};
+H.strokeDB = {};
 for (const f of fs.readdirSync(path.join(D, 'constructions'))) if (f.endsWith('.json')) H.constructions[f.slice(0, -5)] = JSON.parse(fs.readFileSync(path.join(D, 'constructions', f)));
+for (const f of Object.keys(H.constructions)) { const p = path.join(D, 'strokes', f + '-fin.json'); if (fs.existsSync(p)) H.strokeDB[f + '-fin'] = JSON.parse(fs.readFileSync(p)); }
 require('../lib/generate.js');
 const args = process.argv.slice(2), flag = (k, d) => { const i = args.indexOf('--' + k); return i >= 0 ? args[i + 1] : d; };
 const out = path.join(D, 'generated');
@@ -32,13 +34,16 @@ for (const fig of figs) {
     const loo = H.generate(cons, { seed, style: 'pooled', exclude: fig, vary: +flag('vary', 0), hand: +flag('hand', 1) });
     fs.writeFileSync(path.join(out, fig + '.own.' + seed + '.json'), JSON.stringify(slim(own)));
     fs.writeFileSync(path.join(out, fig + '.loo.' + seed + '.json'), JSON.stringify(slim(loo)));
+    // stroke analogy, leave-one-out: this construction painted only with other figures' strokes
+    const ana = H.analogy(cons, { seed, style: 'best', exclude: fig, vary: +flag('vary', 0) });
+    fs.writeFileSync(path.join(out, fig + '.ana.' + seed + '.json'), JSON.stringify(slim(ana)));
     res[seed] = own.strokes.length + '/' + loo.strokes.length;
   }
   // ceiling: Hokusai's own trace redrawn with hand 1 (how far a re-impression of the real thing moves)
   const finP = path.join(D, 'strokes', fig + '-fin.json');
   if (fs.existsSync(finP)) {
     const fin = JSON.parse(fs.readFileSync(finP));
-    H.strokeDB = { ['t:' + fig]: fin };
+    H.strokeDB['t:' + fig] = fin;
     const c = H.compile({ id: 't', size: fin.size, guides: {}, ink: [['utsushi', 't:' + fig]] }, { seed: 7, hand: 1 });
     const strokes = c.ops.filter((op) => op.type === 'stroke').map((op) => ({ cat: op.cat, pts: op.pts, w: op.widths }));
     fs.writeFileSync(path.join(out, fig + '.hand.json'), JSON.stringify(slim({ id: 'hand:' + fig, size: fin.size, line_width: fin.line_width, counts: {}, fills: fin.fills, strokes })));

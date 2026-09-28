@@ -34,7 +34,7 @@ try {
     for (const f of Hokusai.list((f) => !only.length || only.includes(f.id))) {
       const src = q.get('src'), seed = +(q.get('seed') || 1812);
       const tf = src === 'traced' ? Hokusai.tracedFigure && Hokusai.tracedFigure(f.id)
-        : src === 'gen' ? Hokusai.generatedFigure(f.id, { seed, style: q.get('style') || undefined, exclude: q.get('style') === 'pooled' ? f.id : undefined, vary: +(q.get('vary') || 0), fromGuides: !!q.get('guides') }) : null;
+        : src === 'gen' ? Hokusai.generatedFigure(f.id, { seed, method: q.get('method') || undefined, style: q.get('style') || undefined, exclude: q.get('loo') || q.get('style') === 'pooled' ? f.id : undefined, vary: +(q.get('vary') || 0), fromGuides: !!q.get('guides') }) : null;
       const G = +(q.get('gsize') || 150), c = tf ? Hokusai.compile(tf, { style: STYLE, hand: src === 'gen' ? 0 : HAND, seed }) : Hokusai.compile(f, { style: STYLE, hand: HAND }), s = G / Math.max(c.size[0], c.size[1]);
       const cv = document.createElement('canvas'); cv.width = c.size[0] * s; cv.height = c.size[1] * s;
       const gg = cv.getContext('2d'); Hokusai.paper(gg, cv.width, cv.height, 3, STYLE); Hokusai.render(gg, c, { scale: s, guides: 'none' });

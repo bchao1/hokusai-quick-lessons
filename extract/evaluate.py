@@ -105,7 +105,7 @@ def main():
         truth_o = raster(fin, ppu, shape, OUTLINE, fills=False)
         t_stats, _ = stroke_stats(truth)
         res = {'good': cons.get('good', False)}
-        for var in ('base', 'loo', 'own', 'hand'):
+        for var in ('base', 'loo', 'own', 'ana', 'hand'):
             files = sorted(glob.glob(os.path.join(GEN, '%s.%s*.json' % (fig, var))))
             if not files:
                 continue
@@ -122,7 +122,7 @@ def main():
             res[var] = {'P': round(float(fs[:, 0].mean()), 3), 'R': round(float(fs[:, 1].mean()), 3), 'F': round(float(fs[:, 2].mean()), 3),
                         'F_outline': round(float(np.mean(fo)), 3), 'stats': st}
         rows[fig] = res
-        print('%-18s %s' % (fig, '  '.join('%s F=%.2f' % (v, res[v]['F']) for v in ('base', 'loo', 'own', 'hand') if v in res)))
+        print('%-18s %s' % (fig, '  '.join('%s Fo=%.2f' % (v, res[v]['F_outline']) for v in ('base', 'loo', 'own', 'ana', 'hand') if v in res)), flush=True)
     json.dump(rows, open(os.path.join(OUT, 'evaluation.json'), 'w'), indent=1)
     report(rows)
 
@@ -149,11 +149,12 @@ def summarise(rows, var, only_good):
 
 
 def report(rows):
-    names = {'base': 'Construction inked evenly (no model)', 'loo': 'Model, leave-one-out', 'own': 'Model, own style', 'hand': "Hokusai's trace re-inked (ceiling)"}
+    names = {'base': 'Construction inked evenly (no model)', 'loo': 'Statistical model, leave-one-out', 'own': 'Statistical model, own style',
+             'ana': 'Stroke analogy, leave-one-out (other figures\' strokes)', 'hand': "Hokusai's trace re-inked (ceiling)"}
     L = ['# Evaluation: generated vs Hokusai', '', 'Produced by `extract/evaluate.py`. Each generated drawing is compared with Hokusai\'s traced finished drawing of the same figure, starting only from his construction.', '']
     for only_good, title in ((True, 'Figures whose construction registered well'), (False, 'All figures')):
         L += ['## ' + title, '', '| variant | n | outline F | texture error | all-ink F | contour count × / length err | hair count × / length err | tick count × / length err |', '|---|---|---|---|---|---|---|---|']
-        for v in ('base', 'loo', 'own', 'hand'):
+        for v in ('base', 'loo', 'own', 'ana', 'hand'):
             s = summarise(rows, v, only_good)
             if not s:
                 continue
@@ -162,9 +163,9 @@ def report(rows):
         L.append('')
     L += ['*outline F*: ink match of the outline strokes only (contour, compass, whorl, ruled), within 2 line widths; placement matters here. *texture error*: for hair, ticks and dots, |log count ratio| + length-distribution error, median over figures (0 = same statistics); placement is not scored, because a mark in a different pixel can be equally right.', '',
           '*count ×*: median factor between generated and traced stroke counts (1 = same number). *length err*: median Wasserstein distance of stroke lengths ÷ traced median length (0 = same distribution).', '',
-          '## Per figure (ink F)', '', '| figure | registered | base | loo | own | ceiling |', '|---|---|---|---|---|---|']
+          '## Per figure (outline F)', '', '| figure | registered | base | stat loo | stat own | analogy loo | ceiling |', '|---|---|---|---|---|---|---|']
     for f, r in sorted(rows.items()):
-        L.append('| %s | %s | %s |' % (f, 'yes' if r['good'] else 'poor', ' | '.join('%.2f' % r[v]['F'] if v in r else '–' for v in ('base', 'loo', 'own', 'hand'))))
+        L.append('| %s | %s | %s |' % (f, 'yes' if r['good'] else 'poor', ' | '.join('%.2f' % r[v]['F_outline'] if v in r else '–' for v in ('base', 'loo', 'own', 'ana', 'hand'))))
     open(os.path.join(OUT, 'evaluation.md'), 'w').write('\n'.join(L) + '\n')
 
 
