@@ -14,7 +14,9 @@
   H.tracedFigure = function (id) {
     var f = H.figures[id], t = f && f.traced;
     if (!t || !t.fin) return null;
-    var d = db[t.fin];
-    return { id: id + '-trace', title: f.title, size: d.size, guides: {}, ink: [['utsushi', t.fin]] };
+    var d = db[t.fin], cons = H.constructions && H.constructions[id], guides = {};
+    // his construction, registered onto the finished drawing, is drawn first as the guides
+    if (cons) cons.lines.forEach(function (l, i) { if (l.pts.length > 1) guides['c' + i] = ['kata', l.pts, false]; });
+    return { id: id + '-trace', title: f.title, size: d.size, guides: guides, ink: [['utsushi', t.fin]] };
   };
 })(typeof Hokusai !== 'undefined' ? Hokusai : require('../lib/hokusai.js'));

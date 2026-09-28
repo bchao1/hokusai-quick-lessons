@@ -49,6 +49,22 @@ What each capability is worth right now:
 | Paint a construction he never drew (other figures' strokes, or your circles) | **Fails.** `assets/previews/analogies.png`. |
 | Measured laws | Done: `data/analysis/report.md`, `data/analysis/model.md`. |
 
+## The visualizer
+
+It has three tabs, and everything follows the figure picked in the left list.
+
+- **図 Figure:** one drawing. It animates his traced construction (red), then his traced strokes, then erases the construction.
+  - **Vary:** reshapes the construction; 0 is his drawing. His strokes move with it.
+  - **Layers:** show or hide outline, hair, ticks, dots, curls, arcs and solid black.
+  - **Brush:** Style, Hand, Weight and Seed. Every one of these acts on his strokes.
+  - **"Old hand-written version":** switches to the guessed figure, which is editable as code.
+- **構図 Scene:** a picture composed from his figures, painted with his strokes (optionally varied). A caption says where each choice comes from.
+- **規矩 Rulebook:** the rules, plus the headline laws measured from his strokes.
+
+The experimental generators are reachable from code and `tools/render.html`, not the UI:
+- `H.generate`, the statistical model
+- `H.analogy` with another figure's strokes
+
 ## Known issues
 
 - **Region boxes:** some include caption text or a neighbouring construction (crane, Daruma, ox).
@@ -71,7 +87,8 @@ What each capability is worth right now:
 ```bash
 cd hokusai
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # if .venv is missing
-open index.html                          # visualizer: Lessons (写 Traced / 生 Generated / 規 Hand-written), Compose, Write, Strokes, Rulebook
+open index.html                          # visualizer: Figure · Scene · Rulebook (see below)
+#   index.html?fig=shishi&vary=1&hand=2&seed=5&weight=1.5&style=sumi&still=1&t=0.5   (URL state, for links and headless tests)
 
 # full data pipeline (regenerates everything from the PDF)
 .venv/bin/python -m extract.run --all     # curated regions → data/strokes/<fig>-{fin,con}.json   (~5 min)
