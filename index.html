@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hayaoshie Engine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --ground: #e4e5e9;
+  --surface: #f3f3f5;
+  --raised: #fbfbfc;
+  --ink: #1b2130;
+  --muted: #5b6273;
+  --line: #c8cbd5;
+  --ai: #2d4a7e;          /* indigo of the book's cover */
+  --ai-soft: #d7deec;
+  --shu: #c43b27;         /* vermilion: compass & ruler guides */
+  --washi: #efe6d2;
+  --display: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  --body: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #10141e; --surface: #171c29; --raised: #1e2433; --ink: #e7e4dc; --muted: #9ba1b1;
+    --line: #2b3346; --ai: #93acdb; --ai-soft: #25304a; --shu: #e3644d; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #10141e; --surface: #171c29; --raised: #1e2433; --ink: #e7e4dc; --muted: #9ba1b1;
+  --line: #2b3346; --ai: #93acdb; --ai-soft: #25304a; --shu: #e3644d; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 14px/1.55 var(--body); }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; }
+
+header {
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  padding-block: 12px; padding-inline: 20px; border-bottom: 1px solid var(--line); background: var(--surface);
+}
+.brand { display: flex; align-items: baseline; gap: 12px; }
+.brand h1 { margin: 0; font: 700 22px/1 var(--display); letter-spacing: 0.04em; }
+.brand span { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+nav { display: flex; gap: 4px; margin-left: auto; }
+nav button {
+  border: 1px solid transparent; background: none; padding: 6px 14px; border-radius: 3px; cursor: pointer;
+  display: flex; gap: 8px; align-items: baseline; color: var(--muted);
+}
+nav button b { font: 700 16px var(--display); color: var(--ink); }
+nav button[aria-selected="true"] { border-color: var(--line); background: var(--raised); color: var(--ink); }
+
+main { display: grid; grid-template-columns: 250px minmax(0, 1fr) 330px; height: calc(100% - 60px); }
+main.wide { grid-template-columns: 250px minmax(0, 1fr) minmax(360px, 40%); }
+aside, .panel { overflow-y: auto; background: var(--surface); }
+aside { border-right: 1px solid var(--line); }
+.panel { border-left: 1px solid var(--line); padding: 18px 20px; display: flex; flex-direction: column; gap: 18px; }
+
+/* catalogue */
+.vol { padding: 14px 16px 6px; display: flex; align-items: baseline; gap: 8px; position: sticky; top: 0; background: var(--surface); z-index: 1; }
+.vol h2 { margin: 0; font: 700 15px var(--display); }
+.vol small { color: var(--muted); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; }
+.figlist { list-style: none; margin: 0; padding: 0 8px 12px; }
+.figlist button {
+  width: 100%; text-align: left; border: 0; background: none; padding: 6px 8px; border-radius: 3px; cursor: pointer;
+  display: grid; grid-template-columns: 1fr auto; gap: 0 8px; align-items: baseline;
+}
+.figlist button:hover { background: var(--raised); }
+.figlist button[aria-current="true"] { background: var(--ai-soft); }
+.figlist .jp { font: 500 15px var(--display); }
+.figlist .en { grid-column: 1; font-size: 12px; color: var(--muted); }
+.figlist .pg { grid-row: 1; grid-column: 2; font: 11px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* stage */
+.stage { display: flex; flex-direction: column; min-width: 0; }
+.canvas-wrap { flex: 1; display: grid; place-items: center; padding: 20px; min-height: 320px; position: relative; }
+#stage { max-width: 100%; max-height: 100%; box-shadow: 0 1px 0 rgba(0,0,0,.08), 0 8px 30px rgba(20,25,40,.18); background: var(--washi); }
+.transport {
+  display: flex; align-items: center; gap: 12px; padding-block: 10px; padding-inline: 20px;
+  border-top: 1px solid var(--line); background: var(--surface); flex-wrap: wrap;
+}
+.transport button.play { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: var(--raised); cursor: pointer; display: grid; place-items: center; }
+.transport input[type=range] { flex: 1; min-width: 120px; accent-color: var(--ai); }
+.phases { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
+.phases span { display: flex; gap: 5px; align-items: baseline; }
+.phases span b { font: 700 13px var(--display); }
+.phases span.on { color: var(--ink); }
+.phases span.on b { color: var(--shu); }
+
+/* panel */
+.eyebrow { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+.lesson h2 { margin: 0; font: 700 30px/1.15 var(--display); text-wrap: balance; }
+.lesson .en { font-size: 15px; color: var(--muted); margin-top: 4px; }
+.lesson p { margin: 12px 0 0; max-width: 60ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  border: 1px solid var(--line); background: var(--raised); border-radius: 999px; padding: 3px 10px; cursor: pointer;
+  display: inline-flex; gap: 6px; align-items: baseline; font-size: 12px;
+}
+.chip b { font: 700 13px var(--display); }
+.chip:hover { border-color: var(--ai); }
+.rule-detail { font-size: 13px; color: var(--muted); border-left: 2px solid var(--shu); padding-left: 10px; }
+.source img { width: 100%; border-radius: 2px; cursor: zoom-in; display: block; }
+.source figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.controls { display: grid; grid-template-columns: auto 1fr auto; gap: 8px 10px; align-items: center; font-size: 13px; }
+.controls label { color: var(--muted); }
+.controls input[type=range] { accent-color: var(--ai); width: 100%; }
+.controls output { font: 12px var(--mono); font-variant-numeric: tabular-nums; min-width: 3ch; text-align: right; }
+.seg { display: flex; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; grid-column: 2 / 4; }
+.seg button { flex: 1; border: 0; background: var(--raised); padding: 5px 6px; cursor: pointer; font-size: 12px; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--ai); color: var(--raised); }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn { border: 1px solid var(--line); background: var(--raised); padding: 6px 12px; border-radius: 3px; cursor: pointer; font-size: 13px; }
+.btn.primary { background: var(--ai); border-color: var(--ai); color: var(--raised); }
+.btn:hover { border-color: var(--ai); }
+select, input[type=number] { background: var(--raised); border: 1px solid var(--line); border-radius: 3px; padding: 4px 6px; width: 100%; }
+
+/* editor */
+textarea#code {
+  width: 100%; min-height: 420px; resize: vertical; background: var(--raised); border: 1px solid var(--line); border-radius: 3px;
+  font: 12px/1.5 var(--mono); padding: 10px; tab-size: 2; white-space: pre; overflow: auto;
+}
+.err { font: 12px var(--mono); color: var(--shu); white-space: pre-wrap; }
+.hint { font-size: 12px; color: var(--muted); }
+.hint code, .rulebook code { font: 12px var(--mono); background: var(--raised); padding: 0 4px; border-radius: 2px; }
+
+/* compose caption, write steps */
+.cap { display: grid; grid-template-columns: auto 1fr; gap: 10px 12px; margin: 0; font-size: 13px; }
+.cap dt { color: var(--muted); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding-top: 2px; }
+.cap dd { margin: 0; display: flex; flex-direction: column; gap: 2px; }
+.cap dd span { color: var(--muted); font-size: 12px; }
+.linkish { all: unset; cursor: pointer; font-weight: 700; color: var(--ai); text-decoration: underline; text-underline-offset: 2px; }
+.linkish:focus-visible { outline: 2px solid var(--ai); }
+.steps { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: 13px; }
+.steps code { font: 12px var(--mono); background: var(--raised); padding: 0 4px; border-radius: 2px; }
+
+/* rulebook */
+.rulebook { grid-column: 2 / 4; overflow-y: auto; padding-block: 24px; padding-inline: 28px; }
+.rulebook .intro { max-width: 68ch; }
+.rulebook .intro h2 { font: 700 28px var(--display); margin: 0 0 8px; }
+.rules { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-top: 20px; }
+.rule { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.rule header { all: unset; display: flex; align-items: baseline; gap: 10px; }
+.rule header b { font: 700 24px var(--display); color: var(--shu); }
+.rule header span { font-weight: 700; }
+.rule p { margin: 0; }
+.rule .meta { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.rule .meta a { color: var(--ai); cursor: pointer; }
+
+dialog { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
+dialog::backdrop { background: rgba(10, 12, 20, .8); }
+dialog img { max-width: 96vw; max-height: 90vh; display: block; }
+dialog p { color: #eee; margin: 8px 0 0; font-size: 13px; }
+
+@media (max-width: 1000px) {
+  main { grid-template-columns: 1fr; height: auto; }
+  aside { max-height: 240px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .panel { border-left: 0; border-top: 1px solid var(--line); }
+  .canvas-wrap { min-height: 60vw; padding: 16px; }
+  .rulebook { grid-column: 1; padding-inline: 16px; }
+  nav { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+<script src="lib/hokusai.js"></script>
+<script src="figures/all.js"></script>
+</head>
+<body>
+<header>
+  <div class="brand"><h1>略画早指南</h1><span>Hokusai's quick lessons, as code</span></div>
+  <nav role="tablist">
+    <button role="tab" data-mode="lesson" aria-selected="true"><b>手本</b>Lessons</button>
+    <button role="tab" data-mode="compose" aria-selected="false"><b>構図</b>Compose</button>
+    <button role="tab" data-mode="write" aria-selected="false"><b>筆</b>Write</button>
+    <button role="tab" data-mode="rules" aria-selected="false"><b>規矩</b>Rulebook</button>
+  </nav>
+</header>
+
+<main id="main">
+  <aside id="catalogue" aria-label="Figures"></aside>
+
+  <section class="stage" id="stageCol">
+    <div class="canvas-wrap" id="wrap"><canvas id="stage" aria-label="Drawing"></canvas></div>
+    <div class="transport">
+      <button class="play" id="play" aria-label="Play">▶</button>
+      <input type="range" id="scrub" min="0" max="1000" value="1000" aria-label="Drawing progress">
+      <div class="phases">
+        <span id="ph1"><b>規矩</b>construct</span>
+        <span id="ph2"><b>墨</b>ink</span>
+        <span id="ph3"><b>消</b>erase</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel"></section>
+  <section class="rulebook" id="rulebook" hidden></section>
+</main>
+
+<dialog id="lightbox"><img id="lbImg" alt=""><p id="lbCap"></p></dialog>
+
+<script>
+(function () {
+'use strict';
+const H = window.Hokusai;
+const $ = (s, r) => (r || document).querySelector(s);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const ruleById = Object.fromEntries(H.RULES.map((r) => [r.id, r]));
+const pageSrc = (p) => 'assets/pages/page-' + String(p).padStart(2, '0') + '.jpg';
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('hokusai:' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem('hokusai:' + k, JSON.stringify(v)); } catch (e) {} },
+};
+
+const state = {
+  mode: 'lesson',
+  fig: store.get('fig', null) || H.order[0],
+  seed: 1812, weight: 1, wobble: 1,
+  guides: 'shu', erase: true,
+  p: 1.15, playing: false,
+  rule: null,
+  compose: Object.assign({ seed: 42, subject: '' }, store.get('compose', {})),
+  code: store.get('code', null),
+  codeErr: '',
+};
+if (!H.figures[state.fig]) state.fig = H.order[0];
+
+// ───────────── stage drawing ─────────────
+const cv = $('#stage'), g = cv.getContext('2d'), wrap = $('#wrap');
+let compiled = null, paperCache = null;
+function currentPicture() {
+  if (state.mode === 'compose') return composeScene();
+  if (state.mode === 'write') return compileCode();
+  return H.compile(state.fig, { seed: state.seed, weight: state.weight, wobble: state.wobble });
+}
+function recompile() {
+  try { compiled = currentPicture(); } catch (e) { compiled = null; state.codeErr = e.message; }
+  resize();
+}
+function resize() {
+  if (!compiled) { g.clearRect(0, 0, cv.width, cv.height); return; }
+  const [w, h] = compiled.size, r = wrap.getBoundingClientRect();
+  const s = Math.max(1, Math.min((r.width - 40) / w, (r.height - 40) / h));
+  const dpr = window.devicePixelRatio || 1;
+  cv.style.width = Math.round(w * s) + 'px'; cv.style.height = Math.round(h * s) + 'px';
+  cv.width = Math.round(w * s * dpr); cv.height = Math.round(h * s * dpr);
+  cv._scale = s * dpr;
+  paperCache = document.createElement('canvas'); paperCache.width = cv.width; paperCache.height = cv.height;
+  H.paper(paperCache.getContext('2d'), cv.width, cv.height, 11);
+  draw();
+}
+function draw() {
+  if (!compiled) return;
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  g.drawImage(paperCache, 0, 0);
+  const ops = state.guides === 'none' ? compiled.ops.filter((o) => o.layer !== 'guide') : compiled.ops;
+  const t = Math.min(1, state.p), fade = state.erase ? Math.max(0, Math.min(1, (state.p - 1) / 0.15)) : 0;
+  H.render(g, ops, { scale: cv._scale, t, guides: state.guides, guideFade: fade });
+  // phase indicator
+  const seq = H.sequence(ops), tl = H.timeline(seq);
+  const guideEnd = seq.reduce((m, o, i) => (o.layer === 'guide' ? tl.marks[i][1] : m), 0) / (tl.total || 1);
+  $('#ph1').classList.toggle('on', state.guides !== 'none' && t < guideEnd);
+  $('#ph2').classList.toggle('on', t >= guideEnd && state.p <= 1);
+  $('#ph3').classList.toggle('on', state.p > 1 && state.erase && state.guides !== 'none');
+  $('#scrub').value = Math.round((state.p / 1.15) * 1000);
+}
+let raf = 0, last = 0;
+function tick(ts) {
+  if (!state.playing) return;
+  const dt = last ? (ts - last) / 1000 : 0; last = ts;
+  const total = compiled ? H.timeline(compiled.ops).total : 1;
+  const secs = Math.max(4, Math.min(14, total / 90));
+  state.p = Math.min(1.15, state.p + dt / secs * (state.p > 1 ? 0.6 : 1));
+  draw();
+  if (state.p >= 1.15) { setPlaying(false); return; }
+  raf = requestAnimationFrame(tick);
+}
+function setPlaying(on) {
+  state.playing = on; $('#play').textContent = on ? '❚❚' : '▶'; $('#play').setAttribute('aria-label', on ? 'Pause' : 'Play');
+  if (on) { if (state.p >= 1.15) state.p = 0; last = 0; cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
+}
+$('#play').onclick = () => setPlaying(!state.playing);
+$('#scrub').oninput = (e) => { setPlaying(false); state.p = (e.target.value / 1000) * 1.15; draw(); };
+new ResizeObserver(() => resize()).observe(wrap);
+
+// ───────────── catalogue ─────────────
+function renderCatalogue() {
+  const vols = [[1, '初編', 'Compass & ruler · 1812'], [2, '後編', 'Characters · 1814']];
+  $('#catalogue').innerHTML = vols.map(([v, jp, en]) => {
+    const figs = H.list((f) => (f.vol || 1) === v).sort((a, b) => (a.page || 0) - (b.page || 0));
+    if (!figs.length) return '';
+    return '<div class="vol"><h2>' + jp + '</h2><small>' + en + '</small></div><ul class="figlist">' +
+      figs.map((f) => '<li><button data-fig="' + esc(f.id) + '" aria-current="' + (f.id === state.fig && state.mode === 'lesson') + '">' +
+        '<span class="jp">' + esc(f.jp || f.title) + '</span><span class="pg">p.' + esc(f.page || '–') + '</span><span class="en">' + esc(f.title) + '</span></button></li>').join('') + '</ul>';
+  }).join('');
+}
+$('#catalogue').onclick = (e) => {
+  const b = e.target.closest('[data-fig]'); if (!b) return;
+  state.fig = b.dataset.fig; store.set('fig', state.fig); state.rule = null;
+  if (state.mode !== 'lesson') setMode('lesson'); else { renderCatalogue(); renderPanel(); recompile(); }
+  state.p = 0; setPlaying(true);
+};
+
+// ───────────── panels ─────────────
+function controlsHTML() {
+  return '<div><p class="eyebrow">Brush</p><div class="controls">' +
+    '<label for="cSeed">Seed</label><input type="range" id="cSeed" min="1" max="3000" value="' + state.seed + '"><output>' + state.seed + '</output>' +
+    '<label for="cWeight">Weight</label><input type="range" id="cWeight" min="0.4" max="2" step="0.05" value="' + state.weight + '"><output>' + state.weight.toFixed(2) + '</output>' +
+    '<label for="cWobble">Tremor</label><input type="range" id="cWobble" min="0" max="4" step="0.1" value="' + state.wobble + '"><output>' + state.wobble.toFixed(1) + '</output>' +
+    '<label>Guides</label><div class="seg" id="cGuides">' +
+    [['shu', 'Vermilion'], ['book', 'As printed'], ['none', 'Off']].map(([k, l]) => '<button data-g="' + k + '" aria-pressed="' + (state.guides === k) + '">' + l + '</button>').join('') + '</div>' +
+    '<label for="cErase">Erase</label><span style="grid-column:2/4"><input type="checkbox" id="cErase"' + (state.erase ? ' checked' : '') + '> erase guides when inking ends (消す)</span>' +
+    '</div></div>' +
+    '<div class="row"><button class="btn" id="exPNG">Save PNG</button><button class="btn" id="exSVG">Save SVG</button><button class="btn" id="exDSL">Copy as code</button></div>';
+}
+function bindControls() {
+  const bindR = (id, key, fix) => { const el = $('#' + id); if (!el) return; el.oninput = () => { state[key] = +el.value; el.nextElementSibling.textContent = fix ? (+el.value).toFixed(fix) : el.value; recompile(); }; };
+  bindR('cSeed', 'seed'); bindR('cWeight', 'weight', 2); bindR('cWobble', 'wobble', 1);
+  const cg = $('#cGuides'); if (cg) cg.onclick = (e) => { const b = e.target.closest('[data-g]'); if (!b) return; state.guides = b.dataset.g; cg.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x === b)); draw(); };
+  const ce = $('#cErase'); if (ce) ce.onchange = () => { state.erase = ce.checked; draw(); };
+  const png = $('#exPNG'); if (png) png.onclick = exportPNG;
+  const svg = $('#exSVG'); if (svg) svg.onclick = exportSVG;
+  const dsl = $('#exDSL'); if (dsl) dsl.onclick = () => {
+    const src = state.mode === 'compose' ? 'Hokusai.inventScene(' + state.compose.seed + (state.compose.subject ? ", { subject: '" + state.compose.subject + "' }" : '') + ')' : state.mode === 'write' ? state.code : fmt(H.figures[state.fig]);
+    copy(src, dsl);
+  };
+}
+function copy(text, btn) {
+  const done = () => { const t = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => (btn.textContent = t), 1200); };
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => fallback()); else fallback();
+  function fallback() { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); done(); } catch (e) {} ta.remove(); }
+}
+
+function renderPanel() {
+  const P = $('#panel');
+  if (state.mode === 'lesson') {
+    const f = H.figures[state.fig];
+    if (!f) { P.innerHTML = '<p>No figures loaded.</p>'; return; }
+    const rules = (f.rules || []).filter((r) => ruleById[r]);
+    const sel = state.rule && ruleById[state.rule];
+    P.innerHTML =
+      '<div class="lesson"><p class="eyebrow">Volume ' + (f.vol || 1) + ' · page ' + esc(f.page) + '</p><h2>' + esc(f.jp || f.title) + '</h2><div class="en">' + esc(f.title) + '</div>' +
+      (f.note ? '<p>' + esc(f.note) + '</p>' : '') + '</div>' +
+      (rules.length ? '<div><p class="eyebrow">Rules applied</p><div class="chips" id="ruleChips">' + rules.map((r) => '<button class="chip" data-rule="' + r + '"><b>' + ruleById[r].jp + '</b>' + esc(ruleById[r].name) + '</button>').join('') + '</div>' +
+        (sel ? '<p class="rule-detail" style="margin:10px 0 0">' + esc(sel.text) + '</p>' : '') + '</div>' : '') +
+      '<div><p class="eyebrow">Construction</p><div class="hint">' + Object.keys(f.guides || {}).length + ' guides · ' + (f.ink || []).length + ' ink operations</div></div>' +
+      controlsHTML() +
+      (f.page ? '<figure class="source" style="margin:0"><p class="eyebrow">Source spread</p><img id="srcImg" src="' + pageSrc(f.page) + '" alt="Book spread, PDF page ' + f.page + '"><figcaption>Ryakuga hayaoshie, PDF page ' + f.page + '. Arthur Tress Collection, University of Pennsylvania. No copyright (US).</figcaption></figure>' : '');
+    const rc = $('#ruleChips'); if (rc) rc.onclick = (e) => { const b = e.target.closest('[data-rule]'); if (!b) return; state.rule = state.rule === b.dataset.rule ? null : b.dataset.rule; renderPanel(); };
+    const si = $('#srcImg'); if (si) si.onclick = () => lightbox(f.page);
+    bindControls();
+  } else if (state.mode === 'compose') {
+    const c = state.compose, figs = H.list((f) => !f.noScene && f.place !== 'sky');
+    const cap = (compiled && compiled.caption) || [];
+    P.innerHTML =
+      '<div class="lesson"><p class="eyebrow">Composition</p><h2>構図</h2><div class="en">One picture per seed</div>' +
+      '<p>Each lesson in the book teaches a single subject. The book draws its subjects in particular settings: sea creatures over waves, travellers in the rain, a crane at the water. Pick a seed and the engine chooses a subject, puts it in its setting from the book, and adds only a companion and weather that belong there.</p></div>' +
+      '<div class="row"><button class="btn primary" id="roll">New picture</button><button class="btn" id="replay">Replay</button></div>' +
+      '<div class="controls">' +
+      '<label for="kSeed">Seed</label><input type="number" id="kSeed" value="' + c.seed + '" style="grid-column:2/4">' +
+      '<label for="kSub">Subject</label><select id="kSub" style="grid-column:2/4"><option value="">Chosen by the seed</option>' +
+      figs.map((f) => '<option value="' + esc(f.id) + '"' + (c.subject === f.id ? ' selected' : '') + '>' + esc((f.jp ? f.jp + '  ' : '') + f.title) + '</option>').join('') + '</select>' +
+      '</div>' +
+      (cap.length ? '<div><p class="eyebrow">What is in this picture</p><dl class="cap">' + cap.map((r) =>
+        '<dt>' + esc(r.k) + '</dt><dd>' + (r.fig ? '<button class="linkish" data-fig="' + esc(r.fig) + '">' + esc(r.v) + '</button>' : '<b>' + esc(r.v) + '</b>') + '<span>' + esc(r.why) + '</span></dd>').join('') + '</dl></div>' : '') +
+      controlsHTML();
+    const save = () => { store.set('compose', c); recompile(); renderPanel(); state.p = 0; setPlaying(true); };
+    $('#roll').onclick = () => { c.seed = Math.floor(Math.random() * 99999); save(); };
+    $('#replay').onclick = () => { state.p = 0; setPlaying(true); };
+    $('#kSeed').onchange = (e) => { c.seed = +e.target.value || 1; save(); };
+    $('#kSub').onchange = (e) => { c.subject = e.target.value; save(); };
+    P.querySelectorAll('.cap [data-fig]').forEach((b) => (b.onclick = () => { state.fig = b.dataset.fig; store.set('fig', state.fig); setMode('lesson'); state.p = 0; setPlaying(true); }));
+    bindControls();
+    P.querySelectorAll('#cSeed, [for=cSeed], #cSeed + output').forEach((el) => (el.hidden = true));
+  } else if (state.mode === 'write') {
+    if (!state.code) state.code = BLANK;
+    P.innerHTML =
+      '<div class="lesson"><p class="eyebrow">Write a figure</p><h2>筆</h2><div class="en">The drawing on the left is this code</div></div>' +
+      '<ol class="steps"><li><b>guides</b> are the compass and ruler shapes, drawn in red.</li><li><b>ink</b> says which of those lines to keep, trace, fill or texture.</li><li>Change a number below and the drawing updates. Try making the shell radius <code>20</code> into <code>26</code>.</li></ol>' +
+      '<textarea id="code" spellcheck="false" aria-label="Figure source">' + esc(state.code) + '</textarea>' +
+      '<div class="err" id="codeErr">' + esc(state.codeErr) + '</div>' +
+      '<div class="row"><button class="btn" id="replayW">Replay drawing</button><button class="btn" id="loadCur">Open a lesson\'s code</button><button class="btn" id="loadBlank">Start over</button><button class="btn" id="copyCode">Copy</button></div>' +
+      '<div class="hint">Every guide kind and ink operation is listed in README.md. “Open a lesson\'s code” loads the figure last selected in Lessons (' + esc((H.figures[state.fig] || {}).title || '') + ').</div>' +
+      controlsHTML();
+    let tmr = 0;
+    $('#code').oninput = (e) => { state.code = e.target.value; clearTimeout(tmr); tmr = setTimeout(() => { store.set('code', state.code); setPlaying(false); state.p = 1; recompile(); $('#codeErr').textContent = state.codeErr; }, 250); };
+    $('#code').onkeydown = (e) => { if (e.key === 'Tab') { e.preventDefault(); const t = e.target, s = t.selectionStart; t.setRangeText('  ', s, t.selectionEnd, 'end'); t.dispatchEvent(new Event('input')); } };
+    $('#replayW').onclick = () => { state.p = 0; setPlaying(true); };
+    $('#loadCur').onclick = () => { state.code = fmt(H.figures[state.fig]); store.set('code', state.code); renderPanel(); recompile(); state.p = 0; setPlaying(true); };
+    $('#loadBlank').onclick = () => { state.code = BLANK; store.set('code', state.code); renderPanel(); recompile(); state.p = 0; setPlaying(true); };
+    $('#copyCode').onclick = (e) => copy(state.code, e.target);
+    bindControls();
+  }
+}
+
+const BLANK = `{
+  id: 'my-snail', title: 'Snail', jp: '蝸牛', vol: 1,
+  size: [100, 70],
+
+  // 1. Construction: compass circles and ruled lines (drawn in red, then erased)
+  guides: {
+    shell: ['maru', 46, 32, 20],          // circle: centre x, centre y, radius
+    body:  ['daen', 52, 52, 38, 8],       // ellipse: centre x, y, radius x, radius y
+    head:  ['maru', 86, 46, 7],
+    horn1: ['sen', 86, 40, 90, 24],       // ruled line: x1, y1, x2, y2
+    horn2: ['sen', 83, 40, 80, 26],
+  },
+
+  // 2. Ink: what survives of the construction
+  ink: [
+    ['rinkaku', ['shell', 'body', 'head'], { w: 1.6 }],   // outer edge of the three shapes together
+    ['uzu', 46, 32, 17, { turns: 2.6, w: 1.2 }],           // the shell circle curled into a spiral
+    ['nazoru', 'horn1', { w: 1 }],                          // trace a guide as it is
+    ['nazoru', 'horn2', { w: 1 }],
+    ['kebiki', { union: ['body'], minus: ['shell'] }, { angle: 0, gap: 2.4, len: 4, w: 0.5 }],  // short strokes for skin
+  ],
+}`;
+
+// ───────────── compose / write ─────────────
+function composeScene() {
+  const c = state.compose;
+  return H.inventScene(c.seed, { subject: H.figures[c.subject] ? c.subject : undefined });
+}
+function compileCode() {
+  state.codeErr = '';
+  if (!state.code) state.code = BLANK;
+  const fig = new Function('Hokusai', '"use strict"; return (' + state.code + ')')(H);
+  if (!fig || typeof fig !== 'object') throw new Error('The editor must contain one figure object { ... }');
+  fig.id = fig.id || 'untitled';
+  return H.compile(fig, { seed: state.seed, weight: state.weight, wobble: state.wobble });
+}
+
+// compact, readable serializer for figures
+function fmt(v, ind) {
+  ind = ind || '';
+  const key = (k) => (/^[A-Za-z_$][\w$]*$/.test(k) ? k : JSON.stringify(k));
+  const str = (x) => (typeof x === 'string' ? "'" + x.replace(/\\/g, '\\\\').replace(/'/g, "\\'") + "'" : JSON.stringify(x));
+  const flat = (x) => Array.isArray(x) ? '[' + x.map(flat).join(', ') + ']'
+    : x && typeof x === 'object' ? '{ ' + Object.entries(x).map(([k, y]) => key(k) + ': ' + flat(y)).join(', ') + ' }' : str(x);
+  const f = flat(v);
+  if (f.length + ind.length < 96) return f;
+  if (Array.isArray(v)) return '[\n' + v.map((x) => ind + '  ' + fmt(x, ind + '  ')).join(',\n') + ',\n' + ind + ']';
+  if (v && typeof v === 'object') return '{\n' + Object.entries(v).map(([k, x]) => ind + '  ' + key(k) + ': ' + fmt(x, ind + '  ')).join(',\n') + ',\n' + ind + '}';
+  return f;
+}
+
+// ───────────── rulebook ─────────────
+function renderRulebook() {
+  const figsFor = (id) => H.list((f) => (f.rules || []).includes(id));
+  $('#rulebook').innerHTML =
+    '<div class="intro"><p class="eyebrow">The rulebook</p><h2>規矩 — the compass and the ruler</h2>' +
+    '<p>In 1812 Hokusai published a drawing manual built on one claim: anything can be drawn with the compass and the ruler. Volume one lays each subject out as circles, squares and triangles, then inks only what the subject needs. Volume two, from 1814, builds figures from the brush strokes of written characters. Each rule below is one operation in <code>lib/hokusai.js</code>, and every lesson in the catalogue is written with them.</p></div>' +
+    '<div class="rules">' + H.RULES.map((r) => {
+      const figs = figsFor(r.id);
+      return '<article class="rule"><header><b>' + r.jp + '</b><span>' + esc(r.name) + '</span></header><p>' + esc(r.text) + '</p>' +
+        '<div class="meta">Vol. ' + r.vol + ' · pages ' + r.pages.map((p) => '<a data-page="' + p + '">' + p + '</a>').join(', ') + '</div>' +
+        (figs.length ? '<div class="chips">' + figs.slice(0, 8).map((f) => '<button class="chip" data-fig="' + esc(f.id) + '"><b>' + esc(f.jp || '') + '</b>' + esc(f.title) + '</button>').join('') + '</div>' : '') +
+        '</article>';
+    }).join('') + '</div>';
+}
+$('#rulebook').onclick = (e) => {
+  const p = e.target.closest('[data-page]'); if (p) return lightbox(+p.dataset.page);
+  const f = e.target.closest('[data-fig]'); if (f) { state.fig = f.dataset.fig; setMode('lesson'); state.p = 0; setPlaying(true); }
+};
+function lightbox(page) {
+  $('#lbImg').src = pageSrc(page); $('#lbCap').textContent = 'PDF page ' + page + ' · click to close';
+  const d = $('#lightbox'); d.showModal(); d.onclick = () => d.close();
+}
+
+// ───────────── export ─────────────
+function download(name, blob) {
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+function exportPNG() {
+  if (!compiled) return;
+  const S = 10, c2 = document.createElement('canvas'); c2.width = compiled.size[0] * S; c2.height = compiled.size[1] * S;
+  const g2 = c2.getContext('2d'); H.paper(g2, c2.width, c2.height, 11);
+  H.render(g2, compiled.ops, { scale: S, guides: state.guides === 'none' || state.erase ? 'none' : state.guides });
+  c2.toBlob((b) => download((compiled.id || 'hokusai') + '.png', b));
+}
+function exportSVG() {
+  if (!compiled) return;
+  download((compiled.id || 'hokusai') + '.svg', new Blob([H.toSVG(compiled, { guides: state.erase ? 'none' : state.guides })], { type: 'image/svg+xml' }));
+}
+
+// ───────────── modes ─────────────
+function setMode(m) {
+  state.mode = m;
+  $('#main').classList.toggle('wide', m === 'write');
+  document.querySelectorAll('nav [data-mode]').forEach((b) => b.setAttribute('aria-selected', b.dataset.mode === m));
+  const rb = m === 'rules';
+  $('#rulebook').hidden = !rb; $('#stageCol').hidden = rb; $('#panel').hidden = rb;
+  if (rb) renderRulebook();
+  renderCatalogue();
+  if (!rb) { recompile(); renderPanel(); }
+  if (m === 'write') $('#codeErr').textContent = state.codeErr;
+}
+document.querySelector('nav').onclick = (e) => { const b = e.target.closest('[data-mode]'); if (b) { setMode(b.dataset.mode); if (b.dataset.mode === 'write') { setPlaying(false); state.p = 1; draw(); } else if (b.dataset.mode !== 'rules') { state.p = 0; setPlaying(true); } } };
+
+const startMode = ['lesson', 'compose', 'write', 'rules'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'lesson';
+setMode(startMode);
+if (startMode === 'write') { state.p = 1; draw(); } else if (startMode !== 'rules') { state.p = 0; setPlaying(true); }
+})();
+</script>
+</body>
+</html>
