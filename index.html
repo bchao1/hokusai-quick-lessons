@@ -225,6 +225,7 @@ const state = {
   fig: store.get('fig', null) || H.order[0],
   seed: 1812, weight: 1, wobble: 1,
   style: store.get('style', 'hanga'), hand: store.get('hand', 1), source: store.get('source', 'traced'),
+  vary: 0, genStyle: '', writeGen: false,
   guides: 'shu', erase: true,
   p: 1.15, playing: false,
   rule: null,
@@ -241,6 +242,10 @@ function currentPicture() {
   if (state.mode === 'compose') return composeScene();
   if (state.mode === 'write') return compileCode();
   if (state.mode === 'strokes') return compileTrace();
+  if (state.source === 'gen' && H.generatedFigure) {
+    const gf = H.generatedFigure(state.fig, { seed: state.seed, hand: state.hand, weight: state.weight, vary: state.vary, style: state.genStyle || undefined });
+    if (gf) return H.compile(gf, Object.assign(look(), { hand: 0, weight: 1 }));
+  }
   const tf = state.source === 'traced' && H.tracedFigure && H.tracedFigure(state.fig);
   return tf ? H.compile(tf, look()) : H.compile(state.fig, look());
 }
@@ -361,12 +366,20 @@ function renderPanel() {
       (rules.length ? '<div><p class="eyebrow">Rules applied</p><div class="chips" id="ruleChips">' + rules.map((r) => '<button class="chip" data-rule="' + r + '"><b>' + ruleById[r].jp + '</b>' + esc(ruleById[r].name) + '</button>').join('') + '</div>' +
         (sel ? '<p class="rule-detail" style="margin:10px 0 0">' + esc(sel.text) + '</p>' : '') + '</div>' : '') +
       '<div><p class="eyebrow">Draw from</p><div class="seg" id="cSource">' +
-        [['traced', '写 Hokusai\'s strokes'], ['rules', '規 Rules']].map(([k, l]) => '<button data-src="' + k + '" aria-pressed="' + (state.source === k) + '"' + (k === 'traced' && !(f.traced && f.traced.fin) ? ' disabled' : '') + '>' + l + '</button>').join('') + '</div>' +
-        '<div class="hint" style="margin-top:6px">' + (state.source === 'traced' && f.traced && f.traced.fin && H.strokeDB[f.traced.fin]
+        [['traced', '写 Traced'], ['gen', '生 Generated'], ['rules', '規 Hand-written']].map(([k, l]) => '<button data-src="' + k + '" aria-pressed="' + (state.source === k) + '"' +
+          ((k === 'traced' && !(f.traced && f.traced.fin)) || (k === 'gen' && !(H.constructions && H.constructions[f.id])) ? ' disabled' : '') + '>' + l + '</button>').join('') + '</div>' +
+        (state.source === 'gen' ? '<div class="controls" style="margin-top:10px">' +
+          '<label for="cVary">Vary</label><input type="range" id="cVary" min="0" max="1.5" step="0.05" value="' + state.vary + '"><output>' + state.vary.toFixed(2) + '</output>' +
+          '<label for="cGStyle">Texture</label><select id="cGStyle" style="grid-column:2/4"><option value="">its own (learned)</option><option value="pooled"' + (state.genStyle === 'pooled' ? ' selected' : '') + '>pooled (leave-one-out)</option>' +
+          Object.keys((H.model && H.model.styles) || {}).filter((k) => H.model.styles[k].good).map((k) => '<option value="' + k + '"' + (state.genStyle === k ? ' selected' : '') + '>like ' + esc((H.figures[k] || {}).title || k) + '</option>').join('') + '</select></div>' +
+          '<div class="hint">Painted by the learned model from Hokusai\'s construction only (red). <b>Vary</b> reshapes the construction into a new subject; <b>Seed</b> gives a new painting; <b>Hand</b> sets how far the ink drifts.</div>' : '') +
+        '<div class="hint" style="margin-top:6px">' + (state.source === 'gen' ? '' : state.source === 'traced' && f.traced && f.traced.fin && H.strokeDB[f.traced.fin]
           ? 'Traced from the scan by code: ' + H.strokeDB[f.traced.fin].strokes.length + ' strokes, ' + H.strokeDB[f.traced.fin].fills.length + ' fills.'
           : Object.keys(f.guides || {}).length + ' guides · ' + (f.ink || []).length + ' ink operations, written by hand.') + '</div></div>' +
       controlsHTML() +
       (f.page ? '<figure class="source" style="margin:0"><p class="eyebrow">Source spread</p><img id="srcImg" src="' + pageSrc(f.page) + '" alt="Book spread, PDF page ' + f.page + '"><figcaption>Ryakuga hayaoshie, PDF page ' + f.page + '. Arthur Tress Collection, University of Pennsylvania. No copyright (US).</figcaption></figure>' : '');
+    const cv2 = $('#cVary'); if (cv2) cv2.oninput = () => { state.vary = +cv2.value; cv2.nextElementSibling.textContent = state.vary.toFixed(2); recompile(); };
+    const cgs = $('#cGStyle'); if (cgs) cgs.onchange = () => { state.genStyle = cgs.value; recompile(); state.p = 0; setPlaying(true); };
     const csrc = $('#cSource'); if (csrc) csrc.onclick = (e) => { const b = e.target.closest('[data-src]'); if (!b || b.disabled) return; state.source = b.dataset.src; store.set('source', state.source); renderPanel(); recompile(); state.p = 0; setPlaying(true); };
     const rc = $('#ruleChips'); if (rc) rc.onclick = (e) => { const b = e.target.closest('[data-rule]'); if (!b) return; state.rule = state.rule === b.dataset.rule ? null : b.dataset.rule; renderPanel(); };
     const si = $('#srcImg'); if (si) si.onclick = () => lightbox(f.page);
@@ -378,6 +391,8 @@ function renderPanel() {
       '<div class="lesson"><p class="eyebrow">Composition</p><h2>構図</h2><div class="en">One picture per seed</div>' +
       '<p>Each lesson in the book teaches a single subject. The book draws its subjects in particular settings: sea creatures over waves, travellers in the rain, a crane at the water. Pick a seed and the engine chooses a subject, puts it in its setting from the book, and adds only a companion and weather that belong there.</p></div>' +
       '<div class="row"><button class="btn primary" id="roll">New picture</button><button class="btn" id="replay">Replay</button></div>' +
+      '<div class="controls"><label>Paint</label><div class="seg" id="kPaint">' + [['rules', '規 Hand-written'], ['gen', '生 Model']].map(([k, l]) => '<button data-v="' + k + '" aria-pressed="' + ((c.paint || 'rules') === k) + '">' + l + '</button>').join('') + '</div>' +
+      '<label for="kVary">Vary</label><input type="range" id="kVary" min="0" max="1.5" step="0.05" value="' + (c.vary || 0) + '"><output>' + (+(c.vary || 0)).toFixed(2) + '</output></div>' +
       '<div class="controls">' +
       '<label for="kSeed">Seed</label><input type="number" id="kSeed" value="' + c.seed + '" style="grid-column:2/4">' +
       '<label for="kSub">Subject</label><select id="kSub" style="grid-column:2/4"><option value="">Chosen by the seed</option>' +
@@ -391,6 +406,8 @@ function renderPanel() {
     $('#replay').onclick = () => { state.p = 0; setPlaying(true); };
     $('#kSeed').onchange = (e) => { c.seed = +e.target.value || 1; save(); };
     $('#kSub').onchange = (e) => { c.subject = e.target.value; save(); };
+    $('#kPaint').onclick = (e) => { const b = e.target.closest('[data-v]'); if (!b) return; c.paint = b.dataset.v; save(); };
+    $('#kVary').onchange = (e) => { c.vary = +e.target.value; save(); };
     P.querySelectorAll('.cap [data-fig]').forEach((b) => (b.onclick = () => { state.fig = b.dataset.fig; store.set('fig', state.fig); setMode('lesson'); state.p = 0; setPlaying(true); }));
     bindControls();
     P.querySelectorAll('#cSeed, [for=cSeed], #cSeed + output').forEach((el) => (el.hidden = true));
@@ -421,6 +438,8 @@ function renderPanel() {
       '<ol class="steps"><li><b>guides</b> are the compass and ruler shapes, drawn in red.</li><li><b>ink</b> says which of those lines to keep, trace, fill or texture.</li><li>Change a number below and the drawing updates. Try making the shell radius <code>20</code> into <code>26</code>.</li></ol>' +
       '<textarea id="code" spellcheck="false" aria-label="Figure source">' + esc(state.code) + '</textarea>' +
       '<div class="err" id="codeErr">' + esc(state.codeErr) + '</div>' +
+      '<div class="row"><button class="btn' + (state.writeGen ? ' primary' : '') + '" id="genW">生 ' + (state.writeGen ? 'Painting with the model' : 'Paint with the model') + '</button>' +
+      '<select id="genWStyle" aria-label="Texture style"><option value="">pooled texture</option>' + Object.keys((H.model && H.model.styles) || {}).filter((k) => H.model.styles[k].good).map((k) => '<option value="' + k + '"' + (state.genStyle === k ? ' selected' : '') + '>like ' + esc((H.figures[k] || {}).title || k) + '</option>').join('') + '</select></div>' +
       '<div class="row"><button class="btn" id="replayW">Replay drawing</button><button class="btn" id="loadCur">Open a lesson\'s code</button><button class="btn" id="loadBlank">Start over</button><button class="btn" id="copyCode">Copy</button></div>' +
       '<div class="hint">Every guide kind and ink operation is listed in README.md. “Open a lesson\'s code” loads the figure last selected in Lessons (' + esc((H.figures[state.fig] || {}).title || '') + ').</div>' +
       controlsHTML();
@@ -428,6 +447,8 @@ function renderPanel() {
     $('#code').oninput = (e) => { state.code = e.target.value; clearTimeout(tmr); tmr = setTimeout(() => { store.set('code', state.code); setPlaying(false); state.p = 1; recompile(); $('#codeErr').textContent = state.codeErr; }, 250); };
     $('#code').onkeydown = (e) => { if (e.key === 'Tab') { e.preventDefault(); const t = e.target, s = t.selectionStart; t.setRangeText('  ', s, t.selectionEnd, 'end'); t.dispatchEvent(new Event('input')); } };
     $('#replayW').onclick = () => { state.p = 0; setPlaying(true); };
+    $('#genW').onclick = () => { state.writeGen = !state.writeGen; renderPanel(); recompile(); state.p = 0; setPlaying(true); };
+    $('#genWStyle').onchange = (e) => { state.genStyle = e.target.value; if (state.writeGen) { recompile(); state.p = 0; setPlaying(true); } };
     $('#loadCur').onclick = () => { state.code = fmt(H.figures[state.fig]); store.set('code', state.code); renderPanel(); recompile(); state.p = 0; setPlaying(true); };
     $('#loadBlank').onclick = () => { state.code = BLANK; store.set('code', state.code); renderPanel(); recompile(); state.p = 0; setPlaying(true); };
     $('#copyCode').onclick = (e) => copy(state.code, e.target);
@@ -461,7 +482,7 @@ const BLANK = `{
 // ───────────── compose / write ─────────────
 function composeScene() {
   const c = state.compose;
-  return H.inventScene(c.seed, { subject: H.figures[c.subject] ? c.subject : undefined, style: state.style, hand: state.hand });
+  return H.inventScene(c.seed, { subject: H.figures[c.subject] ? c.subject : undefined, style: state.style, hand: state.hand, paint: c.paint, vary: c.vary || 0 });
 }
 const CAT_COLORS = { contour: '#1b2130', hair: '#2e6fd8', tick: '#1d8f4e', dot: '#1aa3b8', whorl: '#a13ca8', compass: '#d2372a', ruled: '#e07b00', fill: '#5b5bc8' };
 function traceIds() { return Object.keys(H.strokeDB || {}).sort(); }
@@ -478,6 +499,13 @@ function compileCode() {
   const fig = new Function('Hokusai', '"use strict"; return (' + state.code + ')')(H);
   if (!fig || typeof fig !== 'object') throw new Error('The editor must contain one figure object { ... }');
   fig.id = fig.id || 'untitled';
+  if (state.writeGen && H.generate) {
+    // the guides are the construction; the learned model paints them
+    const cons = H.constructionFromFigure(fig);
+    const db = H.generate(cons, { seed: state.seed, hand: state.hand, weight: state.weight, style: state.genStyle || 'pooled' });
+    H.strokeDB['write:gen'] = db;
+    return H.compile({ id: fig.id + '-gen', size: cons.size, guides: fig.guides, ink: [['utsushi', 'write:gen']] }, Object.assign(look(), { hand: 0, weight: 1 }));
+  }
   return H.compile(fig, look());
 }
 

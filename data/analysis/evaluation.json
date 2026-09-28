@@ -1,0 +1,5738 @@
+{
+ "asagao": {
+  "good": true,
+  "base": {
+   "P": 0.666,
+   "R": 0.929,
+   "F": 0.776,
+   "F_outline": 0.753,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.05,
+     "len_w1": 3.392,
+     "len_rel": 0.168,
+     "w_w1": 0.101
+    },
+    "hair": {
+     "count_ratio": 1.667,
+     "len_w1": 2.312,
+     "len_rel": 0.171,
+     "w_w1": 0.202
+    }
+   }
+  },
+  "loo": {
+   "P": 0.543,
+   "R": 0.768,
+   "F": 0.636,
+   "F_outline": 0.527,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.95,
+     "len_w1": 17.6,
+     "len_rel": 0.874,
+     "w_w1": 0.084
+    },
+    "hair": {
+     "count_ratio": 7.667,
+     "len_w1": 3.234,
+     "len_rel": 0.239,
+     "w_w1": 0.252
+    }
+   }
+  },
+  "own": {
+   "P": 0.695,
+   "R": 0.757,
+   "F": 0.725,
+   "F_outline": 0.711,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.55,
+     "len_w1": 9.631,
+     "len_rel": 0.478,
+     "w_w1": 0.045
+    },
+    "hair": {
+     "count_ratio": 1.167,
+     "len_w1": 2.248,
+     "len_rel": 0.166,
+     "w_w1": 0.236
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.7,
+     "len_w1": 3.872,
+     "len_rel": 0.192,
+     "w_w1": 0.035
+    },
+    "hair": {
+     "count_ratio": 1.333,
+     "len_w1": 1.123,
+     "len_rel": 0.083,
+     "w_w1": 0.073
+    }
+   }
+  }
+ },
+ "chochin-futamaru": {
+  "good": true,
+  "base": {
+   "P": 0.915,
+   "R": 0.4,
+   "F": 0.557,
+   "F_outline": 0.475,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.667,
+     "len_w1": 2.424,
+     "len_rel": 0.168,
+     "w_w1": 0.052
+    },
+    "hair": {
+     "count_ratio": 0.025,
+     "len_w1": 4.184,
+     "len_rel": 0.504,
+     "w_w1": 0.276
+    },
+    "tick": {
+     "count_ratio": 0.214,
+     "len_w1": 0.655,
+     "len_rel": 0.194,
+     "w_w1": 0.224
+    }
+   }
+  },
+  "loo": {
+   "P": 0.889,
+   "R": 0.161,
+   "F": 0.273,
+   "F_outline": 0.316,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.267,
+     "len_w1": 5.819,
+     "len_rel": 0.403,
+     "w_w1": 0.098
+    },
+    "hair": {
+     "count_ratio": 0.037,
+     "len_w1": 3.81,
+     "len_rel": 0.459,
+     "w_w1": 0.216
+    },
+    "tick": {
+     "count_ratio": 0.381,
+     "len_w1": 0.513,
+     "len_rel": 0.152,
+     "w_w1": 0.142
+    }
+   }
+  },
+  "own": {
+   "P": 0.92,
+   "R": 0.184,
+   "F": 0.306,
+   "F_outline": 0.317,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.267,
+     "len_w1": 7.154,
+     "len_rel": 0.495,
+     "w_w1": 0.175
+    },
+    "hair": {
+     "count_ratio": 0.025,
+     "len_w1": 3.141,
+     "len_rel": 0.378,
+     "w_w1": 0.27
+    },
+    "tick": {
+     "count_ratio": 0.167,
+     "len_w1": 1.231,
+     "len_rel": 0.365,
+     "w_w1": 0.148
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.867,
+     "len_w1": 1.807,
+     "len_rel": 0.125,
+     "w_w1": 0.08
+    },
+    "hair": {
+     "count_ratio": 1.137,
+     "len_w1": 0.572,
+     "len_rel": 0.069,
+     "w_w1": 0.073
+    },
+    "tick": {
+     "count_ratio": 0.929,
+     "len_w1": 0.341,
+     "len_rel": 0.101,
+     "w_w1": 0.069
+    }
+   }
+  }
+ },
+ "daikoku-daitoku": {
+  "good": false,
+  "base": {
+   "P": 0.647,
+   "R": 0.208,
+   "F": 0.315,
+   "F_outline": 0.222,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.373,
+     "len_w1": 7.943,
+     "len_rel": 0.531,
+     "w_w1": 0.243
+    },
+    "hair": {
+     "count_ratio": 0.191,
+     "len_w1": 2.452,
+     "len_rel": 0.311,
+     "w_w1": 0.022
+    },
+    "tick": {
+     "count_ratio": 0.111,
+     "len_w1": 0.575,
+     "len_rel": 0.166,
+     "w_w1": 0.086
+    },
+    "dot": {
+     "count_ratio": 0.111,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "loo": {
+   "P": 0.615,
+   "R": 0.155,
+   "F": 0.247,
+   "F_outline": 0.077,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.176,
+     "len_w1": 17.369,
+     "len_rel": 1.161,
+     "w_w1": 0.32
+    },
+    "hair": {
+     "count_ratio": 0.066,
+     "len_w1": 2.998,
+     "len_rel": 0.38,
+     "w_w1": 0.033
+    },
+    "tick": {
+     "count_ratio": 0.269,
+     "len_w1": 0.26,
+     "len_rel": 0.075,
+     "w_w1": 0.045
+    },
+    "dot": {
+     "count_ratio": 0.222,
+     "len_w1": 0.163,
+     "len_rel": 0.115,
+     "w_w1": 0.044
+    }
+   }
+  },
+  "own": {
+   "P": 0.667,
+   "R": 0.149,
+   "F": 0.244,
+   "F_outline": 0.05,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.098,
+     "len_w1": 17.073,
+     "len_rel": 1.141,
+     "w_w1": 0.168
+    },
+    "hair": {
+     "count_ratio": 0.115,
+     "len_w1": 2.85,
+     "len_rel": 0.361,
+     "w_w1": 0.288
+    },
+    "tick": {
+     "count_ratio": 0.12,
+     "len_w1": 0.808,
+     "len_rel": 0.233,
+     "w_w1": 0.08
+    },
+    "dot": {
+     "count_ratio": 0.111,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.882,
+     "len_w1": 2.444,
+     "len_rel": 0.163,
+     "w_w1": 0.057
+    },
+    "hair": {
+     "count_ratio": 1.038,
+     "len_w1": 0.151,
+     "len_rel": 0.019,
+     "w_w1": 0.019
+    },
+    "tick": {
+     "count_ratio": 1.0,
+     "len_w1": 0.095,
+     "len_rel": 0.027,
+     "w_w1": 0.027
+    },
+    "dot": {
+     "count_ratio": 0.778,
+     "len_w1": 0.1,
+     "len_rel": 0.07,
+     "w_w1": 0.059
+    }
+   }
+  }
+ },
+ "daruma": {
+  "good": true,
+  "base": {
+   "P": 0.721,
+   "R": 0.52,
+   "F": 0.604,
+   "F_outline": 0.51,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.529,
+     "len_w1": 4.011,
+     "len_rel": 0.412,
+     "w_w1": 0.19
+    },
+    "hair": {
+     "count_ratio": 0.211,
+     "len_w1": 3.353,
+     "len_rel": 0.475,
+     "w_w1": 0.261
+    },
+    "tick": {
+     "count_ratio": 0.444,
+     "len_w1": 0.925,
+     "len_rel": 0.351,
+     "w_w1": 0.259
+    }
+   }
+  },
+  "loo": {
+   "P": 0.549,
+   "R": 0.26,
+   "F": 0.353,
+   "F_outline": 0.156,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.382,
+     "len_w1": 5.231,
+     "len_rel": 0.537,
+     "w_w1": 0.205
+    },
+    "hair": {
+     "count_ratio": 0.342,
+     "len_w1": 5.349,
+     "len_rel": 0.758,
+     "w_w1": 0.307
+    },
+    "tick": {
+     "count_ratio": 0.574,
+     "len_w1": 0.99,
+     "len_rel": 0.375,
+     "w_w1": 0.129
+    }
+   }
+  },
+  "own": {
+   "P": 0.805,
+   "R": 0.204,
+   "F": 0.324,
+   "F_outline": 0.222,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.235,
+     "len_w1": 5.941,
+     "len_rel": 0.61,
+     "w_w1": 0.12
+    },
+    "hair": {
+     "count_ratio": 0.184,
+     "len_w1": 1.117,
+     "len_rel": 0.158,
+     "w_w1": 0.083
+    },
+    "tick": {
+     "count_ratio": 0.315,
+     "len_w1": 0.627,
+     "len_rel": 0.238,
+     "w_w1": 0.171
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.647,
+     "len_w1": 3.484,
+     "len_rel": 0.358,
+     "w_w1": 0.055
+    },
+    "hair": {
+     "count_ratio": 1.105,
+     "len_w1": 1.878,
+     "len_rel": 0.266,
+     "w_w1": 0.063
+    },
+    "tick": {
+     "count_ratio": 1.185,
+     "len_w1": 0.193,
+     "len_rel": 0.073,
+     "w_w1": 0.04
+    }
+   }
+  }
+ },
+ "daruma-shi": {
+  "good": false,
+  "base": {
+   "P": 0.505,
+   "R": 0.205,
+   "F": 0.291,
+   "F_outline": 0.251,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.2,
+     "len_w1": 5.433,
+     "len_rel": 0.518,
+     "w_w1": 0.137
+    },
+    "hair": {
+     "count_ratio": 0.094,
+     "len_w1": 4.812,
+     "len_rel": 0.798,
+     "w_w1": 0.166
+    },
+    "tick": {
+     "count_ratio": 0.61,
+     "len_w1": 0.954,
+     "len_rel": 0.317,
+     "w_w1": 0.161
+    },
+    "dot": {
+     "count_ratio": 0.111,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "loo": {
+   "P": 0.319,
+   "R": 0.077,
+   "F": 0.124,
+   "F_outline": 0.131,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.84,
+     "len_w1": 6.57,
+     "len_rel": 0.627,
+     "w_w1": 0.119
+    },
+    "hair": {
+     "count_ratio": 0.11,
+     "len_w1": 1.596,
+     "len_rel": 0.265,
+     "w_w1": 0.119
+    },
+    "tick": {
+     "count_ratio": 0.494,
+     "len_w1": 0.866,
+     "len_rel": 0.287,
+     "w_w1": 0.078
+    },
+    "dot": {
+     "count_ratio": 0.444,
+     "len_w1": 0.239,
+     "len_rel": 0.138,
+     "w_w1": 0.124
+    }
+   }
+  },
+  "own": {
+   "P": 0.392,
+   "R": 0.059,
+   "F": 0.102,
+   "F_outline": 0.122,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.72,
+     "len_w1": 3.255,
+     "len_rel": 0.311,
+     "w_w1": 0.107
+    },
+    "hair": {
+     "count_ratio": 0.017,
+     "len_w1": 6.096,
+     "len_rel": 1.011,
+     "w_w1": 0.311
+    },
+    "tick": {
+     "count_ratio": 0.208,
+     "len_w1": 0.445,
+     "len_rel": 0.148,
+     "w_w1": 0.117
+    },
+    "dot": {
+     "count_ratio": 0.111,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.24,
+     "len_w1": 1.584,
+     "len_rel": 0.151,
+     "w_w1": 0.05
+    },
+    "hair": {
+     "count_ratio": 0.878,
+     "len_w1": 0.23,
+     "len_rel": 0.038,
+     "w_w1": 0.017
+    },
+    "tick": {
+     "count_ratio": 1.13,
+     "len_w1": 0.128,
+     "len_rel": 0.042,
+     "w_w1": 0.041
+    },
+    "dot": {
+     "count_ratio": 0.778,
+     "len_w1": 0.05,
+     "len_rel": 0.029,
+     "w_w1": 0.041
+    }
+   }
+  }
+ },
+ "fugu-maru": {
+  "good": true,
+  "base": {
+   "P": 0.621,
+   "R": 0.325,
+   "F": 0.427,
+   "F_outline": 0.42,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.214,
+     "len_w1": 7.808,
+     "len_rel": 1.035,
+     "w_w1": 0.182
+    },
+    "hair": {
+     "count_ratio": 0.102,
+     "len_w1": 6.298,
+     "len_rel": 1.472,
+     "w_w1": 0.321
+    },
+    "tick": {
+     "count_ratio": 0.092,
+     "len_w1": 1.12,
+     "len_rel": 0.453,
+     "w_w1": 0.168
+    },
+    "dot": {
+     "count_ratio": 0.083,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "loo": {
+   "P": 0.497,
+   "R": 0.064,
+   "F": 0.114,
+   "F_outline": 0.176,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.357,
+     "len_w1": 5.992,
+     "len_rel": 0.795,
+     "w_w1": 0.192
+    },
+    "hair": {
+     "count_ratio": 0.237,
+     "len_w1": 3.015,
+     "len_rel": 0.704,
+     "w_w1": 0.262
+    },
+    "tick": {
+     "count_ratio": 0.2,
+     "len_w1": 0.444,
+     "len_rel": 0.18,
+     "w_w1": 0.062
+    },
+    "dot": {
+     "count_ratio": 0.167,
+     "len_w1": 0.364,
+     "len_rel": 0.242,
+     "w_w1": 0.09
+    }
+   }
+  },
+  "own": {
+   "P": 0.493,
+   "R": 0.038,
+   "F": 0.07,
+   "F_outline": 0.139,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.571,
+     "len_w1": 6.494,
+     "len_rel": 0.861,
+     "w_w1": 0.289
+    },
+    "hair": {
+     "count_ratio": 0.068,
+     "len_w1": 2.569,
+     "len_rel": 0.6,
+     "w_w1": 0.2
+    },
+    "tick": {
+     "count_ratio": 0.169,
+     "len_w1": 1.364,
+     "len_rel": 0.552,
+     "w_w1": 0.334
+    },
+    "dot": {
+     "count_ratio": 0.083,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.714,
+     "len_w1": 1.806,
+     "len_rel": 0.239,
+     "w_w1": 0.04
+    },
+    "hair": {
+     "count_ratio": 1.068,
+     "len_w1": 0.818,
+     "len_rel": 0.191,
+     "w_w1": 0.042
+    },
+    "tick": {
+     "count_ratio": 1.031,
+     "len_w1": 0.249,
+     "len_rel": 0.101,
+     "w_w1": 0.038
+    },
+    "dot": {
+     "count_ratio": 1.0,
+     "len_w1": 0.171,
+     "len_rel": 0.114,
+     "w_w1": 0.057
+    }
+   }
+  }
+ },
+ "fuji-moji": {
+  "good": false,
+  "base": {
+   "P": 0.934,
+   "R": 0.093,
+   "F": 0.169,
+   "F_outline": 0.186,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.417,
+     "len_w1": 7.558,
+     "len_rel": 0.34,
+     "w_w1": 0.1
+    },
+    "hair": {
+     "count_ratio": 0.006,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    },
+    "tick": {
+     "count_ratio": 0.039,
+     "len_w1": 1.288,
+     "len_rel": 0.488,
+     "w_w1": 0.216
+    },
+    "dot": {
+     "count_ratio": 0.032,
+     "len_w1": 0.616,
+     "len_rel": 0.438,
+     "w_w1": 0.134
+    }
+   }
+  },
+  "loo": {
+   "P": 1.0,
+   "R": 0.02,
+   "F": 0.039,
+   "F_outline": 0.046,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.167,
+     "len_w1": 18.003,
+     "len_rel": 0.811,
+     "w_w1": 0.217
+    },
+    "hair": {
+     "count_ratio": 0.006,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    },
+    "tick": {
+     "count_ratio": 0.026,
+     "len_w1": 1.598,
+     "len_rel": 0.605,
+     "w_w1": 0.183
+    },
+    "dot": {
+     "count_ratio": 0.011,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "own": {
+   "P": 1.0,
+   "R": 0.018,
+   "F": 0.035,
+   "F_outline": 0.046,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.167,
+     "len_w1": 15.839,
+     "len_rel": 0.713,
+     "w_w1": 0.297
+    },
+    "hair": {
+     "count_ratio": 0.006,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    },
+    "tick": {
+     "count_ratio": 0.039,
+     "len_w1": 0.608,
+     "len_rel": 0.23,
+     "w_w1": 0.113
+    },
+    "dot": {
+     "count_ratio": 0.011,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.917,
+     "len_w1": 4.386,
+     "len_rel": 0.198,
+     "w_w1": 0.043
+    },
+    "hair": {
+     "count_ratio": 0.932,
+     "len_w1": 0.727,
+     "len_rel": 0.161,
+     "w_w1": 0.014
+    },
+    "tick": {
+     "count_ratio": 1.132,
+     "len_w1": 0.179,
+     "len_rel": 0.068,
+     "w_w1": 0.023
+    },
+    "dot": {
+     "count_ratio": 0.989,
+     "len_w1": 0.038,
+     "len_rel": 0.027,
+     "w_w1": 0.017
+    }
+   }
+  }
+ },
+ "fukurokuju": {
+  "good": true,
+  "base": {
+   "P": 0.681,
+   "R": 0.454,
+   "F": 0.545,
+   "F_outline": 0.514,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.543,
+     "len_w1": 4.371,
+     "len_rel": 0.204,
+     "w_w1": 0.148
+    },
+    "hair": {
+     "count_ratio": 0.075,
+     "len_w1": 3.849,
+     "len_rel": 0.456,
+     "w_w1": 0.194
+    },
+    "tick": {
+     "count_ratio": 0.158,
+     "len_w1": 0.382,
+     "len_rel": 0.105,
+     "w_w1": 0.1
+    }
+   }
+  },
+  "loo": {
+   "P": 0.642,
+   "R": 0.467,
+   "F": 0.54,
+   "F_outline": 0.326,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.891,
+     "len_w1": 6.676,
+     "len_rel": 0.311,
+     "w_w1": 0.083
+    },
+    "hair": {
+     "count_ratio": 0.229,
+     "len_w1": 1.083,
+     "len_rel": 0.129,
+     "w_w1": 0.057
+    },
+    "tick": {
+     "count_ratio": 0.507,
+     "len_w1": 0.162,
+     "len_rel": 0.044,
+     "w_w1": 0.06
+    }
+   }
+  },
+  "own": {
+   "P": 0.861,
+   "R": 0.655,
+   "F": 0.744,
+   "F_outline": 0.46,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.783,
+     "len_w1": 4.551,
+     "len_rel": 0.212,
+     "w_w1": 0.078
+    },
+    "hair": {
+     "count_ratio": 0.603,
+     "len_w1": 0.603,
+     "len_rel": 0.072,
+     "w_w1": 0.046
+    },
+    "tick": {
+     "count_ratio": 0.726,
+     "len_w1": 0.238,
+     "len_rel": 0.065,
+     "w_w1": 0.046
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.783,
+     "len_w1": 0.937,
+     "len_rel": 0.044,
+     "w_w1": 0.036
+    },
+    "hair": {
+     "count_ratio": 1.243,
+     "len_w1": 0.81,
+     "len_rel": 0.096,
+     "w_w1": 0.044
+    },
+    "tick": {
+     "count_ratio": 0.808,
+     "len_w1": 0.207,
+     "len_rel": 0.057,
+     "w_w1": 0.055
+    }
+   }
+  }
+ },
+ "gama": {
+  "good": true,
+  "base": {
+   "P": 0.928,
+   "R": 0.476,
+   "F": 0.629,
+   "F_outline": 0.579,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.421,
+     "len_w1": 5.669,
+     "len_rel": 0.258,
+     "w_w1": 0.136
+    },
+    "hair": {
+     "count_ratio": 0.096,
+     "len_w1": 3.788,
+     "len_rel": 0.447,
+     "w_w1": 0.188
+    },
+    "tick": {
+     "count_ratio": 0.258,
+     "len_w1": 0.204,
+     "len_rel": 0.057,
+     "w_w1": 0.13
+    },
+    "dot": {
+     "count_ratio": 0.069,
+     "len_w1": 0.184,
+     "len_rel": 0.11,
+     "w_w1": 0.084
+    }
+   }
+  },
+  "loo": {
+   "P": 0.697,
+   "R": 0.365,
+   "F": 0.478,
+   "F_outline": 0.262,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.982,
+     "len_w1": 16.559,
+     "len_rel": 0.755,
+     "w_w1": 0.094
+    },
+    "hair": {
+     "count_ratio": 0.447,
+     "len_w1": 1.077,
+     "len_rel": 0.127,
+     "w_w1": 0.046
+    },
+    "tick": {
+     "count_ratio": 0.989,
+     "len_w1": 0.48,
+     "len_rel": 0.135,
+     "w_w1": 0.051
+    },
+    "dot": {
+     "count_ratio": 0.31,
+     "len_w1": 0.068,
+     "len_rel": 0.04,
+     "w_w1": 0.039
+    }
+   }
+  },
+  "own": {
+   "P": 0.882,
+   "R": 0.407,
+   "F": 0.557,
+   "F_outline": 0.389,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.456,
+     "len_w1": 8.066,
+     "len_rel": 0.368,
+     "w_w1": 0.081
+    },
+    "hair": {
+     "count_ratio": 0.489,
+     "len_w1": 0.907,
+     "len_rel": 0.107,
+     "w_w1": 0.054
+    },
+    "tick": {
+     "count_ratio": 0.581,
+     "len_w1": 0.189,
+     "len_rel": 0.053,
+     "w_w1": 0.134
+    },
+    "dot": {
+     "count_ratio": 0.862,
+     "len_w1": 0.065,
+     "len_rel": 0.039,
+     "w_w1": 0.047
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.93,
+     "len_w1": 1.965,
+     "len_rel": 0.09,
+     "w_w1": 0.05
+    },
+    "hair": {
+     "count_ratio": 1.011,
+     "len_w1": 0.379,
+     "len_rel": 0.045,
+     "w_w1": 0.026
+    },
+    "tick": {
+     "count_ratio": 0.935,
+     "len_w1": 0.186,
+     "len_rel": 0.052,
+     "w_w1": 0.043
+    },
+    "dot": {
+     "count_ratio": 0.931,
+     "len_w1": 0.049,
+     "len_rel": 0.029,
+     "w_w1": 0.019
+    }
+   }
+  }
+ },
+ "gan-masu": {
+  "good": false,
+  "base": {
+   "P": 0.726,
+   "R": 0.387,
+   "F": 0.505,
+   "F_outline": 0.233,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.192,
+     "len_w1": 7.438,
+     "len_rel": 0.66,
+     "w_w1": 0.141
+    },
+    "hair": {
+     "count_ratio": 0.076,
+     "len_w1": 6.388,
+     "len_rel": 1.148,
+     "w_w1": 0.184
+    },
+    "tick": {
+     "count_ratio": 0.188,
+     "len_w1": 0.647,
+     "len_rel": 0.211,
+     "w_w1": 0.158
+    },
+    "dot": {
+     "count_ratio": 0.19,
+     "len_w1": 0.442,
+     "len_rel": 0.255,
+     "w_w1": 0.143
+    }
+   }
+  },
+  "loo": {
+   "P": 0.66,
+   "R": 0.459,
+   "F": 0.541,
+   "F_outline": 0.209,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.269,
+     "len_w1": 3.152,
+     "len_rel": 0.28,
+     "w_w1": 0.058
+    },
+    "hair": {
+     "count_ratio": 0.265,
+     "len_w1": 5.35,
+     "len_rel": 0.962,
+     "w_w1": 0.075
+    },
+    "tick": {
+     "count_ratio": 0.964,
+     "len_w1": 0.312,
+     "len_rel": 0.102,
+     "w_w1": 0.048
+    },
+    "dot": {
+     "count_ratio": 0.381,
+     "len_w1": 0.142,
+     "len_rel": 0.082,
+     "w_w1": 0.031
+    }
+   }
+  },
+  "own": {
+   "P": 0.7,
+   "R": 0.456,
+   "F": 0.552,
+   "F_outline": 0.188,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.962,
+     "len_w1": 4.338,
+     "len_rel": 0.385,
+     "w_w1": 0.075
+    },
+    "hair": {
+     "count_ratio": 0.371,
+     "len_w1": 1.787,
+     "len_rel": 0.321,
+     "w_w1": 0.053
+    },
+    "tick": {
+     "count_ratio": 1.054,
+     "len_w1": 0.359,
+     "len_rel": 0.117,
+     "w_w1": 0.037
+    },
+    "dot": {
+     "count_ratio": 0.429,
+     "len_w1": 0.227,
+     "len_rel": 0.131,
+     "w_w1": 0.089
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.231,
+     "len_w1": 2.965,
+     "len_rel": 0.263,
+     "w_w1": 0.067
+    },
+    "hair": {
+     "count_ratio": 1.012,
+     "len_w1": 0.209,
+     "len_rel": 0.038,
+     "w_w1": 0.019
+    },
+    "tick": {
+     "count_ratio": 1.027,
+     "len_w1": 0.234,
+     "len_rel": 0.076,
+     "w_w1": 0.027
+    },
+    "dot": {
+     "count_ratio": 1.143,
+     "len_w1": 0.06,
+     "len_rel": 0.034,
+     "w_w1": 0.029
+    }
+   }
+  }
+ },
+ "hotei": {
+  "good": true,
+  "base": {
+   "P": 0.884,
+   "R": 0.758,
+   "F": 0.816,
+   "F_outline": 0.747,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.036,
+     "len_w1": 4.585,
+     "len_rel": 0.206,
+     "w_w1": 0.138
+    },
+    "hair": {
+     "count_ratio": 0.161,
+     "len_w1": 4.322,
+     "len_rel": 0.4,
+     "w_w1": 0.236
+    },
+    "tick": {
+     "count_ratio": 0.312,
+     "len_w1": 0.533,
+     "len_rel": 0.153,
+     "w_w1": 0.219
+    }
+   }
+  },
+  "loo": {
+   "P": 0.715,
+   "R": 0.638,
+   "F": 0.674,
+   "F_outline": 0.511,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.321,
+     "len_w1": 6.926,
+     "len_rel": 0.312,
+     "w_w1": 0.057
+    },
+    "hair": {
+     "count_ratio": 1.29,
+     "len_w1": 1.53,
+     "len_rel": 0.142,
+     "w_w1": 0.094
+    },
+    "tick": {
+     "count_ratio": 1.969,
+     "len_w1": 0.117,
+     "len_rel": 0.034,
+     "w_w1": 0.042
+    }
+   }
+  },
+  "own": {
+   "P": 0.766,
+   "R": 0.749,
+   "F": 0.758,
+   "F_outline": 0.676,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.286,
+     "len_w1": 1.831,
+     "len_rel": 0.082,
+     "w_w1": 0.046
+    },
+    "hair": {
+     "count_ratio": 2.742,
+     "len_w1": 1.675,
+     "len_rel": 0.155,
+     "w_w1": 0.065
+    },
+    "tick": {
+     "count_ratio": 1.625,
+     "len_w1": 0.128,
+     "len_rel": 0.037,
+     "w_w1": 0.06
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.964,
+     "len_w1": 1.483,
+     "len_rel": 0.067,
+     "w_w1": 0.051
+    },
+    "hair": {
+     "count_ratio": 1.323,
+     "len_w1": 1.128,
+     "len_rel": 0.104,
+     "w_w1": 0.064
+    },
+    "tick": {
+     "count_ratio": 1.0,
+     "len_w1": 0.187,
+     "len_rel": 0.053,
+     "w_w1": 0.045
+    }
+   }
+  }
+ },
+ "hotei-wa": {
+  "good": false,
+  "base": {
+   "P": 0.689,
+   "R": 0.128,
+   "F": 0.215,
+   "F_outline": 0.16,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.143,
+     "len_w1": 5.055,
+     "len_rel": 0.252,
+     "w_w1": 0.198
+    },
+    "hair": {
+     "count_ratio": 0.114,
+     "len_w1": 2.87,
+     "len_rel": 0.388,
+     "w_w1": 0.23
+    },
+    "tick": {
+     "count_ratio": 0.281,
+     "len_w1": 0.769,
+     "len_rel": 0.255,
+     "w_w1": 0.159
+    }
+   }
+  },
+  "loo": {
+   "P": 0.562,
+   "R": 0.058,
+   "F": 0.105,
+   "F_outline": 0.058,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.19,
+     "len_w1": 11.542,
+     "len_rel": 0.576,
+     "w_w1": 0.104
+    },
+    "hair": {
+     "count_ratio": 0.076,
+     "len_w1": 3.916,
+     "len_rel": 0.529,
+     "w_w1": 0.158
+    },
+    "tick": {
+     "count_ratio": 0.202,
+     "len_w1": 1.611,
+     "len_rel": 0.535,
+     "w_w1": 0.252
+    }
+   }
+  },
+  "own": {
+   "P": 0.768,
+   "R": 0.075,
+   "F": 0.137,
+   "F_outline": 0.061,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.19,
+     "len_w1": 10.156,
+     "len_rel": 0.507,
+     "w_w1": 0.172
+    },
+    "hair": {
+     "count_ratio": 0.067,
+     "len_w1": 3.544,
+     "len_rel": 0.479,
+     "w_w1": 0.188
+    },
+    "tick": {
+     "count_ratio": 0.27,
+     "len_w1": 0.267,
+     "len_rel": 0.089,
+     "w_w1": 0.094
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.119,
+     "len_w1": 4.16,
+     "len_rel": 0.208,
+     "w_w1": 0.055
+    },
+    "hair": {
+     "count_ratio": 1.095,
+     "len_w1": 0.449,
+     "len_rel": 0.061,
+     "w_w1": 0.052
+    },
+    "tick": {
+     "count_ratio": 0.989,
+     "len_w1": 0.311,
+     "len_rel": 0.103,
+     "w_w1": 0.05
+    }
+   }
+  }
+ },
+ "inoshishi": {
+  "good": true,
+  "base": {
+   "P": 0.64,
+   "R": 0.502,
+   "F": 0.563,
+   "F_outline": 0.349,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.095,
+     "len_w1": 6.792,
+     "len_rel": 0.655,
+     "w_w1": 0.238
+    },
+    "hair": {
+     "count_ratio": 0.057,
+     "len_w1": 2.58,
+     "len_rel": 0.348,
+     "w_w1": 0.186
+    },
+    "tick": {
+     "count_ratio": 0.337,
+     "len_w1": 0.326,
+     "len_rel": 0.092,
+     "w_w1": 0.143
+    },
+    "dot": {
+     "count_ratio": 0.222,
+     "len_w1": 0.671,
+     "len_rel": 0.409,
+     "w_w1": 0.185
+    }
+   }
+  },
+  "loo": {
+   "P": 0.698,
+   "R": 0.384,
+   "F": 0.495,
+   "F_outline": 0.215,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.381,
+     "len_w1": 4.288,
+     "len_rel": 0.413,
+     "w_w1": 0.219
+    },
+    "hair": {
+     "count_ratio": 0.119,
+     "len_w1": 5.656,
+     "len_rel": 0.763,
+     "w_w1": 0.087
+    },
+    "tick": {
+     "count_ratio": 0.558,
+     "len_w1": 0.243,
+     "len_rel": 0.068,
+     "w_w1": 0.046
+    },
+    "dot": {
+     "count_ratio": 0.333,
+     "len_w1": 0.202,
+     "len_rel": 0.123,
+     "w_w1": 0.084
+    }
+   }
+  },
+  "own": {
+   "P": 0.709,
+   "R": 0.318,
+   "F": 0.438,
+   "F_outline": 0.156,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.714,
+     "len_w1": 8.681,
+     "len_rel": 0.837,
+     "w_w1": 0.248
+    },
+    "hair": {
+     "count_ratio": 0.107,
+     "len_w1": 4.707,
+     "len_rel": 0.635,
+     "w_w1": 0.24
+    },
+    "tick": {
+     "count_ratio": 0.526,
+     "len_w1": 0.263,
+     "len_rel": 0.074,
+     "w_w1": 0.053
+    },
+    "dot": {
+     "count_ratio": 0.667,
+     "len_w1": 0.191,
+     "len_rel": 0.117,
+     "w_w1": 0.126
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.667,
+     "len_w1": 2.126,
+     "len_rel": 0.205,
+     "w_w1": 0.082
+    },
+    "hair": {
+     "count_ratio": 1.088,
+     "len_w1": 0.828,
+     "len_rel": 0.112,
+     "w_w1": 0.09
+    },
+    "tick": {
+     "count_ratio": 0.863,
+     "len_w1": 0.261,
+     "len_rel": 0.073,
+     "w_w1": 0.067
+    },
+    "dot": {
+     "count_ratio": 0.889,
+     "len_w1": 0.181,
+     "len_rel": 0.111,
+     "w_w1": 0.076
+    }
+   }
+  }
+ },
+ "kamishimo": {
+  "good": true,
+  "base": {
+   "P": 0.911,
+   "R": 0.578,
+   "F": 0.707,
+   "F_outline": 0.37,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.176,
+     "len_w1": 4.269,
+     "len_rel": 0.312,
+     "w_w1": 0.169
+    },
+    "hair": {
+     "count_ratio": 0.519,
+     "len_w1": 2.801,
+     "len_rel": 0.378,
+     "w_w1": 0.258
+    },
+    "tick": {
+     "count_ratio": 0.209,
+     "len_w1": 0.61,
+     "len_rel": 0.223,
+     "w_w1": 0.156
+    }
+   }
+  },
+  "loo": {
+   "P": 0.874,
+   "R": 0.575,
+   "F": 0.694,
+   "F_outline": 0.191,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.118,
+     "len_w1": 9.016,
+     "len_rel": 0.659,
+     "w_w1": 0.109
+    },
+    "hair": {
+     "count_ratio": 0.63,
+     "len_w1": 3.415,
+     "len_rel": 0.461,
+     "w_w1": 0.297
+    },
+    "tick": {
+     "count_ratio": 0.884,
+     "len_w1": 0.826,
+     "len_rel": 0.302,
+     "w_w1": 0.163
+    }
+   }
+  },
+  "own": {
+   "P": 0.914,
+   "R": 0.693,
+   "F": 0.788,
+   "F_outline": 0.289,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.412,
+     "len_w1": 5.96,
+     "len_rel": 0.435,
+     "w_w1": 0.18
+    },
+    "hair": {
+     "count_ratio": 0.963,
+     "len_w1": 1.554,
+     "len_rel": 0.21,
+     "w_w1": 0.054
+    },
+    "tick": {
+     "count_ratio": 0.814,
+     "len_w1": 0.459,
+     "len_rel": 0.168,
+     "w_w1": 0.111
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.824,
+     "len_w1": 3.852,
+     "len_rel": 0.281,
+     "w_w1": 0.11
+    },
+    "hair": {
+     "count_ratio": 1.222,
+     "len_w1": 0.878,
+     "len_rel": 0.119,
+     "w_w1": 0.055
+    },
+    "tick": {
+     "count_ratio": 0.93,
+     "len_w1": 0.283,
+     "len_rel": 0.103,
+     "w_w1": 0.028
+    }
+   }
+  }
+ },
+ "kannon-moji": {
+  "good": true,
+  "base": {
+   "P": 0.741,
+   "R": 0.408,
+   "F": 0.526,
+   "F_outline": 0.531,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.634,
+     "len_w1": 9.601,
+     "len_rel": 0.353,
+     "w_w1": 0.23
+    },
+    "hair": {
+     "count_ratio": 0.016,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    },
+    "tick": {
+     "count_ratio": 0.325,
+     "len_w1": 1.218,
+     "len_rel": 0.408,
+     "w_w1": 0.315
+    }
+   }
+  },
+  "loo": {
+   "P": 0.664,
+   "R": 0.026,
+   "F": 0.049,
+   "F_outline": 0.049,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.146,
+     "len_w1": 24.745,
+     "len_rel": 0.91,
+     "w_w1": 0.199
+    },
+    "hair": {
+     "count_ratio": 0.016,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    },
+    "tick": {
+     "count_ratio": 0.275,
+     "len_w1": 0.615,
+     "len_rel": 0.206,
+     "w_w1": 0.229
+    }
+   }
+  },
+  "own": {
+   "P": 0.821,
+   "R": 0.034,
+   "F": 0.066,
+   "F_outline": 0.083,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.098,
+     "len_w1": 23.914,
+     "len_rel": 0.879,
+     "w_w1": 0.233
+    },
+    "hair": {
+     "count_ratio": 0.016,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    },
+    "tick": {
+     "count_ratio": 0.125,
+     "len_w1": 1.61,
+     "len_rel": 0.54,
+     "w_w1": 0.246
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.0,
+     "len_w1": 1.631,
+     "len_rel": 0.06,
+     "w_w1": 0.041
+    },
+    "hair": {
+     "count_ratio": 1.094,
+     "len_w1": 0.392,
+     "len_rel": 0.053,
+     "w_w1": 0.036
+    },
+    "tick": {
+     "count_ratio": 1.1,
+     "len_w1": 0.233,
+     "len_rel": 0.078,
+     "w_w1": 0.049
+    }
+   }
+  }
+ },
+ "karakasa": {
+  "good": false,
+  "base": {
+   "P": 0.811,
+   "R": 0.301,
+   "F": 0.439,
+   "F_outline": 0.464,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.533,
+     "len_w1": 11.372,
+     "len_rel": 0.451,
+     "w_w1": 0.155
+    },
+    "hair": {
+     "count_ratio": 0.272,
+     "len_w1": 2.699,
+     "len_rel": 0.249,
+     "w_w1": 0.166
+    },
+    "tick": {
+     "count_ratio": 0.229,
+     "len_w1": 0.681,
+     "len_rel": 0.181,
+     "w_w1": 0.186
+    }
+   }
+  },
+  "loo": {
+   "P": 0.771,
+   "R": 0.341,
+   "F": 0.473,
+   "F_outline": 0.273,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.883,
+     "len_w1": 15.455,
+     "len_rel": 0.612,
+     "w_w1": 0.062
+    },
+    "hair": {
+     "count_ratio": 0.938,
+     "len_w1": 1.107,
+     "len_rel": 0.102,
+     "w_w1": 0.09
+    },
+    "tick": {
+     "count_ratio": 1.651,
+     "len_w1": 0.22,
+     "len_rel": 0.058,
+     "w_w1": 0.057
+    }
+   }
+  },
+  "own": {
+   "P": 0.8,
+   "R": 0.382,
+   "F": 0.517,
+   "F_outline": 0.409,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.117,
+     "len_w1": 10.666,
+     "len_rel": 0.423,
+     "w_w1": 0.071
+    },
+    "hair": {
+     "count_ratio": 0.667,
+     "len_w1": 1.123,
+     "len_rel": 0.104,
+     "w_w1": 0.102
+    },
+    "tick": {
+     "count_ratio": 1.12,
+     "len_w1": 0.246,
+     "len_rel": 0.065,
+     "w_w1": 0.089
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 0.999,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.25,
+     "len_w1": 1.949,
+     "len_rel": 0.077,
+     "w_w1": 0.071
+    },
+    "hair": {
+     "count_ratio": 1.025,
+     "len_w1": 0.468,
+     "len_rel": 0.043,
+     "w_w1": 0.03
+    },
+    "tick": {
+     "count_ratio": 1.072,
+     "len_w1": 0.134,
+     "len_rel": 0.036,
+     "w_w1": 0.025
+    }
+   }
+  }
+ },
+ "kaze-hito": {
+  "good": false,
+  "base": {
+   "P": 0.758,
+   "R": 0.078,
+   "F": 0.142,
+   "F_outline": 0.096,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.289,
+     "len_w1": 12.954,
+     "len_rel": 1.035,
+     "w_w1": 0.203
+    },
+    "hair": {
+     "count_ratio": 0.043,
+     "len_w1": 3.653,
+     "len_rel": 0.345,
+     "w_w1": 0.165
+    },
+    "tick": {
+     "count_ratio": 0.076,
+     "len_w1": 1.0,
+     "len_rel": 0.327,
+     "w_w1": 0.167
+    },
+    "dot": {
+     "count_ratio": 0.019,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "loo": {
+   "P": 0.807,
+   "R": 0.033,
+   "F": 0.063,
+   "F_outline": 0.045,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.132,
+     "len_w1": 20.791,
+     "len_rel": 1.661,
+     "w_w1": 0.153
+    },
+    "hair": {
+     "count_ratio": 0.064,
+     "len_w1": 3.082,
+     "len_rel": 0.291,
+     "w_w1": 0.095
+    },
+    "tick": {
+     "count_ratio": 0.101,
+     "len_w1": 1.468,
+     "len_rel": 0.48,
+     "w_w1": 0.245
+    },
+    "dot": {
+     "count_ratio": 0.019,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "own": {
+   "P": 0.825,
+   "R": 0.026,
+   "F": 0.05,
+   "F_outline": 0.039,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.158,
+     "len_w1": 19.376,
+     "len_rel": 1.548,
+     "w_w1": 0.217
+    },
+    "hair": {
+     "count_ratio": 0.043,
+     "len_w1": 4.46,
+     "len_rel": 0.421,
+     "w_w1": 0.172
+    },
+    "tick": {
+     "count_ratio": 0.089,
+     "len_w1": 0.321,
+     "len_rel": 0.105,
+     "w_w1": 0.079
+    },
+    "dot": {
+     "count_ratio": 0.038,
+     "len_w1": 0.294,
+     "len_rel": 0.174,
+     "w_w1": 0.167
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.316,
+     "len_w1": 5.811,
+     "len_rel": 0.464,
+     "w_w1": 0.037
+    },
+    "hair": {
+     "count_ratio": 0.872,
+     "len_w1": 0.433,
+     "len_rel": 0.041,
+     "w_w1": 0.056
+    },
+    "tick": {
+     "count_ratio": 1.051,
+     "len_w1": 0.178,
+     "len_rel": 0.058,
+     "w_w1": 0.032
+    },
+    "dot": {
+     "count_ratio": 0.75,
+     "len_w1": 0.135,
+     "len_rel": 0.08,
+     "w_w1": 0.034
+    }
+   }
+  }
+ },
+ "komori-tsuki": {
+  "good": false,
+  "base": {
+   "P": 0.757,
+   "R": 0.166,
+   "F": 0.273,
+   "F_outline": 0.118,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.486,
+     "len_w1": 20.012,
+     "len_rel": 2.564,
+     "w_w1": 0.247
+    },
+    "hair": {
+     "count_ratio": 0.01,
+     "len_w1": 3.4,
+     "len_rel": 0.539,
+     "w_w1": 0.292
+    },
+    "tick": {
+     "count_ratio": 0.044,
+     "len_w1": 1.07,
+     "len_rel": 0.329,
+     "w_w1": 0.269
+    },
+    "dot": {
+     "count_ratio": 0.118,
+     "len_w1": 0.482,
+     "len_rel": 0.277,
+     "w_w1": 0.124
+    }
+   }
+  },
+  "loo": {
+   "P": 0.75,
+   "R": 0.164,
+   "F": 0.269,
+   "F_outline": 0.081,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.838,
+     "len_w1": 1.424,
+     "len_rel": 0.182,
+     "w_w1": 0.099
+    },
+    "hair": {
+     "count_ratio": 0.051,
+     "len_w1": 3.292,
+     "len_rel": 0.521,
+     "w_w1": 0.323
+    },
+    "tick": {
+     "count_ratio": 0.151,
+     "len_w1": 0.223,
+     "len_rel": 0.069,
+     "w_w1": 0.1
+    },
+    "dot": {
+     "count_ratio": 0.235,
+     "len_w1": 0.118,
+     "len_rel": 0.068,
+     "w_w1": 0.042
+    }
+   }
+  },
+  "own": {
+   "P": 0.786,
+   "R": 0.21,
+   "F": 0.331,
+   "F_outline": 0.02,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.676,
+     "len_w1": 2.201,
+     "len_rel": 0.282,
+     "w_w1": 0.079
+    },
+    "hair": {
+     "count_ratio": 0.261,
+     "len_w1": 1.521,
+     "len_rel": 0.241,
+     "w_w1": 0.14
+    },
+    "tick": {
+     "count_ratio": 0.337,
+     "len_w1": 0.347,
+     "len_rel": 0.107,
+     "w_w1": 0.071
+    },
+    "dot": {
+     "count_ratio": 0.294,
+     "len_w1": 0.49,
+     "len_rel": 0.281,
+     "w_w1": 0.205
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.784,
+     "len_w1": 2.092,
+     "len_rel": 0.268,
+     "w_w1": 0.059
+    },
+    "hair": {
+     "count_ratio": 0.983,
+     "len_w1": 0.108,
+     "len_rel": 0.017,
+     "w_w1": 0.018
+    },
+    "tick": {
+     "count_ratio": 0.997,
+     "len_w1": 0.186,
+     "len_rel": 0.057,
+     "w_w1": 0.021
+    },
+    "dot": {
+     "count_ratio": 0.941,
+     "len_w1": 0.1,
+     "len_rel": 0.058,
+     "w_w1": 0.069
+    }
+   }
+  }
+ },
+ "kuge-kokoro": {
+  "good": false,
+  "base": {
+   "P": 0.636,
+   "R": 0.142,
+   "F": 0.232,
+   "F_outline": 0.248,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.222,
+     "len_w1": 20.964,
+     "len_rel": 0.66,
+     "w_w1": 0.254
+    },
+    "hair": {
+     "count_ratio": 0.188,
+     "len_w1": 3.528,
+     "len_rel": 1.117,
+     "w_w1": 0.187
+    },
+    "tick": {
+     "count_ratio": 0.213,
+     "len_w1": 0.763,
+     "len_rel": 0.256,
+     "w_w1": 0.141
+    },
+    "dot": {
+     "count_ratio": 0.03,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "loo": {
+   "P": 0.655,
+   "R": 0.113,
+   "F": 0.193,
+   "F_outline": 0.16,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.0,
+     "len_w1": 24.346,
+     "len_rel": 0.766,
+     "w_w1": 0.295
+    },
+    "hair": {
+     "count_ratio": 0.082,
+     "len_w1": 6.568,
+     "len_rel": 2.08,
+     "w_w1": 0.1
+    },
+    "tick": {
+     "count_ratio": 0.147,
+     "len_w1": 0.289,
+     "len_rel": 0.097,
+     "w_w1": 0.072
+    },
+    "dot": {
+     "count_ratio": 0.091,
+     "len_w1": 0.188,
+     "len_rel": 0.122,
+     "w_w1": 0.027
+    }
+   }
+  },
+  "own": {
+   "P": 0.623,
+   "R": 0.093,
+   "F": 0.162,
+   "F_outline": 0.105,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.333,
+     "len_w1": 26.345,
+     "len_rel": 0.829,
+     "w_w1": 0.068
+    },
+    "hair": {
+     "count_ratio": 0.106,
+     "len_w1": 1.779,
+     "len_rel": 0.563,
+     "w_w1": 0.175
+    },
+    "tick": {
+     "count_ratio": 0.154,
+     "len_w1": 0.39,
+     "len_rel": 0.131,
+     "w_w1": 0.075
+    },
+    "dot": {
+     "count_ratio": 0.212,
+     "len_w1": 0.107,
+     "len_rel": 0.069,
+     "w_w1": 0.027
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.444,
+     "len_w1": 7.228,
+     "len_rel": 0.228,
+     "w_w1": 0.123
+    },
+    "hair": {
+     "count_ratio": 0.776,
+     "len_w1": 0.37,
+     "len_rel": 0.117,
+     "w_w1": 0.033
+    },
+    "tick": {
+     "count_ratio": 0.919,
+     "len_w1": 0.108,
+     "len_rel": 0.036,
+     "w_w1": 0.026
+    },
+    "dot": {
+     "count_ratio": 0.879,
+     "len_w1": 0.059,
+     "len_rel": 0.038,
+     "w_w1": 0.021
+    }
+   }
+  }
+ },
+ "kuge-ushiro": {
+  "good": true,
+  "base": {
+   "P": 0.721,
+   "R": 0.519,
+   "F": 0.604,
+   "F_outline": 0.549,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.333,
+     "len_w1": 4.468,
+     "len_rel": 0.519,
+     "w_w1": 0.134
+    },
+    "hair": {
+     "count_ratio": 0.898,
+     "len_w1": 1.455,
+     "len_rel": 0.226,
+     "w_w1": 0.157
+    },
+    "tick": {
+     "count_ratio": 1.053,
+     "len_w1": 0.717,
+     "len_rel": 0.203,
+     "w_w1": 0.149
+    }
+   }
+  },
+  "loo": {
+   "P": 0.875,
+   "R": 0.882,
+   "F": 0.878,
+   "F_outline": 0.43,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.833,
+     "len_w1": 7.358,
+     "len_rel": 0.855,
+     "w_w1": 0.083
+    },
+    "hair": {
+     "count_ratio": 0.523,
+     "len_w1": 0.422,
+     "len_rel": 0.066,
+     "w_w1": 0.098
+    },
+    "tick": {
+     "count_ratio": 1.07,
+     "len_w1": 0.334,
+     "len_rel": 0.094,
+     "w_w1": 0.045
+    }
+   }
+  },
+  "own": {
+   "P": 0.939,
+   "R": 0.916,
+   "F": 0.928,
+   "F_outline": 0.503,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.111,
+     "len_w1": 9.658,
+     "len_rel": 1.122,
+     "w_w1": 0.27
+    },
+    "hair": {
+     "count_ratio": 0.352,
+     "len_w1": 0.981,
+     "len_rel": 0.153,
+     "w_w1": 0.061
+    },
+    "tick": {
+     "count_ratio": 0.439,
+     "len_w1": 0.385,
+     "len_rel": 0.109,
+     "w_w1": 0.118
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.944,
+     "len_w1": 0.727,
+     "len_rel": 0.084,
+     "w_w1": 0.042
+    },
+    "hair": {
+     "count_ratio": 1.011,
+     "len_w1": 0.29,
+     "len_rel": 0.045,
+     "w_w1": 0.03
+    },
+    "tick": {
+     "count_ratio": 0.825,
+     "len_w1": 0.377,
+     "len_rel": 0.107,
+     "w_w1": 0.059
+    }
+   }
+  }
+ },
+ "kumo-shishi": {
+  "good": true,
+  "base": {
+   "P": 0.926,
+   "R": 0.383,
+   "F": 0.542,
+   "F_outline": 0.462,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.213,
+     "len_w1": 4.725,
+     "len_rel": 0.21,
+     "w_w1": 0.132
+    },
+    "hair": {
+     "count_ratio": 0.031,
+     "len_w1": 5.14,
+     "len_rel": 0.777,
+     "w_w1": 0.173
+    },
+    "tick": {
+     "count_ratio": 0.039,
+     "len_w1": 0.464,
+     "len_rel": 0.129,
+     "w_w1": 0.097
+    },
+    "dot": {
+     "count_ratio": 0.231,
+     "len_w1": 0.222,
+     "len_rel": 0.107,
+     "w_w1": 0.096
+    }
+   }
+  },
+  "loo": {
+   "P": 0.907,
+   "R": 0.435,
+   "F": 0.587,
+   "F_outline": 0.206,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.607,
+     "len_w1": 12.916,
+     "len_rel": 0.575,
+     "w_w1": 0.16
+    },
+    "hair": {
+     "count_ratio": 0.104,
+     "len_w1": 2.282,
+     "len_rel": 0.345,
+     "w_w1": 0.179
+    },
+    "tick": {
+     "count_ratio": 0.377,
+     "len_w1": 0.112,
+     "len_rel": 0.031,
+     "w_w1": 0.03
+    },
+    "dot": {
+     "count_ratio": 0.615,
+     "len_w1": 0.293,
+     "len_rel": 0.141,
+     "w_w1": 0.089
+    }
+   }
+  },
+  "own": {
+   "P": 0.945,
+   "R": 0.671,
+   "F": 0.785,
+   "F_outline": 0.278,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.607,
+     "len_w1": 9.998,
+     "len_rel": 0.445,
+     "w_w1": 0.23
+    },
+    "hair": {
+     "count_ratio": 0.569,
+     "len_w1": 1.441,
+     "len_rel": 0.218,
+     "w_w1": 0.067
+    },
+    "tick": {
+     "count_ratio": 0.541,
+     "len_w1": 0.198,
+     "len_rel": 0.055,
+     "w_w1": 0.061
+    },
+    "dot": {
+     "count_ratio": 0.846,
+     "len_w1": 0.128,
+     "len_rel": 0.062,
+     "w_w1": 0.068
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.738,
+     "len_w1": 2.492,
+     "len_rel": 0.111,
+     "w_w1": 0.1
+    },
+    "hair": {
+     "count_ratio": 1.274,
+     "len_w1": 0.311,
+     "len_rel": 0.047,
+     "w_w1": 0.052
+    },
+    "tick": {
+     "count_ratio": 0.87,
+     "len_w1": 0.076,
+     "len_rel": 0.021,
+     "w_w1": 0.04
+    },
+    "dot": {
+     "count_ratio": 0.538,
+     "len_w1": 0.242,
+     "len_rel": 0.117,
+     "w_w1": 0.091
+    }
+   }
+  }
+ },
+ "matsu-eda": {
+  "good": true,
+  "base": {
+   "P": 0.854,
+   "R": 0.57,
+   "F": 0.684,
+   "F_outline": 0.508,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.488,
+     "len_w1": 12.474,
+     "len_rel": 1.236,
+     "w_w1": 0.078
+    },
+    "hair": {
+     "count_ratio": 0.042,
+     "len_w1": 0.906,
+     "len_rel": 0.121,
+     "w_w1": 0.11
+    },
+    "tick": {
+     "count_ratio": 0.146,
+     "len_w1": 0.54,
+     "len_rel": 0.135,
+     "w_w1": 0.134
+    }
+   }
+  },
+  "loo": {
+   "P": 0.742,
+   "R": 0.55,
+   "F": 0.632,
+   "F_outline": 0.356,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.86,
+     "len_w1": 4.399,
+     "len_rel": 0.436,
+     "w_w1": 0.141
+    },
+    "hair": {
+     "count_ratio": 0.369,
+     "len_w1": 2.663,
+     "len_rel": 0.357,
+     "w_w1": 0.037
+    },
+    "tick": {
+     "count_ratio": 0.738,
+     "len_w1": 0.282,
+     "len_rel": 0.07,
+     "w_w1": 0.088
+    }
+   }
+  },
+  "own": {
+   "P": 0.784,
+   "R": 0.623,
+   "F": 0.694,
+   "F_outline": 0.453,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.209,
+     "len_w1": 5.083,
+     "len_rel": 0.504,
+     "w_w1": 0.09
+    },
+    "hair": {
+     "count_ratio": 0.407,
+     "len_w1": 3.288,
+     "len_rel": 0.441,
+     "w_w1": 0.042
+    },
+    "tick": {
+     "count_ratio": 0.75,
+     "len_w1": 0.165,
+     "len_rel": 0.041,
+     "w_w1": 0.062
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.953,
+     "len_w1": 2.093,
+     "len_rel": 0.207,
+     "w_w1": 0.106
+    },
+    "hair": {
+     "count_ratio": 1.021,
+     "len_w1": 0.315,
+     "len_rel": 0.042,
+     "w_w1": 0.075
+    },
+    "tick": {
+     "count_ratio": 1.201,
+     "len_w1": 0.112,
+     "len_rel": 0.028,
+     "w_w1": 0.048
+    }
+   }
+  }
+ },
+ "mendori": {
+  "good": true,
+  "base": {
+   "P": 0.917,
+   "R": 0.538,
+   "F": 0.678,
+   "F_outline": 0.501,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.846,
+     "len_w1": 6.426,
+     "len_rel": 0.257,
+     "w_w1": 0.223
+    },
+    "hair": {
+     "count_ratio": 0.038,
+     "len_w1": 5.138,
+     "len_rel": 0.999,
+     "w_w1": 0.181
+    },
+    "tick": {
+     "count_ratio": 0.268,
+     "len_w1": 0.737,
+     "len_rel": 0.23,
+     "w_w1": 0.094
+    }
+   }
+  },
+  "loo": {
+   "P": 0.531,
+   "R": 0.674,
+   "F": 0.594,
+   "F_outline": 0.295,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.923,
+     "len_w1": 12.303,
+     "len_rel": 0.492,
+     "w_w1": 0.262
+    },
+    "hair": {
+     "count_ratio": 0.266,
+     "len_w1": 1.205,
+     "len_rel": 0.234,
+     "w_w1": 0.062
+    },
+    "tick": {
+     "count_ratio": 0.805,
+     "len_w1": 0.563,
+     "len_rel": 0.175,
+     "w_w1": 0.133
+    }
+   }
+  },
+  "own": {
+   "P": 0.626,
+   "R": 0.855,
+   "F": 0.722,
+   "F_outline": 0.328,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.769,
+     "len_w1": 4.948,
+     "len_rel": 0.198,
+     "w_w1": 0.171
+    },
+    "hair": {
+     "count_ratio": 0.557,
+     "len_w1": 1.452,
+     "len_rel": 0.282,
+     "w_w1": 0.067
+    },
+    "tick": {
+     "count_ratio": 1.195,
+     "len_w1": 0.364,
+     "len_rel": 0.113,
+     "w_w1": 0.045
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.0,
+     "len_w1": 1.267,
+     "len_rel": 0.051,
+     "w_w1": 0.08
+    },
+    "hair": {
+     "count_ratio": 0.873,
+     "len_w1": 0.515,
+     "len_rel": 0.1,
+     "w_w1": 0.068
+    },
+    "tick": {
+     "count_ratio": 1.244,
+     "len_w1": 0.242,
+     "len_rel": 0.075,
+     "w_w1": 0.044
+    }
+   }
+  }
+ },
+ "minokasa-ame": {
+  "good": false,
+  "base": {
+   "P": 0.737,
+   "R": 0.317,
+   "F": 0.443,
+   "F_outline": 0.406,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.562,
+     "len_w1": 5.823,
+     "len_rel": 0.228,
+     "w_w1": 0.149
+    },
+    "hair": {
+     "count_ratio": 0.052,
+     "len_w1": 2.783,
+     "len_rel": 0.368,
+     "w_w1": 0.211
+    },
+    "tick": {
+     "count_ratio": 0.191,
+     "len_w1": 0.325,
+     "len_rel": 0.087,
+     "w_w1": 0.168
+    },
+    "dot": {
+     "count_ratio": 0.143,
+     "len_w1": 0.651,
+     "len_rel": 0.403,
+     "w_w1": 0.165
+    }
+   }
+  },
+  "loo": {
+   "P": 0.749,
+   "R": 0.241,
+   "F": 0.365,
+   "F_outline": 0.132,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.619,
+     "len_w1": 14.523,
+     "len_rel": 0.57,
+     "w_w1": 0.043
+    },
+    "hair": {
+     "count_ratio": 0.224,
+     "len_w1": 2.85,
+     "len_rel": 0.377,
+     "w_w1": 0.165
+    },
+    "tick": {
+     "count_ratio": 0.685,
+     "len_w1": 0.143,
+     "len_rel": 0.038,
+     "w_w1": 0.058
+    },
+    "dot": {
+     "count_ratio": 0.714,
+     "len_w1": 0.344,
+     "len_rel": 0.213,
+     "w_w1": 0.102
+    }
+   }
+  },
+  "own": {
+   "P": 0.833,
+   "R": 0.34,
+   "F": 0.483,
+   "F_outline": 0.148,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.686,
+     "len_w1": 14.894,
+     "len_rel": 0.584,
+     "w_w1": 0.029
+    },
+    "hair": {
+     "count_ratio": 0.403,
+     "len_w1": 2.258,
+     "len_rel": 0.298,
+     "w_w1": 0.204
+    },
+    "tick": {
+     "count_ratio": 0.68,
+     "len_w1": 0.32,
+     "len_rel": 0.085,
+     "w_w1": 0.063
+    },
+    "dot": {
+     "count_ratio": 0.5,
+     "len_w1": 0.344,
+     "len_rel": 0.213,
+     "w_w1": 0.126
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.181,
+     "len_w1": 1.892,
+     "len_rel": 0.074,
+     "w_w1": 0.029
+    },
+    "hair": {
+     "count_ratio": 0.966,
+     "len_w1": 0.539,
+     "len_rel": 0.071,
+     "w_w1": 0.021
+    },
+    "tick": {
+     "count_ratio": 1.051,
+     "len_w1": 0.135,
+     "len_rel": 0.036,
+     "w_w1": 0.039
+    },
+    "dot": {
+     "count_ratio": 1.071,
+     "len_w1": 0.246,
+     "len_rel": 0.152,
+     "w_w1": 0.079
+    }
+   }
+  }
+ },
+ "momiji-rokkaku": {
+  "good": true,
+  "base": {
+   "P": 0.82,
+   "R": 0.888,
+   "F": 0.853,
+   "F_outline": 0.85,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.739,
+     "len_w1": 6.157,
+     "len_rel": 0.235,
+     "w_w1": 0.119
+    }
+   }
+  },
+  "loo": {
+   "P": 0.634,
+   "R": 0.461,
+   "F": 0.534,
+   "F_outline": 0.391,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.826,
+     "len_w1": 12.536,
+     "len_rel": 0.479,
+     "w_w1": 0.091
+    }
+   }
+  },
+  "own": {
+   "P": 0.849,
+   "R": 0.527,
+   "F": 0.649,
+   "F_outline": 0.654,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.522,
+     "len_w1": 10.211,
+     "len_rel": 0.39,
+     "w_w1": 0.11
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.0,
+     "len_w1": 1.963,
+     "len_rel": 0.075,
+     "w_w1": 0.043
+    }
+   }
+  }
+ },
+ "namazu-mo": {
+  "good": true,
+  "base": {
+   "P": 0.947,
+   "R": 0.467,
+   "F": 0.626,
+   "F_outline": 0.402,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.538,
+     "len_w1": 10.467,
+     "len_rel": 1.263,
+     "w_w1": 0.222
+    },
+    "hair": {
+     "count_ratio": 0.037,
+     "len_w1": 2.448,
+     "len_rel": 0.372,
+     "w_w1": 0.28
+    },
+    "tick": {
+     "count_ratio": 0.216,
+     "len_w1": 0.617,
+     "len_rel": 0.186,
+     "w_w1": 0.187
+    },
+    "dot": {
+     "count_ratio": 0.182,
+     "len_w1": 0.515,
+     "len_rel": 0.329,
+     "w_w1": 0.165
+    }
+   }
+  },
+  "loo": {
+   "P": 0.923,
+   "R": 0.389,
+   "F": 0.547,
+   "F_outline": 0.254,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.923,
+     "len_w1": 3.567,
+     "len_rel": 0.431,
+     "w_w1": 0.218
+    },
+    "hair": {
+     "count_ratio": 0.169,
+     "len_w1": 3.918,
+     "len_rel": 0.595,
+     "w_w1": 0.212
+    },
+    "tick": {
+     "count_ratio": 0.508,
+     "len_w1": 0.452,
+     "len_rel": 0.136,
+     "w_w1": 0.146
+    },
+    "dot": {
+     "count_ratio": 0.136,
+     "len_w1": 0.456,
+     "len_rel": 0.291,
+     "w_w1": 0.125
+    }
+   }
+  },
+  "own": {
+   "P": 0.977,
+   "R": 0.472,
+   "F": 0.637,
+   "F_outline": 0.251,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.962,
+     "len_w1": 4.062,
+     "len_rel": 0.49,
+     "w_w1": 0.078
+    },
+    "hair": {
+     "count_ratio": 0.433,
+     "len_w1": 0.833,
+     "len_rel": 0.126,
+     "w_w1": 0.068
+    },
+    "tick": {
+     "count_ratio": 0.519,
+     "len_w1": 0.354,
+     "len_rel": 0.107,
+     "w_w1": 0.046
+    },
+    "dot": {
+     "count_ratio": 0.364,
+     "len_w1": 0.376,
+     "len_rel": 0.24,
+     "w_w1": 0.114
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.615,
+     "len_w1": 2.517,
+     "len_rel": 0.304,
+     "w_w1": 0.076
+    },
+    "hair": {
+     "count_ratio": 0.88,
+     "len_w1": 0.249,
+     "len_rel": 0.038,
+     "w_w1": 0.032
+    },
+    "tick": {
+     "count_ratio": 1.189,
+     "len_w1": 0.199,
+     "len_rel": 0.06,
+     "w_w1": 0.03
+    },
+    "dot": {
+     "count_ratio": 0.773,
+     "len_w1": 0.11,
+     "len_rel": 0.07,
+     "w_w1": 0.031
+    }
+   }
+  }
+ },
+ "nidauma": {
+  "good": true,
+  "base": {
+   "P": 0.725,
+   "R": 0.638,
+   "F": 0.679,
+   "F_outline": 0.447,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.339,
+     "len_w1": 3.505,
+     "len_rel": 0.219,
+     "w_w1": 0.189
+    },
+    "hair": {
+     "count_ratio": 0.22,
+     "len_w1": 4.474,
+     "len_rel": 0.98,
+     "w_w1": 0.206
+    },
+    "tick": {
+     "count_ratio": 0.366,
+     "len_w1": 0.642,
+     "len_rel": 0.181,
+     "w_w1": 0.105
+    },
+    "dot": {
+     "count_ratio": 0.538,
+     "len_w1": 0.217,
+     "len_rel": 0.132,
+     "w_w1": 0.068
+    }
+   }
+  },
+  "loo": {
+   "P": 0.703,
+   "R": 0.589,
+   "F": 0.641,
+   "F_outline": 0.351,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.712,
+     "len_w1": 6.957,
+     "len_rel": 0.435,
+     "w_w1": 0.136
+    },
+    "hair": {
+     "count_ratio": 0.333,
+     "len_w1": 4.358,
+     "len_rel": 0.955,
+     "w_w1": 0.204
+    },
+    "tick": {
+     "count_ratio": 0.892,
+     "len_w1": 0.198,
+     "len_rel": 0.056,
+     "w_w1": 0.039
+    },
+    "dot": {
+     "count_ratio": 0.846,
+     "len_w1": 0.121,
+     "len_rel": 0.074,
+     "w_w1": 0.039
+    }
+   }
+  },
+  "own": {
+   "P": 0.832,
+   "R": 0.707,
+   "F": 0.764,
+   "F_outline": 0.427,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.186,
+     "len_w1": 4.218,
+     "len_rel": 0.264,
+     "w_w1": 0.187
+    },
+    "hair": {
+     "count_ratio": 0.593,
+     "len_w1": 2.191,
+     "len_rel": 0.48,
+     "w_w1": 0.09
+    },
+    "tick": {
+     "count_ratio": 0.879,
+     "len_w1": 0.244,
+     "len_rel": 0.069,
+     "w_w1": 0.026
+    },
+    "dot": {
+     "count_ratio": 1.231,
+     "len_w1": 0.153,
+     "len_rel": 0.094,
+     "w_w1": 0.056
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.017,
+     "len_w1": 1.467,
+     "len_rel": 0.092,
+     "w_w1": 0.038
+    },
+    "hair": {
+     "count_ratio": 0.957,
+     "len_w1": 0.196,
+     "len_rel": 0.043,
+     "w_w1": 0.016
+    },
+    "tick": {
+     "count_ratio": 0.961,
+     "len_w1": 0.114,
+     "len_rel": 0.032,
+     "w_w1": 0.018
+    },
+    "dot": {
+     "count_ratio": 1.462,
+     "len_w1": 0.095,
+     "len_rel": 0.058,
+     "w_w1": 0.027
+    }
+   }
+  }
+ },
+ "nyobo-ha-to": {
+  "good": false,
+  "base": {
+   "P": 0.686,
+   "R": 0.257,
+   "F": 0.374,
+   "F_outline": 0.331,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.514,
+     "len_w1": 5.422,
+     "len_rel": 0.219,
+     "w_w1": 0.239
+    },
+    "hair": {
+     "count_ratio": 0.043,
+     "len_w1": 4.793,
+     "len_rel": 0.767,
+     "w_w1": 0.314
+    },
+    "tick": {
+     "count_ratio": 0.159,
+     "len_w1": 1.177,
+     "len_rel": 0.376,
+     "w_w1": 0.225
+    },
+    "dot": {
+     "count_ratio": 0.053,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "loo": {
+   "P": 0.753,
+   "R": 0.203,
+   "F": 0.32,
+   "F_outline": 0.149,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.378,
+     "len_w1": 14.538,
+     "len_rel": 0.588,
+     "w_w1": 0.118
+    },
+    "hair": {
+     "count_ratio": 0.103,
+     "len_w1": 3.028,
+     "len_rel": 0.485,
+     "w_w1": 0.175
+    },
+    "tick": {
+     "count_ratio": 0.27,
+     "len_w1": 0.576,
+     "len_rel": 0.184,
+     "w_w1": 0.108
+    },
+    "dot": {
+     "count_ratio": 0.263,
+     "len_w1": 0.225,
+     "len_rel": 0.126,
+     "w_w1": 0.051
+    }
+   }
+  },
+  "own": {
+   "P": 0.8,
+   "R": 0.262,
+   "F": 0.395,
+   "F_outline": 0.174,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.351,
+     "len_w1": 15.099,
+     "len_rel": 0.611,
+     "w_w1": 0.123
+    },
+    "hair": {
+     "count_ratio": 0.241,
+     "len_w1": 1.434,
+     "len_rel": 0.23,
+     "w_w1": 0.072
+    },
+    "tick": {
+     "count_ratio": 0.352,
+     "len_w1": 0.455,
+     "len_rel": 0.145,
+     "w_w1": 0.115
+    },
+    "dot": {
+     "count_ratio": 0.316,
+     "len_w1": 0.182,
+     "len_rel": 0.102,
+     "w_w1": 0.07
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 0.999,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.905,
+     "len_w1": 1.842,
+     "len_rel": 0.075,
+     "w_w1": 0.047
+    },
+    "hair": {
+     "count_ratio": 0.892,
+     "len_w1": 0.313,
+     "len_rel": 0.05,
+     "w_w1": 0.034
+    },
+    "tick": {
+     "count_ratio": 1.137,
+     "len_w1": 0.165,
+     "len_rel": 0.053,
+     "w_w1": 0.026
+    },
+    "dot": {
+     "count_ratio": 1.0,
+     "len_w1": 0.091,
+     "len_rel": 0.051,
+     "w_w1": 0.057
+    }
+   }
+  }
+ },
+ "okame-men": {
+  "good": true,
+  "base": {
+   "P": 0.706,
+   "R": 0.72,
+   "F": 0.713,
+   "F_outline": 0.622,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.333,
+     "len_w1": 9.552,
+     "len_rel": 0.899,
+     "w_w1": 0.08
+    },
+    "hair": {
+     "count_ratio": 1.25,
+     "len_w1": 5.869,
+     "len_rel": 0.524,
+     "w_w1": 0.099
+    },
+    "tick": {
+     "count_ratio": 2.0,
+     "len_w1": 0.52,
+     "len_rel": 0.111,
+     "w_w1": 0.083
+    }
+   }
+  },
+  "loo": {
+   "P": 0.607,
+   "R": 0.46,
+   "F": 0.523,
+   "F_outline": 0.335,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.556,
+     "len_w1": 0.983,
+     "len_rel": 0.092,
+     "w_w1": 0.112
+    },
+    "hair": {
+     "count_ratio": 1.75,
+     "len_w1": 1.604,
+     "len_rel": 0.143,
+     "w_w1": 0.189
+    },
+    "tick": {
+     "count_ratio": 3.125,
+     "len_w1": 0.208,
+     "len_rel": 0.044,
+     "w_w1": 0.09
+    }
+   }
+  },
+  "own": {
+   "P": 0.63,
+   "R": 0.373,
+   "F": 0.468,
+   "F_outline": 0.302,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.778,
+     "len_w1": 3.621,
+     "len_rel": 0.341,
+     "w_w1": 0.075
+    },
+    "hair": {
+     "count_ratio": 1.75,
+     "len_w1": 1.406,
+     "len_rel": 0.125,
+     "w_w1": 0.132
+    },
+    "tick": {
+     "count_ratio": 1.875,
+     "len_w1": 1.022,
+     "len_rel": 0.218,
+     "w_w1": 0.158
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.333,
+     "len_w1": 8.726,
+     "len_rel": 0.821,
+     "w_w1": 0.175
+    },
+    "hair": {
+     "count_ratio": 1.0,
+     "len_w1": 0.786,
+     "len_rel": 0.07,
+     "w_w1": 0.033
+    },
+    "tick": {
+     "count_ratio": 1.0,
+     "len_w1": 0.115,
+     "len_rel": 0.024,
+     "w_w1": 0.04
+    }
+   }
+  }
+ },
+ "ondori": {
+  "good": true,
+  "base": {
+   "P": 0.782,
+   "R": 0.302,
+   "F": 0.436,
+   "F_outline": 0.358,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.0,
+     "len_w1": 3.661,
+     "len_rel": 0.31,
+     "w_w1": 0.144
+    },
+    "hair": {
+     "count_ratio": 0.111,
+     "len_w1": 1.72,
+     "len_rel": 0.242,
+     "w_w1": 0.141
+    },
+    "tick": {
+     "count_ratio": 0.18,
+     "len_w1": 0.531,
+     "len_rel": 0.158,
+     "w_w1": 0.198
+    },
+    "dot": {
+     "count_ratio": 0.25,
+     "len_w1": 0.641,
+     "len_rel": 0.419,
+     "w_w1": 0.196
+    }
+   }
+  },
+  "loo": {
+   "P": 0.643,
+   "R": 0.369,
+   "F": 0.469,
+   "F_outline": 0.191,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.059,
+     "len_w1": 3.93,
+     "len_rel": 0.333,
+     "w_w1": 0.061
+    },
+    "hair": {
+     "count_ratio": 0.343,
+     "len_w1": 2.64,
+     "len_rel": 0.372,
+     "w_w1": 0.071
+    },
+    "tick": {
+     "count_ratio": 0.72,
+     "len_w1": 0.301,
+     "len_rel": 0.089,
+     "w_w1": 0.055
+    },
+    "dot": {
+     "count_ratio": 0.75,
+     "len_w1": 0.319,
+     "len_rel": 0.208,
+     "w_w1": 0.134
+    }
+   }
+  },
+  "own": {
+   "P": 0.683,
+   "R": 0.412,
+   "F": 0.514,
+   "F_outline": 0.224,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.706,
+     "len_w1": 5.569,
+     "len_rel": 0.472,
+     "w_w1": 0.134
+    },
+    "hair": {
+     "count_ratio": 0.424,
+     "len_w1": 1.989,
+     "len_rel": 0.28,
+     "w_w1": 0.096
+    },
+    "tick": {
+     "count_ratio": 1.0,
+     "len_w1": 0.446,
+     "len_rel": 0.132,
+     "w_w1": 0.062
+    },
+    "dot": {
+     "count_ratio": 0.625,
+     "len_w1": 0.306,
+     "len_rel": 0.2,
+     "w_w1": 0.084
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.529,
+     "len_w1": 2.715,
+     "len_rel": 0.23,
+     "w_w1": 0.149
+    },
+    "hair": {
+     "count_ratio": 1.04,
+     "len_w1": 0.235,
+     "len_rel": 0.033,
+     "w_w1": 0.04
+    },
+    "tick": {
+     "count_ratio": 1.22,
+     "len_w1": 0.304,
+     "len_rel": 0.09,
+     "w_w1": 0.062
+    },
+    "dot": {
+     "count_ratio": 0.875,
+     "len_w1": 0.098,
+     "len_rel": 0.064,
+     "w_w1": 0.04
+    }
+   }
+  }
+ },
+ "oni-men": {
+  "good": true,
+  "base": {
+   "P": 0.819,
+   "R": 0.761,
+   "F": 0.789,
+   "F_outline": 0.635,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.828,
+     "len_w1": 3.812,
+     "len_rel": 0.356,
+     "w_w1": 0.112
+    },
+    "hair": {
+     "count_ratio": 0.074,
+     "len_w1": 9.594,
+     "len_rel": 1.385,
+     "w_w1": 0.269
+    },
+    "tick": {
+     "count_ratio": 0.157,
+     "len_w1": 0.477,
+     "len_rel": 0.12,
+     "w_w1": 0.112
+    }
+   }
+  },
+  "loo": {
+   "P": 0.642,
+   "R": 0.646,
+   "F": 0.644,
+   "F_outline": 0.428,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.931,
+     "len_w1": 1.368,
+     "len_rel": 0.128,
+     "w_w1": 0.062
+    },
+    "hair": {
+     "count_ratio": 0.432,
+     "len_w1": 2.359,
+     "len_rel": 0.341,
+     "w_w1": 0.185
+    },
+    "tick": {
+     "count_ratio": 1.02,
+     "len_w1": 0.347,
+     "len_rel": 0.087,
+     "w_w1": 0.048
+    }
+   }
+  },
+  "own": {
+   "P": 0.694,
+   "R": 0.763,
+   "F": 0.727,
+   "F_outline": 0.47,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.793,
+     "len_w1": 2.874,
+     "len_rel": 0.268,
+     "w_w1": 0.072
+    },
+    "hair": {
+     "count_ratio": 0.58,
+     "len_w1": 2.38,
+     "len_rel": 0.344,
+     "w_w1": 0.08
+    },
+    "tick": {
+     "count_ratio": 1.294,
+     "len_w1": 0.198,
+     "len_rel": 0.05,
+     "w_w1": 0.063
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.862,
+     "len_w1": 2.969,
+     "len_rel": 0.277,
+     "w_w1": 0.04
+    },
+    "hair": {
+     "count_ratio": 0.914,
+     "len_w1": 0.38,
+     "len_rel": 0.055,
+     "w_w1": 0.031
+    },
+    "tick": {
+     "count_ratio": 1.118,
+     "len_w1": 0.197,
+     "len_rel": 0.05,
+     "w_w1": 0.045
+    }
+   }
+  }
+ },
+ "onna-kasa-hishi": {
+  "good": true,
+  "base": {
+   "P": 0.752,
+   "R": 0.542,
+   "F": 0.63,
+   "F_outline": 0.521,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.941,
+     "len_w1": 9.343,
+     "len_rel": 0.442,
+     "w_w1": 0.172
+    },
+    "hair": {
+     "count_ratio": 0.008,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    },
+    "tick": {
+     "count_ratio": 0.09,
+     "len_w1": 0.576,
+     "len_rel": 0.157,
+     "w_w1": 0.228
+    }
+   }
+  },
+  "loo": {
+   "P": 0.621,
+   "R": 0.457,
+   "F": 0.526,
+   "F_outline": 0.226,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.529,
+     "len_w1": 10.186,
+     "len_rel": 0.482,
+     "w_w1": 0.081
+    },
+    "hair": {
+     "count_ratio": 0.163,
+     "len_w1": 1.728,
+     "len_rel": 0.274,
+     "w_w1": 0.077
+    },
+    "tick": {
+     "count_ratio": 0.672,
+     "len_w1": 0.31,
+     "len_rel": 0.085,
+     "w_w1": 0.08
+    }
+   }
+  },
+  "own": {
+   "P": 0.732,
+   "R": 0.61,
+   "F": 0.665,
+   "F_outline": 0.212,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.353,
+     "len_w1": 12.042,
+     "len_rel": 0.57,
+     "w_w1": 0.057
+    },
+    "hair": {
+     "count_ratio": 0.577,
+     "len_w1": 1.652,
+     "len_rel": 0.262,
+     "w_w1": 0.127
+    },
+    "tick": {
+     "count_ratio": 1.0,
+     "len_w1": 0.266,
+     "len_rel": 0.073,
+     "w_w1": 0.034
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 0.998,
+   "F": 0.999,
+   "F_outline": 0.997,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.941,
+     "len_w1": 4.795,
+     "len_rel": 0.227,
+     "w_w1": 0.086
+    },
+    "hair": {
+     "count_ratio": 1.122,
+     "len_w1": 0.672,
+     "len_rel": 0.107,
+     "w_w1": 0.035
+    },
+    "tick": {
+     "count_ratio": 0.821,
+     "len_w1": 0.193,
+     "len_rel": 0.053,
+     "w_w1": 0.056
+    }
+   }
+  }
+ },
+ "onna-mi": {
+  "good": false,
+  "base": {
+   "P": 0.751,
+   "R": 0.28,
+   "F": 0.408,
+   "F_outline": 0.371,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.812,
+     "len_w1": 6.536,
+     "len_rel": 0.4,
+     "w_w1": 0.218
+    },
+    "hair": {
+     "count_ratio": 0.109,
+     "len_w1": 5.119,
+     "len_rel": 0.801,
+     "w_w1": 0.218
+    },
+    "tick": {
+     "count_ratio": 0.089,
+     "len_w1": 1.327,
+     "len_rel": 0.467,
+     "w_w1": 0.235
+    },
+    "dot": {
+     "count_ratio": 0.03,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "loo": {
+   "P": 0.712,
+   "R": 0.178,
+   "F": 0.284,
+   "F_outline": 0.203,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.062,
+     "len_w1": 13.712,
+     "len_rel": 0.84,
+     "w_w1": 0.124
+    },
+    "hair": {
+     "count_ratio": 0.391,
+     "len_w1": 2.862,
+     "len_rel": 0.448,
+     "w_w1": 0.134
+    },
+    "tick": {
+     "count_ratio": 0.238,
+     "len_w1": 1.286,
+     "len_rel": 0.452,
+     "w_w1": 0.195
+    },
+    "dot": {
+     "count_ratio": 0.061,
+     "len_w1": 0.356,
+     "len_rel": 0.221,
+     "w_w1": 0.159
+    }
+   }
+  },
+  "own": {
+   "P": 0.8,
+   "R": 0.178,
+   "F": 0.292,
+   "F_outline": 0.2,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.75,
+     "len_w1": 14.374,
+     "len_rel": 0.88,
+     "w_w1": 0.239
+    },
+    "hair": {
+     "count_ratio": 0.37,
+     "len_w1": 3.122,
+     "len_rel": 0.489,
+     "w_w1": 0.16
+    },
+    "tick": {
+     "count_ratio": 0.287,
+     "len_w1": 0.709,
+     "len_rel": 0.249,
+     "w_w1": 0.157
+    },
+    "dot": {
+     "count_ratio": 0.091,
+     "len_w1": 0.207,
+     "len_rel": 0.128,
+     "w_w1": 0.126
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.25,
+     "len_w1": 2.079,
+     "len_rel": 0.127,
+     "w_w1": 0.082
+    },
+    "hair": {
+     "count_ratio": 1.109,
+     "len_w1": 0.46,
+     "len_rel": 0.072,
+     "w_w1": 0.073
+    },
+    "tick": {
+     "count_ratio": 0.941,
+     "len_w1": 0.105,
+     "len_rel": 0.037,
+     "w_w1": 0.025
+    },
+    "dot": {
+     "count_ratio": 1.0,
+     "len_w1": 0.047,
+     "len_rel": 0.029,
+     "w_w1": 0.03
+    }
+   }
+  }
+ },
+ "saru-kanban": {
+  "good": true,
+  "base": {
+   "P": 0.672,
+   "R": 0.607,
+   "F": 0.638,
+   "F_outline": 0.518,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.791,
+     "len_w1": 3.738,
+     "len_rel": 0.298,
+     "w_w1": 0.132
+    },
+    "hair": {
+     "count_ratio": 0.29,
+     "len_w1": 1.462,
+     "len_rel": 0.197,
+     "w_w1": 0.194
+    },
+    "tick": {
+     "count_ratio": 0.568,
+     "len_w1": 0.769,
+     "len_rel": 0.264,
+     "w_w1": 0.17
+    },
+    "dot": {
+     "count_ratio": 0.5,
+     "len_w1": 0.616,
+     "len_rel": 0.437,
+     "w_w1": 0.279
+    }
+   }
+  },
+  "loo": {
+   "P": 0.559,
+   "R": 0.441,
+   "F": 0.492,
+   "F_outline": 0.305,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.186,
+     "len_w1": 9.012,
+     "len_rel": 0.719,
+     "w_w1": 0.043
+    },
+    "hair": {
+     "count_ratio": 0.729,
+     "len_w1": 2.571,
+     "len_rel": 0.347,
+     "w_w1": 0.165
+    },
+    "tick": {
+     "count_ratio": 1.173,
+     "len_w1": 0.433,
+     "len_rel": 0.148,
+     "w_w1": 0.1
+    },
+    "dot": {
+     "count_ratio": 0.167,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "own": {
+   "P": 0.933,
+   "R": 0.543,
+   "F": 0.687,
+   "F_outline": 0.495,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.535,
+     "len_w1": 3.903,
+     "len_rel": 0.311,
+     "w_w1": 0.054
+    },
+    "hair": {
+     "count_ratio": 0.458,
+     "len_w1": 1.066,
+     "len_rel": 0.144,
+     "w_w1": 0.077
+    },
+    "tick": {
+     "count_ratio": 0.58,
+     "len_w1": 0.271,
+     "len_rel": 0.093,
+     "w_w1": 0.068
+    },
+    "dot": {
+     "count_ratio": 1.5,
+     "len_w1": 0.28,
+     "len_rel": 0.199,
+     "w_w1": 0.035
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.953,
+     "len_w1": 1.274,
+     "len_rel": 0.102,
+     "w_w1": 0.044
+    },
+    "hair": {
+     "count_ratio": 0.916,
+     "len_w1": 1.0,
+     "len_rel": 0.135,
+     "w_w1": 0.042
+    },
+    "tick": {
+     "count_ratio": 1.074,
+     "len_w1": 0.364,
+     "len_rel": 0.125,
+     "w_w1": 0.027
+    },
+    "dot": {
+     "count_ratio": 1.0,
+     "len_w1": 0.144,
+     "len_rel": 0.102,
+     "w_w1": 0.03
+    }
+   }
+  }
+ },
+ "shika-momiji": {
+  "good": true,
+  "base": {
+   "P": 0.556,
+   "R": 0.479,
+   "F": 0.514,
+   "F_outline": 0.352,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.303,
+     "len_w1": 4.111,
+     "len_rel": 0.407,
+     "w_w1": 0.268
+    },
+    "hair": {
+     "count_ratio": 0.118,
+     "len_w1": 8.287,
+     "len_rel": 3.114,
+     "w_w1": 0.208
+    },
+    "tick": {
+     "count_ratio": 0.279,
+     "len_w1": 0.992,
+     "len_rel": 0.369,
+     "w_w1": 0.178
+    },
+    "dot": {
+     "count_ratio": 0.083,
+     "len_w1": 0.509,
+     "len_rel": 0.337,
+     "w_w1": 0.157
+    }
+   }
+  },
+  "loo": {
+   "P": 0.519,
+   "R": 0.195,
+   "F": 0.283,
+   "F_outline": 0.22,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.667,
+     "len_w1": 5.01,
+     "len_rel": 0.496,
+     "w_w1": 0.241
+    },
+    "hair": {
+     "count_ratio": 0.236,
+     "len_w1": 5.803,
+     "len_rel": 2.181,
+     "w_w1": 0.323
+    },
+    "tick": {
+     "count_ratio": 0.375,
+     "len_w1": 0.861,
+     "len_rel": 0.32,
+     "w_w1": 0.1
+    },
+    "dot": {
+     "count_ratio": 0.069,
+     "len_w1": 0.253,
+     "len_rel": 0.167,
+     "w_w1": 0.065
+    }
+   }
+  },
+  "own": {
+   "P": 0.608,
+   "R": 0.176,
+   "F": 0.272,
+   "F_outline": 0.264,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.667,
+     "len_w1": 1.332,
+     "len_rel": 0.132,
+     "w_w1": 0.217
+    },
+    "hair": {
+     "count_ratio": 0.031,
+     "len_w1": 8.214,
+     "len_rel": 3.087,
+     "w_w1": 0.371
+    },
+    "tick": {
+     "count_ratio": 0.192,
+     "len_w1": 0.539,
+     "len_rel": 0.2,
+     "w_w1": 0.069
+    },
+    "dot": {
+     "count_ratio": 0.056,
+     "len_w1": 0.203,
+     "len_rel": 0.134,
+     "w_w1": 0.113
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.879,
+     "len_w1": 1.018,
+     "len_rel": 0.101,
+     "w_w1": 0.054
+    },
+    "hair": {
+     "count_ratio": 0.961,
+     "len_w1": 0.346,
+     "len_rel": 0.13,
+     "w_w1": 0.042
+    },
+    "tick": {
+     "count_ratio": 0.942,
+     "len_w1": 0.209,
+     "len_rel": 0.078,
+     "w_w1": 0.043
+    },
+    "dot": {
+     "count_ratio": 0.958,
+     "len_w1": 0.042,
+     "len_rel": 0.028,
+     "w_w1": 0.027
+    }
+   }
+  }
+ },
+ "shishi": {
+  "good": true,
+  "base": {
+   "P": 0.983,
+   "R": 0.337,
+   "F": 0.502,
+   "F_outline": 0.562,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.226,
+     "len_w1": 8.007,
+     "len_rel": 0.357,
+     "w_w1": 0.176
+    },
+    "hair": {
+     "count_ratio": 0.012,
+     "len_w1": 2.913,
+     "len_rel": 0.398,
+     "w_w1": 0.19
+    },
+    "tick": {
+     "count_ratio": 0.025,
+     "len_w1": 2.131,
+     "len_rel": 0.637,
+     "w_w1": 0.231
+    }
+   }
+  },
+  "loo": {
+   "P": 0.963,
+   "R": 0.296,
+   "F": 0.451,
+   "F_outline": 0.265,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.415,
+     "len_w1": 6.571,
+     "len_rel": 0.293,
+     "w_w1": 0.094
+    },
+    "hair": {
+     "count_ratio": 0.082,
+     "len_w1": 2.322,
+     "len_rel": 0.317,
+     "w_w1": 0.104
+    },
+    "tick": {
+     "count_ratio": 0.252,
+     "len_w1": 0.334,
+     "len_rel": 0.1,
+     "w_w1": 0.059
+    }
+   }
+  },
+  "own": {
+   "P": 0.978,
+   "R": 0.443,
+   "F": 0.61,
+   "F_outline": 0.478,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.377,
+     "len_w1": 7.401,
+     "len_rel": 0.33,
+     "w_w1": 0.071
+    },
+    "hair": {
+     "count_ratio": 0.242,
+     "len_w1": 1.602,
+     "len_rel": 0.219,
+     "w_w1": 0.06
+    },
+    "tick": {
+     "count_ratio": 0.421,
+     "len_w1": 0.309,
+     "len_rel": 0.092,
+     "w_w1": 0.023
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.038,
+     "len_w1": 2.088,
+     "len_rel": 0.093,
+     "w_w1": 0.068
+    },
+    "hair": {
+     "count_ratio": 1.133,
+     "len_w1": 0.355,
+     "len_rel": 0.049,
+     "w_w1": 0.061
+    },
+    "tick": {
+     "count_ratio": 1.075,
+     "len_w1": 0.162,
+     "len_rel": 0.048,
+     "w_w1": 0.025
+    }
+   }
+  }
+ },
+ "shishimai-maru": {
+  "good": true,
+  "base": {
+   "P": 0.696,
+   "R": 0.466,
+   "F": 0.558,
+   "F_outline": 0.522,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.765,
+     "len_w1": 4.924,
+     "len_rel": 0.21,
+     "w_w1": 0.178
+    },
+    "hair": {
+     "count_ratio": 0.144,
+     "len_w1": 6.43,
+     "len_rel": 0.966,
+     "w_w1": 0.3
+    },
+    "tick": {
+     "count_ratio": 0.118,
+     "len_w1": 0.594,
+     "len_rel": 0.174,
+     "w_w1": 0.14
+    }
+   }
+  },
+  "loo": {
+   "P": 0.707,
+   "R": 0.289,
+   "F": 0.41,
+   "F_outline": 0.356,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.088,
+     "len_w1": 10.778,
+     "len_rel": 0.459,
+     "w_w1": 0.11
+    },
+    "hair": {
+     "count_ratio": 0.22,
+     "len_w1": 3.526,
+     "len_rel": 0.53,
+     "w_w1": 0.257
+    },
+    "tick": {
+     "count_ratio": 0.464,
+     "len_w1": 0.527,
+     "len_rel": 0.154,
+     "w_w1": 0.038
+    }
+   }
+  },
+  "own": {
+   "P": 0.772,
+   "R": 0.294,
+   "F": 0.426,
+   "F_outline": 0.41,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.735,
+     "len_w1": 10.912,
+     "len_rel": 0.465,
+     "w_w1": 0.129
+    },
+    "hair": {
+     "count_ratio": 0.483,
+     "len_w1": 1.62,
+     "len_rel": 0.243,
+     "w_w1": 0.137
+    },
+    "tick": {
+     "count_ratio": 0.471,
+     "len_w1": 0.544,
+     "len_rel": 0.159,
+     "w_w1": 0.047
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.118,
+     "len_w1": 2.836,
+     "len_rel": 0.121,
+     "w_w1": 0.082
+    },
+    "hair": {
+     "count_ratio": 1.127,
+     "len_w1": 0.491,
+     "len_rel": 0.074,
+     "w_w1": 0.028
+    },
+    "tick": {
+     "count_ratio": 0.908,
+     "len_w1": 0.144,
+     "len_rel": 0.042,
+     "w_w1": 0.028
+    }
+   }
+  }
+ },
+ "suzume-hishi": {
+  "good": true,
+  "base": {
+   "P": 0.973,
+   "R": 0.7,
+   "F": 0.814,
+   "F_outline": 0.444,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.6,
+     "len_w1": 5.89,
+     "len_rel": 0.783,
+     "w_w1": 0.089
+    },
+    "hair": {
+     "count_ratio": 0.061,
+     "len_w1": 3.538,
+     "len_rel": 0.405,
+     "w_w1": 0.188
+    },
+    "tick": {
+     "count_ratio": 0.147,
+     "len_w1": 0.896,
+     "len_rel": 0.279,
+     "w_w1": 0.134
+    }
+   }
+  },
+  "loo": {
+   "P": 0.954,
+   "R": 0.623,
+   "F": 0.753,
+   "F_outline": 0.327,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.2,
+     "len_w1": 3.788,
+     "len_rel": 0.503,
+     "w_w1": 0.06
+    },
+    "hair": {
+     "count_ratio": 0.143,
+     "len_w1": 2.936,
+     "len_rel": 0.336,
+     "w_w1": 0.107
+    },
+    "tick": {
+     "count_ratio": 0.706,
+     "len_w1": 0.431,
+     "len_rel": 0.134,
+     "w_w1": 0.071
+    }
+   }
+  },
+  "own": {
+   "P": 0.957,
+   "R": 0.726,
+   "F": 0.826,
+   "F_outline": 0.492,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.4,
+     "len_w1": 3.534,
+     "len_rel": 0.47,
+     "w_w1": 0.138
+    },
+    "hair": {
+     "count_ratio": 0.653,
+     "len_w1": 1.107,
+     "len_rel": 0.127,
+     "w_w1": 0.125
+    },
+    "tick": {
+     "count_ratio": 0.824,
+     "len_w1": 0.823,
+     "len_rel": 0.256,
+     "w_w1": 0.06
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.9,
+     "len_w1": 1.456,
+     "len_rel": 0.193,
+     "w_w1": 0.093
+    },
+    "hair": {
+     "count_ratio": 1.245,
+     "len_w1": 1.007,
+     "len_rel": 0.115,
+     "w_w1": 0.131
+    },
+    "tick": {
+     "count_ratio": 0.794,
+     "len_w1": 0.244,
+     "len_rel": 0.076,
+     "w_w1": 0.06
+    }
+   }
+  }
+ },
+ "suzume-yoko": {
+  "good": true,
+  "base": {
+   "P": 0.779,
+   "R": 0.499,
+   "F": 0.609,
+   "F_outline": 0.505,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.526,
+     "len_w1": 2.614,
+     "len_rel": 0.228,
+     "w_w1": 0.129
+    },
+    "hair": {
+     "count_ratio": 0.103,
+     "len_w1": 10.0,
+     "len_rel": 1.41,
+     "w_w1": 0.227
+    },
+    "tick": {
+     "count_ratio": 0.114,
+     "len_w1": 0.764,
+     "len_rel": 0.22,
+     "w_w1": 0.161
+    }
+   }
+  },
+  "loo": {
+   "P": 0.758,
+   "R": 0.546,
+   "F": 0.634,
+   "F_outline": 0.455,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.789,
+     "len_w1": 2.27,
+     "len_rel": 0.198,
+     "w_w1": 0.143
+    },
+    "hair": {
+     "count_ratio": 0.436,
+     "len_w1": 3.072,
+     "len_rel": 0.433,
+     "w_w1": 0.037
+    },
+    "tick": {
+     "count_ratio": 0.857,
+     "len_w1": 0.31,
+     "len_rel": 0.09,
+     "w_w1": 0.124
+    }
+   }
+  },
+  "own": {
+   "P": 0.766,
+   "R": 0.524,
+   "F": 0.622,
+   "F_outline": 0.449,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.947,
+     "len_w1": 1.818,
+     "len_rel": 0.159,
+     "w_w1": 0.065
+    },
+    "hair": {
+     "count_ratio": 0.641,
+     "len_w1": 2.753,
+     "len_rel": 0.388,
+     "w_w1": 0.084
+    },
+    "tick": {
+     "count_ratio": 0.857,
+     "len_w1": 0.261,
+     "len_rel": 0.075,
+     "w_w1": 0.049
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.579,
+     "len_w1": 3.193,
+     "len_rel": 0.279,
+     "w_w1": 0.079
+    },
+    "hair": {
+     "count_ratio": 1.051,
+     "len_w1": 0.875,
+     "len_rel": 0.123,
+     "w_w1": 0.073
+    },
+    "tick": {
+     "count_ratio": 1.257,
+     "len_w1": 0.165,
+     "len_rel": 0.048,
+     "w_w1": 0.063
+    }
+   }
+  }
+ },
+ "tai-mikazuki": {
+  "good": false,
+  "base": {
+   "P": 0.825,
+   "R": 0.406,
+   "F": 0.545,
+   "F_outline": 0.415,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.382,
+     "len_w1": 7.235,
+     "len_rel": 0.294,
+     "w_w1": 0.133
+    },
+    "hair": {
+     "count_ratio": 0.515,
+     "len_w1": 1.511,
+     "len_rel": 0.151,
+     "w_w1": 0.096
+    },
+    "tick": {
+     "count_ratio": 0.546,
+     "len_w1": 0.249,
+     "len_rel": 0.072,
+     "w_w1": 0.135
+    },
+    "dot": {
+     "count_ratio": 0.875,
+     "len_w1": 0.536,
+     "len_rel": 0.342,
+     "w_w1": 0.134
+    }
+   }
+  },
+  "loo": {
+   "P": 0.809,
+   "R": 0.362,
+   "F": 0.5,
+   "F_outline": 0.253,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.483,
+     "len_w1": 12.298,
+     "len_rel": 0.499,
+     "w_w1": 0.148
+    },
+    "hair": {
+     "count_ratio": 0.505,
+     "len_w1": 0.516,
+     "len_rel": 0.052,
+     "w_w1": 0.038
+    },
+    "tick": {
+     "count_ratio": 1.278,
+     "len_w1": 0.156,
+     "len_rel": 0.045,
+     "w_w1": 0.038
+    },
+    "dot": {
+     "count_ratio": 1.5,
+     "len_w1": 0.246,
+     "len_rel": 0.157,
+     "w_w1": 0.075
+    }
+   }
+  },
+  "own": {
+   "P": 0.822,
+   "R": 0.378,
+   "F": 0.518,
+   "F_outline": 0.325,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.607,
+     "len_w1": 12.66,
+     "len_rel": 0.514,
+     "w_w1": 0.125
+    },
+    "hair": {
+     "count_ratio": 0.541,
+     "len_w1": 0.647,
+     "len_rel": 0.065,
+     "w_w1": 0.068
+    },
+    "tick": {
+     "count_ratio": 0.806,
+     "len_w1": 0.262,
+     "len_rel": 0.076,
+     "w_w1": 0.043
+    },
+    "dot": {
+     "count_ratio": 0.625,
+     "len_w1": 0.36,
+     "len_rel": 0.23,
+     "w_w1": 0.201
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.742,
+     "len_w1": 2.205,
+     "len_rel": 0.09,
+     "w_w1": 0.083
+    },
+    "hair": {
+     "count_ratio": 1.237,
+     "len_w1": 1.213,
+     "len_rel": 0.121,
+     "w_w1": 0.09
+    },
+    "tick": {
+     "count_ratio": 1.13,
+     "len_w1": 0.129,
+     "len_rel": 0.037,
+     "w_w1": 0.025
+    },
+    "dot": {
+     "count_ratio": 1.375,
+     "len_w1": 0.224,
+     "len_rel": 0.143,
+     "w_w1": 0.053
+    }
+   }
+  }
+ },
+ "tako": {
+  "good": true,
+  "base": {
+   "P": 0.816,
+   "R": 0.773,
+   "F": 0.794,
+   "F_outline": 0.745,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.5,
+     "len_w1": 6.309,
+     "len_rel": 0.245,
+     "w_w1": 0.146
+    },
+    "hair": {
+     "count_ratio": 0.07,
+     "len_w1": 6.351,
+     "len_rel": 0.832,
+     "w_w1": 0.269
+    },
+    "tick": {
+     "count_ratio": 0.226,
+     "len_w1": 1.229,
+     "len_rel": 0.459,
+     "w_w1": 0.179
+    },
+    "dot": {
+     "count_ratio": 0.154,
+     "len_w1": 0.459,
+     "len_rel": 0.272,
+     "w_w1": 0.124
+    }
+   }
+  },
+  "loo": {
+   "P": 0.77,
+   "R": 0.63,
+   "F": 0.693,
+   "F_outline": 0.422,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.25,
+     "len_w1": 10.04,
+     "len_rel": 0.39,
+     "w_w1": 0.134
+    },
+    "hair": {
+     "count_ratio": 0.535,
+     "len_w1": 2.49,
+     "len_rel": 0.326,
+     "w_w1": 0.285
+    },
+    "tick": {
+     "count_ratio": 0.595,
+     "len_w1": 0.55,
+     "len_rel": 0.205,
+     "w_w1": 0.069
+    },
+    "dot": {
+     "count_ratio": 0.231,
+     "len_w1": 0.112,
+     "len_rel": 0.066,
+     "w_w1": 0.046
+    }
+   }
+  },
+  "own": {
+   "P": 0.859,
+   "R": 0.797,
+   "F": 0.827,
+   "F_outline": 0.675,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.875,
+     "len_w1": 6.896,
+     "len_rel": 0.268,
+     "w_w1": 0.151
+    },
+    "hair": {
+     "count_ratio": 1.256,
+     "len_w1": 0.697,
+     "len_rel": 0.091,
+     "w_w1": 0.037
+    },
+    "tick": {
+     "count_ratio": 0.821,
+     "len_w1": 0.565,
+     "len_rel": 0.211,
+     "w_w1": 0.065
+    },
+    "dot": {
+     "count_ratio": 0.692,
+     "len_w1": 0.208,
+     "len_rel": 0.124,
+     "w_w1": 0.109
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.812,
+     "len_w1": 4.323,
+     "len_rel": 0.168,
+     "w_w1": 0.097
+    },
+    "hair": {
+     "count_ratio": 1.14,
+     "len_w1": 2.12,
+     "len_rel": 0.278,
+     "w_w1": 0.129
+    },
+    "tick": {
+     "count_ratio": 0.905,
+     "len_w1": 0.173,
+     "len_rel": 0.065,
+     "w_w1": 0.029
+    },
+    "dot": {
+     "count_ratio": 0.769,
+     "len_w1": 0.171,
+     "len_rel": 0.101,
+     "w_w1": 0.028
+    }
+   }
+  }
+ },
+ "tako-maru": {
+  "good": true,
+  "base": {
+   "P": 0.867,
+   "R": 0.683,
+   "F": 0.764,
+   "F_outline": 0.82,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.12,
+     "len_w1": 6.998,
+     "len_rel": 0.211,
+     "w_w1": 0.072
+    },
+    "hair": {
+     "count_ratio": 0.098,
+     "len_w1": 6.555,
+     "len_rel": 1.604,
+     "w_w1": 0.225
+    },
+    "tick": {
+     "count_ratio": 0.127,
+     "len_w1": 1.683,
+     "len_rel": 0.646,
+     "w_w1": 0.267
+    },
+    "dot": {
+     "count_ratio": 0.111,
+     "len_w1": 0.543,
+     "len_rel": 0.358,
+     "w_w1": 0.249
+    }
+   }
+  },
+  "loo": {
+   "P": 0.692,
+   "R": 0.343,
+   "F": 0.458,
+   "F_outline": 0.36,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.36,
+     "len_w1": 27.356,
+     "len_rel": 0.826,
+     "w_w1": 0.066
+    },
+    "hair": {
+     "count_ratio": 0.784,
+     "len_w1": 7.612,
+     "len_rel": 1.863,
+     "w_w1": 0.283
+    },
+    "tick": {
+     "count_ratio": 0.736,
+     "len_w1": 1.197,
+     "len_rel": 0.459,
+     "w_w1": 0.149
+    },
+    "dot": {
+     "count_ratio": 0.5,
+     "len_w1": 0.402,
+     "len_rel": 0.265,
+     "w_w1": 0.149
+    }
+   }
+  },
+  "own": {
+   "P": 0.824,
+   "R": 0.394,
+   "F": 0.533,
+   "F_outline": 0.544,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.96,
+     "len_w1": 19.812,
+     "len_rel": 0.598,
+     "w_w1": 0.074
+    },
+    "hair": {
+     "count_ratio": 0.51,
+     "len_w1": 1.535,
+     "len_rel": 0.376,
+     "w_w1": 0.11
+    },
+    "tick": {
+     "count_ratio": 0.364,
+     "len_w1": 0.275,
+     "len_rel": 0.106,
+     "w_w1": 0.079
+    },
+    "dot": {
+     "count_ratio": 1.0,
+     "len_w1": 0.054,
+     "len_rel": 0.036,
+     "w_w1": 0.027
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.04,
+     "len_w1": 4.508,
+     "len_rel": 0.136,
+     "w_w1": 0.049
+    },
+    "hair": {
+     "count_ratio": 1.039,
+     "len_w1": 1.182,
+     "len_rel": 0.289,
+     "w_w1": 0.044
+    },
+    "tick": {
+     "count_ratio": 0.845,
+     "len_w1": 0.128,
+     "len_rel": 0.049,
+     "w_w1": 0.016
+    },
+    "dot": {
+     "count_ratio": 1.056,
+     "len_w1": 0.054,
+     "len_rel": 0.036,
+     "w_w1": 0.019
+    }
+   }
+  }
+ },
+ "tsuribito-hiruko": {
+  "good": false,
+  "base": {
+   "P": 0.961,
+   "R": 0.079,
+   "F": 0.146,
+   "F_outline": 0.187,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.103,
+     "len_w1": 11.788,
+     "len_rel": 0.754,
+     "w_w1": 0.204
+    },
+    "hair": {
+     "count_ratio": 0.006,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    },
+    "tick": {
+     "count_ratio": 0.048,
+     "len_w1": 0.579,
+     "len_rel": 0.159,
+     "w_w1": 0.188
+    },
+    "dot": {
+     "count_ratio": 0.167,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "loo": {
+   "P": 0.949,
+   "R": 0.035,
+   "F": 0.067,
+   "F_outline": 0.06,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.077,
+     "len_w1": 11.835,
+     "len_rel": 0.757,
+     "w_w1": 0.321
+    },
+    "hair": {
+     "count_ratio": 0.024,
+     "len_w1": 2.761,
+     "len_rel": 0.49,
+     "w_w1": 0.047
+    },
+    "tick": {
+     "count_ratio": 0.048,
+     "len_w1": 0.637,
+     "len_rel": 0.176,
+     "w_w1": 0.056
+    },
+    "dot": {
+     "count_ratio": 0.333,
+     "len_w1": 0.221,
+     "len_rel": 0.137,
+     "w_w1": 0.071
+    }
+   }
+  },
+  "own": {
+   "P": 0.91,
+   "R": 0.055,
+   "F": 0.104,
+   "F_outline": 0.088,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.128,
+     "len_w1": 9.015,
+     "len_rel": 0.577,
+     "w_w1": 0.114
+    },
+    "hair": {
+     "count_ratio": 0.079,
+     "len_w1": 2.293,
+     "len_rel": 0.407,
+     "w_w1": 0.038
+    },
+    "tick": {
+     "count_ratio": 0.071,
+     "len_w1": 0.49,
+     "len_rel": 0.135,
+     "w_w1": 0.112
+    },
+    "dot": {
+     "count_ratio": 0.167,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.974,
+     "len_w1": 2.4,
+     "len_rel": 0.154,
+     "w_w1": 0.081
+    },
+    "hair": {
+     "count_ratio": 1.037,
+     "len_w1": 0.542,
+     "len_rel": 0.096,
+     "w_w1": 0.044
+    },
+    "tick": {
+     "count_ratio": 1.024,
+     "len_w1": 0.219,
+     "len_rel": 0.06,
+     "w_w1": 0.028
+    },
+    "dot": {
+     "count_ratio": 2.5,
+     "len_w1": 0.096,
+     "len_rel": 0.06,
+     "w_w1": 0.035
+    }
+   }
+  }
+ },
+ "tsuru": {
+  "good": false,
+  "base": {
+   "P": 0.661,
+   "R": 0.194,
+   "F": 0.3,
+   "F_outline": 0.25,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.5,
+     "len_w1": 5.001,
+     "len_rel": 0.316,
+     "w_w1": 0.09
+    },
+    "hair": {
+     "count_ratio": 0.168,
+     "len_w1": 1.876,
+     "len_rel": 0.255,
+     "w_w1": 0.077
+    },
+    "tick": {
+     "count_ratio": 0.358,
+     "len_w1": 0.644,
+     "len_rel": 0.188,
+     "w_w1": 0.15
+    },
+    "dot": {
+     "count_ratio": 0.429,
+     "len_w1": 0.169,
+     "len_rel": 0.099,
+     "w_w1": 0.079
+    }
+   }
+  },
+  "loo": {
+   "P": 0.618,
+   "R": 0.114,
+   "F": 0.192,
+   "F_outline": 0.115,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.55,
+     "len_w1": 6.444,
+     "len_rel": 0.408,
+     "w_w1": 0.13
+    },
+    "hair": {
+     "count_ratio": 0.168,
+     "len_w1": 1.994,
+     "len_rel": 0.271,
+     "w_w1": 0.131
+    },
+    "tick": {
+     "count_ratio": 0.481,
+     "len_w1": 0.3,
+     "len_rel": 0.087,
+     "w_w1": 0.041
+    },
+    "dot": {
+     "count_ratio": 0.286,
+     "len_w1": 0.278,
+     "len_rel": 0.163,
+     "w_w1": 0.037
+    }
+   }
+  },
+  "own": {
+   "P": 0.72,
+   "R": 0.119,
+   "F": 0.204,
+   "F_outline": 0.119,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.2,
+     "len_w1": 5.358,
+     "len_rel": 0.339,
+     "w_w1": 0.082
+    },
+    "hair": {
+     "count_ratio": 0.112,
+     "len_w1": 3.673,
+     "len_rel": 0.5,
+     "w_w1": 0.16
+    },
+    "tick": {
+     "count_ratio": 0.296,
+     "len_w1": 0.205,
+     "len_rel": 0.06,
+     "w_w1": 0.056
+    },
+    "dot": {
+     "count_ratio": 0.286,
+     "len_w1": 0.519,
+     "len_rel": 0.303,
+     "w_w1": 0.257
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.1,
+     "len_w1": 1.149,
+     "len_rel": 0.073,
+     "w_w1": 0.022
+    },
+    "hair": {
+     "count_ratio": 1.019,
+     "len_w1": 0.374,
+     "len_rel": 0.051,
+     "w_w1": 0.039
+    },
+    "tick": {
+     "count_ratio": 0.889,
+     "len_w1": 0.137,
+     "len_rel": 0.04,
+     "w_w1": 0.067
+    },
+    "dot": {
+     "count_ratio": 0.857,
+     "len_w1": 0.067,
+     "len_rel": 0.039,
+     "w_w1": 0.006
+    }
+   }
+  }
+ },
+ "uoya-mi": {
+  "good": false,
+  "base": {
+   "P": 0.846,
+   "R": 0.258,
+   "F": 0.395,
+   "F_outline": 0.309,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.327,
+     "len_w1": 6.045,
+     "len_rel": 0.275,
+     "w_w1": 0.213
+    },
+    "hair": {
+     "count_ratio": 0.165,
+     "len_w1": 1.883,
+     "len_rel": 0.223,
+     "w_w1": 0.258
+    },
+    "tick": {
+     "count_ratio": 0.185,
+     "len_w1": 0.51,
+     "len_rel": 0.16,
+     "w_w1": 0.188
+    },
+    "dot": {
+     "count_ratio": 0.222,
+     "len_w1": 0.205,
+     "len_rel": 0.133,
+     "w_w1": 0.062
+    }
+   }
+  },
+  "loo": {
+   "P": 0.834,
+   "R": 0.182,
+   "F": 0.299,
+   "F_outline": 0.212,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.327,
+     "len_w1": 14.156,
+     "len_rel": 0.644,
+     "w_w1": 0.162
+    },
+    "hair": {
+     "count_ratio": 0.129,
+     "len_w1": 1.141,
+     "len_rel": 0.135,
+     "w_w1": 0.118
+    },
+    "tick": {
+     "count_ratio": 0.435,
+     "len_w1": 0.337,
+     "len_rel": 0.106,
+     "w_w1": 0.087
+    },
+    "dot": {
+     "count_ratio": 0.222,
+     "len_w1": 0.117,
+     "len_rel": 0.076,
+     "w_w1": 0.083
+    }
+   }
+  },
+  "own": {
+   "P": 0.835,
+   "R": 0.173,
+   "F": 0.287,
+   "F_outline": 0.219,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.442,
+     "len_w1": 17.346,
+     "len_rel": 0.79,
+     "w_w1": 0.187
+    },
+    "hair": {
+     "count_ratio": 0.235,
+     "len_w1": 0.891,
+     "len_rel": 0.105,
+     "w_w1": 0.095
+    },
+    "tick": {
+     "count_ratio": 0.348,
+     "len_w1": 0.186,
+     "len_rel": 0.058,
+     "w_w1": 0.051
+    },
+    "dot": {
+     "count_ratio": 0.444,
+     "len_w1": 0.346,
+     "len_rel": 0.224,
+     "w_w1": 0.107
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.058,
+     "len_w1": 2.053,
+     "len_rel": 0.093,
+     "w_w1": 0.04
+    },
+    "hair": {
+     "count_ratio": 0.882,
+     "len_w1": 0.415,
+     "len_rel": 0.049,
+     "w_w1": 0.031
+    },
+    "tick": {
+     "count_ratio": 0.88,
+     "len_w1": 0.434,
+     "len_rel": 0.136,
+     "w_w1": 0.104
+    },
+    "dot": {
+     "count_ratio": 1.111,
+     "len_w1": 0.183,
+     "len_rel": 0.118,
+     "w_w1": 0.064
+    }
+   }
+  }
+ },
+ "ushi": {
+  "good": false,
+  "base": {
+   "P": 0.999,
+   "R": 0.129,
+   "F": 0.228,
+   "F_outline": 0.296,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.305,
+     "len_w1": 6.854,
+     "len_rel": 0.3,
+     "w_w1": 0.052
+    },
+    "hair": {
+     "count_ratio": 0.006,
+     "len_w1": 9.06,
+     "len_rel": 1.12,
+     "w_w1": 0.318
+    },
+    "tick": {
+     "count_ratio": 0.031,
+     "len_w1": 1.087,
+     "len_rel": 0.312,
+     "w_w1": 0.2
+    },
+    "dot": {
+     "count_ratio": 0.286,
+     "len_w1": 0.187,
+     "len_rel": 0.126,
+     "w_w1": 0.224
+    }
+   }
+  },
+  "loo": {
+   "P": 0.994,
+   "R": 0.142,
+   "F": 0.249,
+   "F_outline": 0.188,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.186,
+     "len_w1": 15.322,
+     "len_rel": 0.67,
+     "w_w1": 0.048
+    },
+    "hair": {
+     "count_ratio": 0.065,
+     "len_w1": 1.845,
+     "len_rel": 0.228,
+     "w_w1": 0.188
+    },
+    "tick": {
+     "count_ratio": 0.221,
+     "len_w1": 0.194,
+     "len_rel": 0.056,
+     "w_w1": 0.107
+    },
+    "dot": {
+     "count_ratio": 0.286,
+     "len_w1": 0.165,
+     "len_rel": 0.112,
+     "w_w1": 0.1
+    }
+   }
+  },
+  "own": {
+   "P": 0.996,
+   "R": 0.175,
+   "F": 0.298,
+   "F_outline": 0.279,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.169,
+     "len_w1": 13.645,
+     "len_rel": 0.597,
+     "w_w1": 0.164
+    },
+    "hair": {
+     "count_ratio": 0.192,
+     "len_w1": 1.032,
+     "len_rel": 0.128,
+     "w_w1": 0.045
+    },
+    "tick": {
+     "count_ratio": 0.252,
+     "len_w1": 0.229,
+     "len_rel": 0.066,
+     "w_w1": 0.044
+    },
+    "dot": {
+     "count_ratio": 0.143,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.949,
+     "len_w1": 3.528,
+     "len_rel": 0.154,
+     "w_w1": 0.021
+    },
+    "hair": {
+     "count_ratio": 0.962,
+     "len_w1": 0.294,
+     "len_rel": 0.036,
+     "w_w1": 0.036
+    },
+    "tick": {
+     "count_ratio": 1.209,
+     "len_w1": 0.202,
+     "len_rel": 0.058,
+     "w_w1": 0.018
+    },
+    "dot": {
+     "count_ratio": 0.857,
+     "len_w1": 0.049,
+     "len_rel": 0.033,
+     "w_w1": 0.017
+    }
+   }
+  }
+ },
+ "yamazato-yama": {
+  "good": false,
+  "base": {
+   "P": 0.698,
+   "R": 0.296,
+   "F": 0.416,
+   "F_outline": 0.252,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.0,
+     "len_w1": 7.627,
+     "len_rel": 0.774,
+     "w_w1": 0.379
+    },
+    "hair": {
+     "count_ratio": 0.15,
+     "len_w1": 2.059,
+     "len_rel": 0.305,
+     "w_w1": 0.125
+    },
+    "tick": {
+     "count_ratio": 0.447,
+     "len_w1": 0.574,
+     "len_rel": 0.159,
+     "w_w1": 0.119
+    },
+    "dot": {
+     "count_ratio": 0.083,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "loo": {
+   "P": 0.703,
+   "R": 0.217,
+   "F": 0.332,
+   "F_outline": 0.125,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.048,
+     "len_w1": 11.956,
+     "len_rel": 1.213,
+     "w_w1": 0.356
+    },
+    "hair": {
+     "count_ratio": 0.14,
+     "len_w1": 2.617,
+     "len_rel": 0.388,
+     "w_w1": 0.139
+    },
+    "tick": {
+     "count_ratio": 0.447,
+     "len_w1": 0.475,
+     "len_rel": 0.132,
+     "w_w1": 0.033
+    },
+    "dot": {
+     "count_ratio": 0.167,
+     "len_w1": 0.441,
+     "len_rel": 0.241,
+     "w_w1": 0.088
+    }
+   }
+  },
+  "own": {
+   "P": 0.695,
+   "R": 0.16,
+   "F": 0.26,
+   "F_outline": 0.113,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.81,
+     "len_w1": 12.81,
+     "len_rel": 1.3,
+     "w_w1": 0.36
+    },
+    "hair": {
+     "count_ratio": 0.057,
+     "len_w1": 3.299,
+     "len_rel": 0.489,
+     "w_w1": 0.126
+    },
+    "tick": {
+     "count_ratio": 0.33,
+     "len_w1": 0.505,
+     "len_rel": 0.14,
+     "w_w1": 0.055
+    },
+    "dot": {
+     "count_ratio": 0.083,
+     "len_w1": null,
+     "len_rel": null,
+     "w_w1": null
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 1.048,
+     "len_w1": 7.051,
+     "len_rel": 0.716,
+     "w_w1": 0.075
+    },
+    "hair": {
+     "count_ratio": 1.016,
+     "len_w1": 0.416,
+     "len_rel": 0.062,
+     "w_w1": 0.064
+    },
+    "tick": {
+     "count_ratio": 1.223,
+     "len_w1": 0.123,
+     "len_rel": 0.034,
+     "w_w1": 0.035
+    },
+    "dot": {
+     "count_ratio": 0.917,
+     "len_w1": 0.189,
+     "len_rel": 0.104,
+     "w_w1": 0.023
+    }
+   }
+  }
+ },
+ "yurei-urame": {
+  "good": false,
+  "base": {
+   "P": 0.928,
+   "R": 0.171,
+   "F": 0.288,
+   "F_outline": 0.29,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.5,
+     "len_w1": 4.912,
+     "len_rel": 0.212,
+     "w_w1": 0.182
+    },
+    "hair": {
+     "count_ratio": 0.094,
+     "len_w1": 1.915,
+     "len_rel": 0.249,
+     "w_w1": 0.219
+    },
+    "tick": {
+     "count_ratio": 0.144,
+     "len_w1": 0.614,
+     "len_rel": 0.193,
+     "w_w1": 0.168
+    },
+    "dot": {
+     "count_ratio": 0.444,
+     "len_w1": 0.323,
+     "len_rel": 0.191,
+     "w_w1": 0.059
+    }
+   }
+  },
+  "loo": {
+   "P": 0.917,
+   "R": 0.103,
+   "F": 0.184,
+   "F_outline": 0.147,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.25,
+     "len_w1": 11.689,
+     "len_rel": 0.504,
+     "w_w1": 0.214
+    },
+    "hair": {
+     "count_ratio": 0.094,
+     "len_w1": 0.703,
+     "len_rel": 0.091,
+     "w_w1": 0.155
+    },
+    "tick": {
+     "count_ratio": 0.279,
+     "len_w1": 0.699,
+     "len_rel": 0.22,
+     "w_w1": 0.144
+    },
+    "dot": {
+     "count_ratio": 0.444,
+     "len_w1": 0.146,
+     "len_rel": 0.086,
+     "w_w1": 0.05
+    }
+   }
+  },
+  "own": {
+   "P": 0.952,
+   "R": 0.121,
+   "F": 0.215,
+   "F_outline": 0.211,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.182,
+     "len_w1": 12.578,
+     "len_rel": 0.542,
+     "w_w1": 0.106
+    },
+    "hair": {
+     "count_ratio": 0.099,
+     "len_w1": 1.491,
+     "len_rel": 0.194,
+     "w_w1": 0.185
+    },
+    "tick": {
+     "count_ratio": 0.207,
+     "len_w1": 0.667,
+     "len_rel": 0.21,
+     "w_w1": 0.163
+    },
+    "dot": {
+     "count_ratio": 0.444,
+     "len_w1": 0.228,
+     "len_rel": 0.135,
+     "w_w1": 0.097
+    }
+   }
+  },
+  "hand": {
+   "P": 1.0,
+   "R": 1.0,
+   "F": 1.0,
+   "F_outline": 1.0,
+   "stats": {
+    "contour": {
+     "count_ratio": 0.909,
+     "len_w1": 2.242,
+     "len_rel": 0.097,
+     "w_w1": 0.08
+    },
+    "hair": {
+     "count_ratio": 1.02,
+     "len_w1": 0.362,
+     "len_rel": 0.047,
+     "w_w1": 0.044
+    },
+    "tick": {
+     "count_ratio": 1.027,
+     "len_w1": 0.137,
+     "len_rel": 0.043,
+     "w_w1": 0.035
+    },
+    "dot": {
+     "count_ratio": 1.222,
+     "len_w1": 0.229,
+     "len_rel": 0.135,
+     "w_w1": 0.055
+    }
+   }
+  }
+ }
+}

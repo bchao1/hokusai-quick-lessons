@@ -37,9 +37,16 @@ def extract(rid, page, box, dpi=300, thresh=0.70, fill_w=None, debug=True, mask=
     else:
         mask, _ = I.crop(mask, box)
         mask = mask.copy()
-    dt0 = cv2.distanceTransform(mask, cv2.DIST_L2, 5)
-    # typical line width from the medial axis of all ink
+    strokes, fills, W0, fill_mask = analyse_mask(mask, fill_w)
+    unit = gray.shape[1] / 100.0  # px per figure unit
+    return _store(rid, page, box, dpi, gray, mask, strokes, fills, W0, fill_mask, unit, meta, debug, t0)
+
+
+def analyse_mask(mask, fill_w=None):
+    """Binary ink mask → classified, measured, fitted strokes and fill polygons (pixel units).
+    Used on scans and, by extract/evaluate.py, on rasterised generated drawings."""
     from skimage.morphology import skeletonize
+    dt0 = cv2.distanceTransform(mask, cv2.DIST_L2, 5)
     sk = skeletonize(mask > 0)
     W0 = float(np.median(2 * dt0[sk])) if sk.any() else 3.0
     fill_mask, line_mask = S.split_fills(mask, fill_w or max(9, int(round(3.4 * W0)) | 1))
@@ -48,7 +55,6 @@ def extract(rid, page, box, dpi=300, thresh=0.70, fill_w=None, debug=True, mask=
     edges, nodes = S.skeleton_graph(line_mask)
     edges = S.prune_spurs(edges, dt)
     raw = S.assemble(edges, nodes)
-    unit = gray.shape[1] / 100.0  # px per figure unit
     strokes = []
     for r in raw:
         m = S.measure(r, dt, nodes, mask=line_mask)
@@ -62,7 +68,10 @@ def extract(rid, page, box, dpi=300, thresh=0.70, fill_w=None, debug=True, mask=
         k = max(1, int(round(1.5)))
         strokes.append({'m': m, 'feat': feat, 'wfit': wfit, 'bez': bez})
     C.classify(strokes, W0)
+    return strokes, fills, W0, fill_mask
 
+
+def _store(rid, page, box, dpi, gray, mask, strokes, fills, W0, fill_mask, unit, meta, debug, t0):
     def U(v):
         return round(float(v) / unit, 2)
 

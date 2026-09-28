@@ -6,3 +6,4 @@ __pycache__/
 data/strokes/*.debug.png
 data/strokes/p[0-9]*-d[0-9]*.*
 data/regions/*.debug.jpg
+data/generated/

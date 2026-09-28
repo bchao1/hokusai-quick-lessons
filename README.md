@@ -24,7 +24,9 @@ hokusai/
   tools/render.html     headless check page (?figs=…, ?scene=n, ?gallery=1); tools/shot.sh screenshots it
   tools/crop.py         crop a page with a coordinate grid
   extract/              stroke extraction from the scans (Python)
-  data/strokes/         the stroke database; data/analysis/ the measured laws
+  data/strokes/         the stroke database; data/analysis/ the measured laws and evaluation
+  data/model.json       the learned model; data/constructions/ registered constructions
+  lib/generate.js       samples the model: construction → ink
   tools/render.js       Node CLI: figure → SVG
 ```
 
@@ -59,6 +61,38 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
    - Writes the engine parameters to `data/hand-params.json`, which the hand layer uses in place of guessed constants.
 
 Each region is stored as `data/strokes/<id>.json`: every stroke with its points, widths, Béziers, fitted width model, features and category. A `.js` twin loads it in the browser, and a `.debug.png` shows the extraction coloured by category next to the scan. The figure `<id>-trace` redraws a curated region's strokes with the engine (op `utsushi`), as the ground truth that the rules are fitted to.
+
+## The generative model (construction → Hokusai's ink)
+
+The traced strokes are the data. `extract/model.py` learns a model from them, and
+`lib/generate.js` samples it to paint any construction in his hand:
+
+```
+.venv/bin/python -m extract.model       # learn → data/model.json, data/constructions/<fig>.json, data/analysis/model.md
+node tools/generate.js                  # paint every construction (own style, leave-one-out, baseline, ceiling)
+.venv/bin/python -m extract.evaluate    # score against Hokusai → data/analysis/evaluation.md
+```
+
+1. **Registration.** Each construction diagram is laid onto its finished drawing by a
+   similarity transform (scale, rotation, shift, mirror). The fit minimises a two-way
+   truncated chamfer distance between the construction's lines and the finished ink.
+2. **Faces.** The construction's lines cut its silhouette into shapes: each circle, each
+   lozenge. For every face, the model learns from the finished drawing:
+   - hair / tick / dot density, separately for the edge band and the interior
+   - the marks' length and dominant direction (with its coherence)
+   - whether the face is solid black
+   - what its edge becomes: line, fur, black or nothing
+3. **Edges.** Along the outer edge, the model measures:
+   - run lengths of each edge type
+   - how far the finished line drifts off the construction (mean, spread, correlation length)
+   - how often inner construction lines survive
+4. **Strokes.** An exemplar bank of about 3,000 real strokes. Every generated stroke borrows a real one's width profile, tremor and shape, so no stroke shape is invented.
+
+`H.generate(construction, {seed, style, hand, vary})` returns strokes in the stroke-database format, drawn by the engine like a trace:
+
+- `style`: a figure's own learned faces, or `'pooled'` (leave-one-out) for new constructions.
+- `vary`: reshapes the construction (proportions, a smooth warp) into a new subject before painting.
+- `H.constructionFromFigure(fig)`: turns any engine figure's guides (a few circles you write) into a construction, so the model can paint subjects Hokusai never drew.
 
 ## Figure format
 
